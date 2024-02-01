@@ -1,0 +1,61 @@
+// 有超連結的button
+@mixin btn_1 {
+    background-color: $orange;
+    padding: 13px 40px;
+    font-size: 20px;
+    border-radius: $border-radius-1;
+    letter-spacing: $space_letter;
+    color: $white;
+    font-family: $font_family_1 ;
+}
+
+// } // 沒有超連結的button
+@mixin btn_2 {
+    background-color: $orange ;
+    padding: 13px 40px;
+    font-size: 20px;
+    border-radius: $border-radius-1;
+    letter-spacing: $space_letter;
+    color: $white;
+    font-family: $font_family_2;
+}
+
+//膠囊型按鈕EX首頁按鈕
+@mixin btn_3 {
+    background-color: $orange ;
+    padding: 13px 30px;
+    @include title_9;
+    border-radius: $border-radius-2;
+    letter-spacing: $space_letter;
+    color: $white;
+    border: none;
+}
+
+//login按鈕
+@mixin btn_4 {
+    background-color: $orange;
+    color: white;
+    border-radius:  $border-radius-2;
+    border: none;
+    height: 78px;
+    margin: 20px 0;
+    padding: 0 50px;
+    @include title_8;
+}
+//搜尋按鈕
+@mixin btn_5{
+    background-color: $orange ;
+    padding: 0px 30px;
+    @include title_9;
+    border-radius: $border-radius-2;
+    letter-spacing: $space_letter;
+    color: $white;
+    margin: 0 10px;
+    height: 48px;
+    font-size: $font_basic;  
+    border: none;
+
+}
+
+
+// $btn_2(); //EX購物車按鈕

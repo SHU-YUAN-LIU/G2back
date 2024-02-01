@@ -1,0 +1,26 @@
+<template>
+    <div class="login_wrap">
+        <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
+        <form action="" class="login_form">
+        <div class="login_logo"><img src="" alt=""></div>
+        <p>帳號</p>
+        <input type="text">
+        <p>密碼</p>
+        <input type="text">
+        <button type="button" class="btn"><router-link to="/index">登入 ➜</router-link></button>
+        </form>
+    </div>
+</template>
+<script>
+
+</script>
+
+<style>
+
+
+#app {
+    display: block;
+    margin-top: 0;
+}
+
+</style>
