@@ -44,9 +44,6 @@
           </li>
         </ul>
       </nav>
-      <div class="go_to_front">
-        <router-link to="#">回到前台</router-link>
-      </div>
     </div>
     <div class="main">
       <div class="top_bar">

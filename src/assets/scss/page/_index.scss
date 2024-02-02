@@ -37,13 +37,6 @@
             flex-direction: column;
         }
     }
-    .go_to_front {
-        margin-top: 100px;
-        a {
-            @include title_3;
-            color: $orange;
-        }
-    }
 }
 .main {
     width: 80%;
