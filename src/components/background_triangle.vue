@@ -23,11 +23,12 @@
   }
 
   .triangle_top{
-  clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
-  background: $orange;
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
+    background: $orange;
   }
   .triangle_bottom{
-
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+    background: $green;
   }
 }
 

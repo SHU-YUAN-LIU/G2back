@@ -41,9 +41,4 @@ export default{
 <style>
 
 
-/* #app {
-    display: block;
-    margin-top: 0;
-} */
-
 </style>
