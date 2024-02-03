@@ -12,7 +12,6 @@
   width: 100%;
   top: 0;
   position: fixed;
-  border: 1px solid red;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -23,8 +22,8 @@
   }
 
   .triangle_top{
-  clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
-  background: $orange;
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
+    background: $orange;
   }
   .triangle_bottom{
 

@@ -6,13 +6,13 @@
             </div>
             <form action="" class="login_form">
             <div class="login_logo"><img src="" alt=""></div>
-            <p>帳號</p>
+            <p class="text-primary">帳號</p>
             <input type="text">
             <p>密碼</p>
             <input type="text">
             <button type="button" class="btn"><router-link to="/index">登入 ➜</router-link></button>
             </form>
-        </div>
+        </div>y
     </div>
     <background />
 </template>
