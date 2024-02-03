@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mem_wrap {
+    // max-width: 1350px;
+    width: 70%;
+    margin: 50px auto 150px auto;
+
+    // .mem-search_bar {
+    //     display: flex;
+    //     align-items: center;
+    //     border: 1px solid #ccc;
+    //     border-radius: 10px;
+    //     width: 400px;
+    //     overflow: hidden;
+    //     margin: 40px 10% 40px 0;
+    // }
+
+    .search_text {
+        background-color: $orange;
+        color: white;
+        line-height: 48px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .mem-info {
+        height: 650px;
+        overflow: scroll;
+    }
+}
+
+.input-switch {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+
+    input {
+        display: none;
+    }
+
+    .btn-box {
+        display: inline-block;
+        width: 32px;
+        height: 16px;
+        background-color: #eee;
+        box-sizing: border-box;
+        border-radius: 100px;
+        border: 1px solid #888;
+        box-shadow: 1px 1px 3px #0005 inset;
+    }
+
+    .btn-circle {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: relative;
+        left: 0;
+        top: -4px;
+        box-shadow: 1px 1px 3px #0005;
+        transition: .5s;
+    }
+
+    input:checked+.btn-box {
+        background-color: $green;
+
+        .btn-circle {
+            left: 16px;
+        }
+    }
+}
