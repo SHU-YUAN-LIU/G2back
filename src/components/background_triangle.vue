@@ -12,7 +12,6 @@
   width: 100%;
   top: 0;
   position: fixed;
-  border: 1px solid red;
   height: 100%;
   display: flex;
   flex-direction: column;
