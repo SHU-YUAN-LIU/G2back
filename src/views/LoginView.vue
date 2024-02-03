@@ -19,6 +19,7 @@
 </template>
 <script>
 import background from "../components/background_triangle.vue";
+import axios from 'axios';
 
 export default {
     data() {
@@ -39,8 +40,18 @@ export default {
         this.fetchData()
     },
     methods: {
+        // fetchData() {
+        //     fetch(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
+        //         console.log(res);
+        //     })
+        // }
+        // fetchData() {
+        //     fetch(`${import.meta.env.VITE_API_URL}/public/api/prod_getAll.php`).then(res => {
+        //         console.log(res);
+        //     })
+        // }
         fetchData() {
-            fetch(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
+            axios.get(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
                 console.log(res);
             })
         }
