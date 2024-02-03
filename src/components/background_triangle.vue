@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="background_triangle">
     <div class="triangle_top"></div>
     <div class="triangle_bottom"></div>
   </div>
@@ -7,11 +7,11 @@
 
 <style scoped lang="scss">
 @import "../assets/scss/base/_color.scss";
-.background{
+.background_triangle{
   z-index: -1;
   width: 100%;
-  top: 0;
   position: fixed;
+  top: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
