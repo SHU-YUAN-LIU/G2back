@@ -11,8 +11,9 @@
 
 
 //組件
-@import "components/mainheader";
+@import "components/MainHeader";
 @import "components/input";
+@import "components/switch_btn";
 
 
 
@@ -26,7 +27,7 @@
 @import "page/index";
 @import "page/donate";
 @import "page/member";
-@import "page/petition";
+@import "page/contact";
 
 
 // 以下為了覆蓋bootsrtape
