@@ -38,7 +38,7 @@
                             商城管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">商品管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="Product">商品管理</RouterLink>
                             <a class="dropdown-item text-dark" href="#">訂單管理</a>
                         </div>
                     </li>
@@ -57,8 +57,8 @@
                             帳戶管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">會員管理</a>
-                            <a class="dropdown-item text-dark" to="../views/AdminView.vue">管理員管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="member">會員管理</RouterLink>
+                            <RouterLink class="dropdown-item text-dark" to="admin">管理員管理</RouterLink>
                             <a class="dropdown-item text-dark" href="#">幹部管理</a>
                         </div>
                     </li>
