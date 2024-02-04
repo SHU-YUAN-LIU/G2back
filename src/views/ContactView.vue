@@ -27,7 +27,7 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
+                                    <button type="button" class="btn btn-outline-primary" @click="showLightbox">
                                         修改
                                     </button>
                                 </td>
@@ -98,16 +98,23 @@
 import MainHeader from '../components/MainHeader.vue'
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
+import Lightbox from "../components/Lightbox.vue";
 export default {
     components: {
         MainHeader,
         switch_btn,
         SearchBtn,
+        Lightbox
 
     },
     data() {
         return {
             placeholder: '請輸入關鍵字',
+        }
+    },
+    method: {
+        showLightbox() {
+            this.$refs.lightbox.showLightbox = true;
         }
     },
     mounted() {
