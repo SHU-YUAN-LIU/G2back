@@ -62,12 +62,14 @@
             </div>
         </nav>
         <!-- 後台管理 -->
-        <div class="header_title">
-            <h3>後台管理</h3>
-            <div class="header_account">
-                <img src="../../public/images/header/img.png" alt="" class="icon">
-                <p>王曉明</p>
-                <img src="../assets/image/index/logout.png" alt="" class="icon">
+        <div class="right_nav">
+            <div class="header_title">
+                <h3>後台管理</h3>
+                <div class="header_account">
+                    <img src="../../public/images/header/img.png" alt="" class="icon">
+                    <p>王曉明</p>
+                    <img src="../assets/image/index/logout.png" alt="" class="icon">
+                </div>
             </div>
         </div>
     </div>
