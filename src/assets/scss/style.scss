@@ -6,6 +6,7 @@
 @import "base/reset";
 @import "base/btn";
 
+
 //函式
 
 
@@ -23,6 +24,15 @@
 @import "page/login";
 @import "page/index";
 @import "page/donate";
+@import "page/member";
+@import "node_modules/bootstrap/scss/functions"; // 必要的方法(bootstraps)
+@import "base/variables"; // 自行定義的變數路徑(我們自己的路徑)
+@import "node_modules/bootstrap/scss/mixins"; //(bootstraps)
+@import "node_modules/bootstrap/scss/bootstrap"; // Bootstrap 完整原始碼
+
+
+
+
 
 
 
