@@ -4,7 +4,7 @@
     <div class="mem_wrap-group">
       <div class="mem_wrap">
         <!-- 搜尋 -->
-
+        <SearchBtn :placeholder="placeholder" />
         <!-- ----------------------------------------------------- -->
         <div class="mem-info">
           <table class="table">
@@ -128,16 +128,21 @@
 <script>
 import MainHeader from '../components/MainHeader.vue'
 import switch_btn from '../components/switch_btn.vue'
+import SearchBtn from '../components/SearchBtn.vue'
 export default {
   components: {
     MainHeader,
     switch_btn,
+    SearchBtn,
 
   },
   data() {
     return {
-
+      placeholder: '會員ID或電話',
     }
+  },
+  mounted() {
+    document.title = "青年進補黨(後台) - 會員管理";
   },
 
 }
