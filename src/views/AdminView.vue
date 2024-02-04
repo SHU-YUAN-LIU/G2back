@@ -123,7 +123,8 @@ export default{
     }
     .title{
         text-align: center;
-        background: $gray-2;
+        background: black;
+        color: $white;
         width: 100%;
         height: 45px;
         line-height: 45px;
