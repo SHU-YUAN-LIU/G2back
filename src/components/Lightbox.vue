@@ -2,8 +2,10 @@
   <div class="lightbox_bg" v-if="showLightbox">
     <div class="lightbox_content">
       <slot></slot>
-      <button>新增</button>
-      <button @click="closeLightbox">取消</button>
+      <div class="lightbox_btn">
+        <button>新增</button>
+        <button @click="closeLightbox">取消</button>
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@ export default{
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(200, 200, 200, .5);
+  background: rgba(200, 200, 200, .7);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -43,8 +45,13 @@ export default{
   height: 600px;
   background: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.lightbox_btn{
+  margin-top: 60px;
 }
 
 button{
