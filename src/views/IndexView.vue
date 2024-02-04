@@ -37,10 +37,9 @@
           </li>
           <li class="dropdown">
             <span><router-link to="/member">會員 ❯</router-link></span>
-            <!-- <div class="dropdown-content">
-                <router-link to="#">輪播管理</router-link>
-                <router-link to="#">新聞管理</router-link>
-            </div> -->
+          </li>
+          <li class="dropdown">
+            <span><router-link to="/member">陳情管理</router-link></span>
           </li>
         </ul>
       </nav>
@@ -148,6 +147,4 @@
 // }
 </script>
 
-<style>
-
-</style>
+<style></style>

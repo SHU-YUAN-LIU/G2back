@@ -32,7 +32,11 @@ const router = createRouter({
       name: 'donate',
       component: () => import('../views/DonateView.vue')
     },
-
+    {
+      path: '/petition',
+      name: 'petition',
+      component: () => import('../views/PetitionView.vue')
+    },
   ]
 })
 
