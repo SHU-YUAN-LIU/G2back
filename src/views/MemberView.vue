@@ -37,10 +37,9 @@
           </li>
           <li class="dropdown">
             <span><router-link to="/member">會員 ❯</router-link></span>
-            <!-- <div class="dropdown-content">
-                <router-link to="#">輪播管理</router-link>
-                <router-link to="#">新聞管理</router-link>
-            </div> -->
+          </li>
+          <li class="dropdown">
+            <span><router-link to="/petition">陳情管理</router-link></span>
           </li>
         </ul>
       </nav>
@@ -67,148 +66,184 @@
         <div class="mem-info">
           <table class="table">
             <thead>
-              <tr class="table-dark">
-                <th scope="col">會員ID</th>
-                <th scope="col">姓名</th>
-                <th scope="col">連絡電話</th>
-                <th scope="col">是否停權</th>
-                <th scope="col">操作</th>
+              <tr class="table-dark " align="center ">
+                <th scope="col" class="p-3">會員ID</th>
+                <th scope="col" class="p-2"><span class="l-2">姓名</span></th>
+                <th scope="col" class="p-2">連絡電話</th>
+                <th scope="col" class="p-2">是否停權</th>
+                <th scope="col" class="p-2">操作</th>
               </tr>
             </thead>
             <tbody>
               <!-- 第一行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第二行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第三行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第四行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第五行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第六行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
               <!-- 第七行 -->
-              <tr>
-                <td>231411424</td>
-                <td>王小明</td>
-                <td>0910101010</td>
-                <td>
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
                   <label class="input-switch">
                     <input type="checkbox" name="" id="">
                     <span class="btn-box">
                       <span class="btn-circle"></span>
                     </span>
+                    <span>否/是</span>
                   </label>
                 </td>
-                <td>
+                <td class="align-middle">
                   <button type="button" class="btn btn-outline-primary">
                     修改
                   </button>
                 </td>
               </tr>
+              <!-- ------------------------------------------ -->
+              <!-- 第八行 -->
+              <tr align="center">
+                <td class="align-middle">231411424</td>
+                <td class="align-middle">王小明</td>
+                <td class="align-middle">0910101010</td>
+                <td class="align-middle">
+                  <label class="input-switch">
+                    <input type="checkbox" name="" id="">
+                    <span class="btn-box">
+                      <span class="btn-circle"></span>
+                    </span>
+                    <span>否/是</span>
+                  </label>
+                </td>
+                <td class="align-middle">
+                  <button type="button" class="btn btn-outline-primary">
+                    修改
+                  </button>
+                </td>
+              </tr>
+              <!-- ------------------------------------------ -->
+
             </tbody>
           </table>
         </div>

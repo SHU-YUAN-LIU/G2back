@@ -34,8 +34,12 @@
 
 .input-switch {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin: 30px;
+    gap: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: $space_letter;
 
     input {
         display: none;
@@ -45,11 +49,11 @@
         display: inline-block;
         width: 32px;
         height: 16px;
-        background-color: #eee;
+        background-color: $orange;
         box-sizing: border-box;
         border-radius: 100px;
         border: 1px solid #888;
-        box-shadow: 1px 1px 3px #0005 inset;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.416) inset;
     }
 
     .btn-circle {
@@ -59,8 +63,8 @@
         background-color: #fff;
         border-radius: 50%;
         position: relative;
-        left: 0;
-        top: -4px;
+        left: -8px;
+        top: -5px;
         box-shadow: 1px 1px 3px #0005;
         transition: .5s;
     }
@@ -69,7 +73,7 @@
         background-color: $green;
 
         .btn-circle {
-            left: 16px;
+            left: 8px;
         }
     }
 }
