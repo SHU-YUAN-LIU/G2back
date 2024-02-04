@@ -36,12 +36,11 @@
     </table>
 </div>
 <Lightbox ref="lightbox">
-    <!-- 寫燈箱架構 -->
+    
 </Lightbox>
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
-import Search from "../components/Search.vue";
 import Lightbox from "../components/Lightbox.vue";
 export default{
     data(){
@@ -56,8 +55,7 @@ export default{
     },
     components:{
     MainHeader,
-    Search,
-    Lightbox
+    Lightbox,
 },
     methods: {
         showLightbox(){
@@ -66,4 +64,8 @@ export default{
     },
 }
 </script>
-<style></style>
+
+<!-- 燈箱內容的css -->
+<style>
+
+</style>
