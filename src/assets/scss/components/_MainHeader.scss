@@ -3,7 +3,7 @@
     height: 100px;
 
     .header_left {
-        width: 300px;
+        width: 341px;
         display: flex;
         align-items: center;
 
@@ -13,7 +13,7 @@
     }
 
     .header_title {
-        border: 1px solid red;
+        // border: 1px solid red;
         background-color: #FF892E;
         display: flex;
         justify-content: space-between;
@@ -23,6 +23,8 @@
 
         h3 {
             color: aliceblue;
+            @include title_3;
+            letter-spacing: 5px;
         }
 
         .header_account {
@@ -35,5 +37,9 @@
                 font-size: 24px;
             }
         }
+    }
+
+    .nav-item {
+        cursor: pointer;
     }
 }

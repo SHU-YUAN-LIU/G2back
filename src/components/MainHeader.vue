@@ -46,6 +46,10 @@
                     <li class="nav-item">
                         <a class="nav-link disabled text-dark" href="#">捐款查詢</a>
                     </li>
+                    <!-- 陳情查詢 -->
+                    <li class="nav-item">
+                        <a class="nav-link disabled text-dark" href="../contact">陳情查詢</a>
+                    </li>
                     <!-- 帳戶管理 -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
@@ -53,13 +57,19 @@
                             帳戶管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">會員管理</a>
+                            <a class="dropdown-item text-dark" href="../member">會員管理</a>
                             <a class="dropdown-item text-dark" href="#">管理員管理</a>
                             <a class="dropdown-item text-dark" href="#">幹部管理</a>
                         </div>
                     </li>
+                    <!-- 回到前台 -->
+                    <li class="nav-item">
+                        <a class="nav-link disabled text-dark" href="#">回到前台</a>
+                    </li>
                 </ul>
+
             </div>
+
         </nav>
         <!-- 後台管理 -->
         <div class="header_title">

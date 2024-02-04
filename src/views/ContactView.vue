@@ -1,46 +1,9 @@
 <template>
+    <MainHeader />
     <div class="index_wrap">
-        <div class="sidebar">
-            <div class="sidebar_logo"><img src="../assets/image/login/logo.png" alt=""></div>
-            <nav>
-                <ul>
-                    <li class="dropdown">
-                        <span>消息管理 ❯</span>
-                    </li>
-                    <li class="dropdown">
-                        <span>大選管理 ❯</span>
-                    </li>
-                    <li class="dropdown">
-                        <span>商城管理 ❯</span>
-                    </li>
-                    <li>
-                        <router-link to="#">捐款查詢</router-link>
-                    </li>
-                    <li class="dropdown">
-                        <span>帳戶管理 ❯</span>
 
-                    </li>
-                    <li class="dropdown">
-                        <span><router-link to="/member">會員 ❯</router-link></span>
-                    </li>
-                    <li class="dropdown">
-                        <span><router-link to="/petition">陳情管理</router-link></span>
-                    </li>
-                </ul>
-            </nav>
-            <div class="go_to_front">
-                <router-link to="#">回到前台</router-link>
-            </div>
-        </div>
         <div class="main">
-            <div class="top_bar">
-                <p>後台管理</p>
-                <div class="member">
-                    <div class="profile"></div>
-                    <span>王曉明</span>
-                    <img src="../assets/image/index/logout.png" alt="" class="icon">
-                </div>
-            </div>
+
             <!-- --------------------------------------------------------------------------------------- -->
             <div class="petition_wrap">
                 <div class="search_bar">
@@ -81,5 +44,21 @@
         </div>
     </div>
 </template>
+
+<script>
+import MainHeader from '../components/MainHeader.vue'
+export default {
+    components: {
+        MainHeader,
+
+    },
+    data() {
+        return {
+
+        }
+    },
+
+}
+</script>
 
 <style></style>

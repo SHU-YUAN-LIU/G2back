@@ -1,0 +1,45 @@
+.input-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    gap: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: $space_letter;
+
+    input {
+        display: none;
+    }
+
+    .btn-box {
+        display: inline-block;
+        width: 32px;
+        height: 16px;
+        background-color: $orange;
+        box-sizing: border-box;
+        border-radius: 100px;
+        border: 1px solid #888;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.416) inset;
+    }
+
+    .btn-circle {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: relative;
+        left: -8px;
+        top: -5px;
+        box-shadow: 1px 1px 3px #0005;
+        transition: .5s;
+    }
+
+    input:checked+.btn-box {
+        background-color: $green;
+
+        .btn-circle {
+            left: 8px;
+        }
+    }
+}
