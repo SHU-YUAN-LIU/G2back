@@ -1,0 +1,403 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+input:focus {
+  border-width: 1px;
+}
+
+input {
+  text-indent: 10px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #FF892E;
+}
+
+.header {
+  display: flex;
+  height: 100px;
+}
+.header .header_left {
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.header .header_left ul {
+  font-size: 24px;
+}
+.header .header_title {
+  border: 1px solid red;
+  background-color: #FF892E;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0 30px;
+}
+.header .header_title h3 {
+  color: aliceblue;
+}
+.header .header_title .header_account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .header_title .header_account p {
+  color: aliceblue;
+  font-size: 24px;
+}
+
+.login_wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_wrap .login_container {
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+.login_wrap .login_container .login_logo {
+  max-width: 200px;
+}
+.login_wrap .login_container .login_logo img {
+  width: 100%;
+}
+.login_wrap .login_container .login_form {
+  display: flex;
+  flex-direction: column;
+}
+.login_wrap .login_container .login_form input {
+  width: 400px;
+  height: 48px;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+.login_wrap .login_container .login_form .btn {
+  margin-top: 20px;
+  background-color: #FF892E;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  height: 78px;
+  margin: 20px 0;
+  padding: 0 50px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+}
+.login_wrap .login_container .login_form .btn a {
+  color: white;
+}
+
+.index_wrap {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar .sidebar_logo {
+  width: 50%;
+  margin: 20px 0;
+}
+.sidebar .sidebar_logo img {
+  width: 100%;
+}
+.sidebar nav li span {
+  display: block;
+  height: 77px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 77px;
+}
+.sidebar nav li a {
+  display: block;
+  height: 77px;
+  line-height: 77px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+.sidebar nav .dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: 80%;
+  background-color: #F3F5F7;
+}
+.main .top_bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FF892E;
+  height: 86px;
+}
+.main .top_bar p {
+  font-weight: inherit;
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+  color: white;
+  letter-spacing: 1rem;
+  line-height: 86px;
+  padding-left: 30px;
+}
+.main .top_bar .member {
+  display: flex;
+  align-items: center;
+}
+.main .top_bar .member .profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: #ccc;
+  margin: 30px;
+}
+.main .top_bar .member span {
+  color: white;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+}
+.main .top_bar .member img {
+  margin: 30px;
+}
+.main .main_wrap {
+  max-width: 1350px;
+  width: 70%;
+  margin: 50px auto 150px auto;
+}
+.main .search_bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 400px;
+  overflow: hidden;
+  margin: 40px 10% 40px 0;
+}
+.main .search_bar input {
+  border: none;
+  margin: 0;
+  width: 300px;
+  height: 40px;
+}
+.main .search_bar .search_text {
+  background-color: #FF892E;
+  color: white;
+  height: 40px;
+  line-height: 48px;
+  display: block;
+  width: 100px;
+  text-align: center;
+}
+.main .main_container {
+  max-width: 1350px;
+  width: 100%;
+  border: 1px solid #FF892E;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.main .main_container .title {
+  display: flex;
+  justify-content: space-around;
+  height: 48px;
+  background-color: black;
+  color: white;
+  line-height: 48px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+.main .main_container .banner_pic {
+  width: 30%;
+}
+.main .main_container .banner_pic img {
+  width: 100%;
+}
+.main .main_container .content_title {
+  width: 20%;
+}
+.main .main_container .news_number {
+  width: 10%;
+}
+.main .main_container .state {
+  width: 10%;
+}
+.main .main_container .state img {
+  width: 80%;
+}
+.main .main_container .edit {
+  width: 10%;
+}
+.main .main_container .edit img {
+  width: 90%;
+}
+.main .main_container .banner_ul .banner_li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}/*# sourceMappingURL=style.css.map */
