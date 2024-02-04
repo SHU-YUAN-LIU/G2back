@@ -1,0 +1,17 @@
+.btn-primary {
+    color: rgb(255, 255, 255) !important;
+    background-color: $orange;
+    text-wrap: nowrap !important;
+
+    &:hover {
+        color: rgb(255, 255, 255) !important;
+    }
+}
+
+.container-fluid {
+    padding: 0px !important;
+}
+
+.navbar-light {
+    padding: 30px 0px !important;
+}
