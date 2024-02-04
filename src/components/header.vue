@@ -54,7 +54,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-dark" href="#">會員管理</a>
-                            <a class="dropdown-item text-dark" href="#">管理員管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="../views/AdminView.vue">管理員管理</RouterLink>
                             <a class="dropdown-item text-dark" href="#">幹部管理</a>
                         </div>
                     </li>
@@ -75,7 +75,18 @@
 
 
 <script>
+import RouterLink from 'vue-router'
+export default {
+    data(){
+        return{
 
+        };
+    },
+    components:{
+        RouterLink,
+    }
+
+}
 
 </script>
 
