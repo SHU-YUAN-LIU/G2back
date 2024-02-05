@@ -46,83 +46,42 @@
             </p>
             <p class="title"><span>詳細資訊</span></p>
             <table>
-            <tr>
-                <td>流水編號</td>
-                <td>90809809</td>
-            </tr>
-            <tr>
-                <td>管理員姓名</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>狀態</td>
-                <td>
-                    <select name="" id="">
-                        <option value="啟用">啟用</option>
-                        <option value="停用">停用</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>密碼: </td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>權限等級: </td>
-                <td><select name="" id="">
-                        <option value="一般管理員">一般管理員</option>
-                        <option value="超級管理員">超級管理員</option>
-                    </select></td>
-            </tr>
-            <tr>
-                <td>入職日期: </td>
-                <td>2024/1/1 00:00:00</td>
-            </tr>
-            </table>
-        </div>
-        <div class="donate_lightbox" lightboxType="true">
-            <p>
-                <span>捐款日期: </span>
-                <span>2024/1/1</span>
-            </p>
-            <p>
-                <span>狀態: </span>
-                <span>實名</span>
-            </p>
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-            <tr>
-                <td>流水編號</td>
-                <td>90809809</td>
-            </tr>
-            <tr>
-                <td>管理員姓名</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>狀態</td>
-                <td>
-                    <select name="" id="">
-                        <option value="啟用">啟用</option>
-                        <option value="停用">停用</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>密碼: </td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>權限等級: </td>
-                <td><select name="" id="">
-                        <option value="一般管理員">一般管理員</option>
-                        <option value="超級管理員">超級管理員</option>
-                    </select></td>
-            </tr>
-            <tr>
-                <td>入職日期: </td>
-                <td>2024/1/1 00:00:00</td>
-            </tr>
+                <tr>
+                    <td>流水編號: </td>
+                    <td>90809809</td>
+                </tr>
+                <tr>
+                    <td>姓名: </td>
+                    <td>王小明</td>
+                </tr>
+                <tr>
+                    <td>會員ID: </td>
+                    <td>1828372</td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td>xx@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>生日: </td>
+                    <td>1970.1.1</td>
+                </tr>
+                <tr>
+                    <td>連絡電話: </td>
+                    <td>0912345678</td>
+                </tr>
+                <tr>
+                    <td>捐款金額: </td>
+                    <td>1280</td>
+                </tr>
+                <tr>
+                    <td>單筆點數: </td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>捐款方式: </td>
+                    <td>信用卡</td>
+                </tr>
             </table>
         </div>
     </Lightbox>
@@ -162,7 +121,7 @@
         width: 80%;
         p{
             display: flex;
-    
+            margin: 0;
             span:nth-child(1){
                 width: 200px;
             }
@@ -179,6 +138,7 @@
         }
         table{
             width: 100%;
+            border: 1px solid #000; 
             tr{
                 height: 40px;
                 line-height: 40px;

@@ -43,6 +43,7 @@
             <span>最後修改日期: </span>
             <span>2024/1/1</span>
         </p>
+
         <p class="title"><span>詳細資訊</span></p>
         <table>
         <tr>
@@ -119,7 +120,7 @@ export default{
     width: 80%;
     p{
         display: flex;
-
+        margin: 0;
         span:nth-child(1){
             width: 200px;
         }
@@ -136,11 +137,13 @@ export default{
     }
     table{
         width: 100%;
+        border: 1px solid #000; 
         tr{
             height: 40px;
             line-height: 40px;
             display: flex;
             justify-content: space-evenly;
+            
             td{
                 text-align: center;
                 width: 50%;
