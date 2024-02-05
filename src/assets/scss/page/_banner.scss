@@ -1,0 +1,118 @@
+.banner_search{
+    position:relative;
+    left: 300px;
+    margin-bottom: 30px;
+}
+.banner{
+    width: 80%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    .banner_container{
+        height: 650px;
+        overflow-y: scroll;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        table{
+            width: 1000px;
+            border: 1px solid #000;
+            td{
+                text-align: center;
+            }
+            td.banner_pic {
+                padding: 10px 0;
+            }
+            thead{
+                background: #000;
+                color: $white;
+                height: 50px;
+                line-height: 50px;
+            }
+    
+            tr{
+                td.banner_status{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    div{
+                        width: 60px;
+                        height: 30px;
+                        border-radius: 50px;
+                        border: 1px solid #000;
+                        span:nth-child(1){
+                            display: inline-block;
+                            width: 15px;
+                            height: 15px;
+                            background: red;
+                            border-radius: 50%;
+                            position: relative;
+                            left: -5px;
+                            top: 4px;
+                            transition: .5s;
+                        }
+    
+                        span:nth-child(2){
+                            position: relative;
+                            right: -5px;
+                            top: 2px;
+                        }
+                        span:nth-child(3){
+                            display: none;
+                            position: relative;
+                            left: -20px;
+                            top: 2px;                        
+                        }
+                    }
+                    input[type="checkbox"]{
+                        display: none;
+                    }
+                    input[type="checkbox"]:checked + div{
+                        span:nth-child(1){
+                            background: $green;
+                            position: relative;
+                            left: 25px;
+                            top: 4px;
+                        }
+    
+                        span:nth-child(2){
+                            display: none;
+                        }
+                        span:nth-child(3){
+                            display: inline-block;
+                        }
+    
+                    }
+                    label{
+                        width: 100%;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+    
+                }
+    
+                td.banner_operate{
+                    button{
+                        background: none;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: auto;
+                        position: relative;
+                        top: 10px;
+                        img{
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
