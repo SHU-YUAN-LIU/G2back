@@ -22,18 +22,6 @@
                     <td class="admin_class">超級管理員</td>
                     <td class="admin_status">
                         <SwitchBtn />
-                        <!-- <label>
-                            <input type="checkbox">
-                            <div>
-                                <span></span>
-                                <span>否</span> <span>是</span>
-                            </div>
-                        </label> -->
-
-                        <!-- <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                        </div> -->
                     </td>
                     <td class="admin_operate">
                         <button @click="showLightbox">
@@ -45,7 +33,7 @@
         </table>
     </div>
 </div>
-<Lightbox ref="lightbox">
+<Lightbox ref="lightbox" lightboxType="true">
     <div class="admin_lightbox">
         <p>
             <span>最後修改人: </span>
@@ -118,6 +106,7 @@ export default{
     methods: {
         showLightbox(){
             this.$refs.lightbox.showLightbox = true;
+            document.body.style.overflow = 'hidden';
         }
     },
 }

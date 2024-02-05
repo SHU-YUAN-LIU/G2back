@@ -48,7 +48,6 @@ const router = createRouter({
       component: () => import('../views/ProductView.vue')
     },
     {
-<<<<<<< HEAD
       path: '/banner',
       name: 'banner',
       component: () => import('../views/BannerView.vue')
@@ -57,7 +56,8 @@ const router = createRouter({
       path: '/news',
       name: 'news',
       component: () => import('../views/NewsView.vue')
-=======
+    },
+    {
       path: '/cadre',
       name: 'cadre',
       component: () => import('../views/CadreView.vue')
@@ -66,7 +66,6 @@ const router = createRouter({
       path: '/policy',
       name: 'policy',
       component: () => import('../views/PolicyView.vue')
->>>>>>> 5794dae50c15b207a06d31e25229d5ead124d2a0
     },
   ]
 })
