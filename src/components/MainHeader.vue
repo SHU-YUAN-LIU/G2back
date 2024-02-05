@@ -28,7 +28,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-dark" href="#">活動管理</a>
                             <a class="dropdown-item text-dark" href="#">選舉倒數</a>
-                            <a class="dropdown-item text-dark" href="#">政策管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="policy">政策管理</RouterLink>
                         </div>
                     </li>
                     <!-- 商城管理 -->
@@ -59,7 +59,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-dark" href="#">會員管理</a>
                             <a class="dropdown-item text-dark" href="../views/AdminView.vue">管理員管理</a>
-                            <a class="dropdown-item text-dark" href="#">幹部管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="cadre">幹部管理</RouterLink>
                         </div>
                     </li>
                     <!-- 回到前台 -->
