@@ -18,13 +18,7 @@
                         </td>
                         <td class="banner_title">2024大選推廣</td>
                         <td class="banner_status">
-                                <label>
-                                    <input type="checkbox">
-                                    <div>
-                                        <span></span>
-                                        <span>否</span> <span>是</span>
-                                    </div>
-                                </label>
+                            <SwitchBtn />
                         </td>
                         <td class="banner_operate">
                             <button @click="showLightbox">
@@ -43,6 +37,7 @@
 <script>
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
+import SwitchBtn from "../components/switch_btn.vue";
 export default{
     data(){
         return{
@@ -51,6 +46,8 @@ export default{
     components:{
     MainHeader,
     Lightbox,
+    SwitchBtn
+
 },
     methods: {
         showLightbox(){
