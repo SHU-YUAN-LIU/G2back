@@ -49,13 +49,13 @@ export default{
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   overflow-y:scroll;
+  padding: 60px 0;
 }
 
 .lightbox_btn{
-  margin: 60px 0;
+  margin-top: 60px;
 }
 
 button{
