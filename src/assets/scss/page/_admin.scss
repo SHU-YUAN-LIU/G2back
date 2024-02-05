@@ -1,16 +1,9 @@
-
-.admin_search{
-    position:relative;
-    left: 300px;
-    margin-bottom: 30px;
-}
-
-
 .admin{
-    width: 80%;
     position: absolute;
-    right: 0;
+    right: 100px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
     z-index: 50;
     .admin_container{

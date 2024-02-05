@@ -1,7 +1,12 @@
 <template>
 <MainHeader />
+
 <div class="admin">
+    <div>
+        <Search />
+    </div>
     <div class="admin_container">
+        
         <table>
             <thead>
                 <td>管理員編號</td>
@@ -92,6 +97,7 @@
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
+import Search from "../components/SearchBtn.vue"
 export default{
     data(){
         return{
@@ -107,6 +113,7 @@ export default{
     MainHeader,
     Lightbox,
     SwitchBtn,
+    Search,
 },
     methods: {
         showLightbox(){
