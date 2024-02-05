@@ -15,7 +15,7 @@
                             消息管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">輪播管理</a>
+                            <router-link to="../views/BannerView.vue" >輪播管理</router-link>
                             <a class="dropdown-item text-dark" href="#">新聞管理</a>
                         </div>
                     </li>
