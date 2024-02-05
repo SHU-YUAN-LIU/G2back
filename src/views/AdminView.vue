@@ -16,13 +16,14 @@
                     <td class="admin_name">王小明</td>
                     <td class="admin_class">超級管理員</td>
                     <td class="admin_status">
-                        <label>
+                        <SwitchBtn />
+                        <!-- <label>
                             <input type="checkbox">
                             <div>
                                 <span></span>
                                 <span>否</span> <span>是</span>
                             </div>
-                        </label>
+                        </label> -->
 
                         <!-- <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
@@ -90,6 +91,7 @@
 <script>
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
+import SwitchBtn from "../components/switch_btn.vue";
 export default{
     data(){
         return{
@@ -104,6 +106,7 @@ export default{
     components:{
     MainHeader,
     Lightbox,
+    SwitchBtn,
 },
     methods: {
         showLightbox(){
