@@ -1,8 +1,5 @@
-
-
 <template>
 <MainHeader />
-
 <div class="admin">
     <div class="admin_container">
         <table>
@@ -26,6 +23,11 @@
                                 <span>否</span> <span>是</span>
                             </div>
                         </label>
+
+                        <!-- <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                        </div> -->
                     </td>
                     <td class="admin_operate">
                         <button @click="showLightbox">

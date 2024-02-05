@@ -34,7 +34,7 @@ export default{
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(200, 200, 200, .7);
+  background: rgba(50, 50, 50, .7);
   z-index: 1000;
   display: flex;
   align-items: center;
