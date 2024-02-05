@@ -1,0 +1,50 @@
+.donate{
+    position: absolute;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 50;
+    .donate_container{
+        height: 650px;
+        overflow-y: scroll;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+
+        table{
+            width: 1000px;
+            border: 1px solid #000;
+            td{
+                text-align: center;
+            }
+            
+            thead{
+                background: #000;
+                color: $white;
+                height: 50px;
+                line-height: 50px;
+            }
+            tr{    
+                td.donate_operate{
+                    button{
+                        background: none;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: auto;
+                        position: relative;
+                        top: 10px;
+                        img{
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

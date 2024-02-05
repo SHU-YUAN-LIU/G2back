@@ -3,8 +3,8 @@
     <div class="lightbox_content">
       <slot></slot>
       <div class="lightbox_btn">
-        <button>新增</button>
-        <button @click="closeLightbox">取消</button>
+        <button v-if="lightboxType">新增</button>
+        <button @click="closeLightbox">返回</button>
       </div>
     </div>
   </div>
@@ -15,11 +15,14 @@ export default{
   data(){
     return{
       showLightbox: false,
+      lightboxType:false,
     };
   },
+  props:['lightboxType',],
   methods: {
     closeLightbox(){
       this.showLightbox = false;
+      document.body.style.overflow = "auto";
     }
   },
 
@@ -34,7 +37,7 @@ export default{
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(200, 200, 200, .7);
+  background: rgba(50, 50, 50, .7);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -48,10 +51,11 @@ export default{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y:scroll;
 }
 
 .lightbox_btn{
-  margin-top: 60px;
+  margin: 60px 0;
 }
 
 button{

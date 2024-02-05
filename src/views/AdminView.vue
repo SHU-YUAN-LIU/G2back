@@ -1,10 +1,12 @@
-
-
 <template>
 <MainHeader />
 
 <div class="admin">
+    <div>
+        <Search />
+    </div>
     <div class="admin_container">
+        
         <table>
             <thead>
                 <td>管理員編號</td>
@@ -19,13 +21,7 @@
                     <td class="admin_name">王小明</td>
                     <td class="admin_class">超級管理員</td>
                     <td class="admin_status">
-                        <label>
-                            <input type="checkbox">
-                            <div>
-                                <span></span>
-                                <span>否</span> <span>是</span>
-                            </div>
-                        </label>
+                        <SwitchBtn />
                     </td>
                     <td class="admin_operate">
                         <button @click="showLightbox">
@@ -37,7 +33,7 @@
         </table>
     </div>
 </div>
-<Lightbox ref="lightbox">
+<Lightbox ref="lightbox" lightboxType="true">
     <div class="admin_lightbox">
         <p>
             <span>最後修改人: </span>
@@ -88,6 +84,8 @@
 <script>
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
+import SwitchBtn from "../components/switch_btn.vue";
+import Search from "../components/SearchBtn.vue"
 export default{
     data(){
         return{
@@ -102,10 +100,13 @@ export default{
     components:{
     MainHeader,
     Lightbox,
+    SwitchBtn,
+    Search,
 },
     methods: {
         showLightbox(){
             this.$refs.lightbox.showLightbox = true;
+            document.body.style.overflow = 'hidden';
         }
     },
 }
