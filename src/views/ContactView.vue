@@ -38,50 +38,27 @@
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="contact_lightbox">
-            <p>
-                <span>最後修改人: </span>
-                <span>王小明</span>
-            </p>
-            <p>
-                <span>最後修改日期: </span>
-                <span>2024/1/1</span>
-            </p>
-
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>管理員編號</td>
-                    <td>test001</td>
-                </tr>
-                <tr>
-                    <td>管理員姓名</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>狀態</td>
-                    <td>
-                        <select name="" id="">
-                            <option value="啟用">啟用</option>
-                            <option value="停用">停用</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>密碼: </td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>權限等級: </td>
-                    <td><select name="" id="">
-                            <option value="一般管理員">一般管理員</option>
-                            <option value="超級管理員">超級管理員</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>入職日期: </td>
-                    <td>2024/1/1 00:00:00</td>
-                </tr>
-            </table>
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">陳情編號</label>
+                <div class="col-sm-10">
+                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <p>詳細資訊</p>
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">陳情編號</label>
+                <div class="col-sm-10">
+                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail"
+                        value="email@example.com">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword">
+                </div>
+            </div>
         </div>
     </Lightbox>
 </template>
