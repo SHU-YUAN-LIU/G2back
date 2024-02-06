@@ -32,15 +32,13 @@
                   </button>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   </div>
-  <Lightbox class="memberlightbox" lightboxType="true" ref="lightbox">
+  <Lightbox class="memberlightbox" @toSaveData="updateData(currentightbox[0].member_no)" lightboxType="true" ref="lightbox">
 
     <div class="admin_lightbox" style="overflow-y: scroll;">
       <p>
@@ -55,53 +53,53 @@
       <table>
         <tr>
           <td>會員ID:</td>
-          <td>9809809</td>
+          <td>{{ currentightbox[0].member_no }}</td>
         </tr>
         <tr>
           <td>姓名:</td>
-          <td><input id="member_name" type="text" value="王小明"></td>
+          <td>{{ currentightbox[0].member_name }}</td>
         </tr>
         <tr>
           <td>生日:</td>
-          <td><input type="date" value="2000-07-22"></td>
+          <td>{{ currentightbox[0].birthday }}</td>
         </tr>
         <tr>
           <td>地址:</td>
-          <td><input type="text" value="桃園市中壢區"></td>
+          <td>{{ currentightbox[0].address }}</td>
         </tr>
         <tr>
           <td>行動電話:</td>
-          <td><input type="text" value="0919897987"></td>
+          <td>{{ currentightbox[0].cellphone }}</td>
         </tr>
         <tr>
-          <td>行動電話:</td>
-          <td><input type="text" value="0800092000"></td>
+          <td>室內電話:</td>
+          <td>{{ currentightbox[0].phone }}</td>
         </tr>
         <tr>
           <td>EMAIL:</td>
-          <td><input type="text" value="xxxx34252@gmail.com "></td>
+          <td>{{ currentightbox[0].email }}</td>
         </tr>
         <tr>
           <td>密碼:</td>
-          <td><input type="text" value="kp12345"></td>
+          <td>{{ currentightbox[0].password }}</td>
         </tr>
         <tr>
-          <td>狀態</td>
+          <td>狀態:</td>
           <td>
-            <select name="" id="">
-              <option value="啟用">啟用</option>
+            <select id="member_status" :value="currentightbox[0].status">
+              <option value="正常">正常</option>
               <option value="停用">停用</option>
             </select>
           </td>
         </tr>
         <tr>
           <td>點數:</td>
-          <td><input type="text" value="999"></td>
+          <td>{{ currentightbox[0].point }}</td>
         </tr>
 
       </table>
     </div>
-    <button id="updateMemberData" @click="updateData">修改</button>
+
   </Lightbox>
 </template>
 
@@ -122,6 +120,9 @@ export default {
     return {
       placeholder: '會員ID或電話',
       memberdata: [],
+      currentightbox:[],
+      memberstatus:'',
+
     }
   },
   created() {
@@ -134,8 +135,14 @@ export default {
     showLightbox(id) {
       this.$refs.lightbox.showLightbox = true;
       console.log(id);
+      this.currentightbox=this.memberdata.filter((item)=>{
+        return item.member_no==id
+      })
+      console.log(this.currentightbox);
     },
     getMemberData() {
+      this.memberdata= []
+      this.currentightbox=[]
       let url = `${import.meta.env.VITE_API_URL}/memberDataGetAll.php`;
       fetch(url)
         .then(response => response.json())
@@ -150,37 +157,41 @@ export default {
         })
     },
     showMembers(members) {
-      // let html = "";
 
       for (let i = 0; i < members.length; i++) {
+        if(members[i].status=='A'){
+            this.memberstatus='正常'
+          }else{
+            this.memberstatus='停用'
+          }
         this.memberdata.push({
           member_no: members[i].member_no,
           member_name: members[i].member_name,
           cellphone: members[i].cellphone,
-          status: members[i].status,
+          phone: members[i].phone,
+          birthday: members[i].birthday,
+          email: members[i].email,
+          password: members[i].password,
+          address: members[i].address,
+          id_number: members[i].id_number,
+          point: members[i].point,
+          modifier: members[i].modifier,
+          modify_date: members[i].modify_date,
+          status:this.memberstatus,
         })
-        // html += "<tr align='center'>";
-        // html += `<td class="align-middle">${members[i].member_no}</td>`;
-        // html += `<td class="align-middle">${members[i].member_name}</td>`;
-        // html += `<td class="align-middle">${members[i].cellphone}</td>`;
-        // html += `<td class="align-middle">${members[i].status}</td>`;
-        // html += `<td class="align-middle">
-        //           <button class="showlightbtn" @click="showLightbox">
-        //             <img src="../../public/images/icon/icon_revise.png" alt="">修改
-        //           </button>
-        //         </td>`;
-        // html += "</tr>";
+
       }
-
-
-
-
-      //將products資料放入頁面中
-      // document.getElementById("memberTbody").innerHTML = html;
+      console.log(this.memberdata);
     },
-    updateData() {
+    updateData(member_no) {
+      if(document.getElementById("member_status").value=='正常'){
+        this.memberstatus='A'
+      }else{
+        this.memberstatus='IA'
+      }
       let memberData = {
-        member_name: document.getElementById("member_name").value,
+        member_no,
+        status: this.memberstatus,
       };
       let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
       fetch(url, {
@@ -195,6 +206,7 @@ export default {
           if (!result.error) {
             alert(result.msg)
             this.$refs.lightbox.showLightbox = false
+            this.getMemberData();
           }
         })
         .catch(error => console.log(error))
