@@ -8,90 +8,91 @@
                 <Search />
             </div>
             <div class="donate_table">
-                <table>
-                    <thead>
-                        <td>捐款日期</td>
-                        <td>姓名</td>
-                        <td>會員編號</td>
-                        <td>金額</td>
-                        <td>支付方式</td>
-                        <td>操作</td>
-                    </thead>
-                    <tbody>
-                        <tr :key="index" v-for="item in donatedata">
-                            <td class="donate_date">{{ item.donate_date }}</td>
-                            <td class="donate_name">王葳</td>
-                            <!-- <td class="donate_name">{{ item.donate_name }}</td> 要這個但是還沒搞定 -->
-                            <td class="donate_id">{{ item.member_no }}</td>
-                            <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
-                            </td>
-                            <td class="donate_method">{{ item.donate_method }}</td>
-                            <td class="donate_operate">
-                                <button @click="showLightbox">
-                                    <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+            <table>
+                <thead>
+                    <td>捐款日期</td>
+                    <td>姓名</td>
+                    <td>會員編號</td>
+                    <td>金額</td>
+                    <td>支付方式</td>
+                    <td>操作</td>
+                </thead>
+                <tbody>
+                    <tr :key="index" v-for="item in donatedata">
+                        <td class="donate_date">{{ item.donate_date }}</td>
+                        <!-- <td class="donate_name">王葳</td> -->
+                        <td class="donate_name">{{ item.member_name || '-' }}</td>
+                        <td class="donate_id">{{ item.member_no || '-' }}</td>
+                        <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
+                        </td>
+                        <td class="donate_method">{{ item.donate_method }}</td>
+                        <td class="donate_operate">
+                            <button @click="showLightbox()">
+                                <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <Lightbox ref="lightbox" type="true">
-            <div class="donate_lightbox">
-                <p>
-                    <span>捐款日期: </span>
-                    <span>2024/1/1</span>
-                </p>
-                <p>
-                    <span>狀態: </span>
-                    <span>實名</span>
-                </p>
-                <p class="title"><span>詳細資訊</span></p>
-                <table>
-                    <tr>
-                        <td>流水編號: </td>
-                        <td>90809809</td>
-                    </tr>
-                    <tr>
-                        <td>姓名: </td>
-                        <td>王小明</td>
-                    </tr>
-                    <tr>
-                        <td>會員ID: </td>
-                        <td>1828372</td>
-                    </tr>
-                    <tr>
-                        <td>Email: </td>
-                        <td>xx@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>生日: </td>
-                        <td>1970.1.1</td>
-                    </tr>
-                    <tr>
-                        <td>連絡電話: </td>
-                        <td>0912345678</td>
-                    </tr>
-                    <tr>
-                        <td>捐款金額: </td>
-                        <td>1280</td>
-                    </tr>
-                    <tr>
-                        <td>單筆點數: </td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>捐款方式: </td>
-                        <td>信用卡</td>
-                    </tr>
-                </table>
-            </div>
-        </Lightbox>
     </div>
+    </div>
+    <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
+        <div class="donate_lightbox">
+            <p>
+                <span>捐款日期: </span>
+                <span>2024/1/1</span>
+            </p>
+            <p>
+                <span>狀態: </span>
+                <span>實名</span>
+            </p>
+            <p class="title"><span>詳細資訊</span></p>
+            <table>
+                <tr>
+                    <td>流水編號: </td>
+                    <td>90809809</td>
+                </tr>
+                <tr>
+                    <td>姓名: </td>
+                    <td>王小明</td>
+                </tr>
+                <tr>
+                    <td>會員ID: </td>
+                    <td>1828372</td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td>xx@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>生日: </td>
+                    <td>1970.1.1</td>
+                </tr>
+                <tr>
+                    <td>連絡電話: </td>
+                    <td>0912345678</td>
+                </tr>
+                <tr>
+                    <td>捐款金額: </td>
+                    <td>1280</td>
+                </tr>
+                <tr>
+                    <td>單筆點數: </td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>捐款方式: </td>
+                    <td>信用卡</td>
+                </tr>
+            </table>
+        </div>
+    </Lightbox>
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
-import Dropdown from "../components/Dropdown.vue";
+// import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 import Search from "../components/SearchBtn.vue";
 export default {
@@ -106,12 +107,11 @@ export default {
     },
     components: {
         MainHeader,
-        Dropdown,
         Lightbox,
         Search,
     },
     methods: {
-        showLightbox() {
+        showLightbox(item) {
             this.$refs.lightbox.showLightbox = true;
         },
         getDonateData() {
@@ -134,7 +134,7 @@ export default {
             for (let i = 0; i < donates.length; i++) {
                 this.donatedata.push({
                     donate_date: donates[i].donate_date,
-                    donate_name: donates[i].donate_name,
+                    member_name: donates[i].member_name,
                     member_no: donates[i].member_no,
                     donate_amount: donates[i].donate_amount,
                     donate_method: donates[i].donate_method,
@@ -143,6 +143,7 @@ export default {
         },
     },
 }
+
 </script>
     
  <!-- 燈箱內容的css -->
