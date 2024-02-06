@@ -10,7 +10,7 @@
                 <input type="text" name="memId">
                 <p>密碼</p>
                 <input type="text" name="memPsw">
-                <router-link to="/index">
+                <router-link to="/banner">
                     <commitButton :commitButton="commit" />
                 </router-link>
             </form>
