@@ -1,9 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
+    text-wrap: nowrap;
 }
 
-.petition_wrap {
+.mem_wrap {
     // max-width: 1350px;
     width: 70%;
     margin: 50px auto 150px auto;
@@ -16,8 +15,28 @@
         text-align: center;
     }
 
-    .petition-info {
-        height: 650px;
+    .mem-info {
+        height: 420px;
         overflow: scroll;
     }
+}
+
+.order-modify {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    // position: relative;
+    top: 10px;
+    gap: 5px;
+    // text-wrap: nowrap;
+
+    img {
+        width: 25px;
+        height: 25px;
+
+    }
+
 }
