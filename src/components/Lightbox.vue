@@ -4,7 +4,7 @@
       <slot></slot>
       <div class="lightbox_btn">
         <!-- 新增v-if條件判斷, 如果點擊修改才會有儲存按鈕 -->
-        <button v-if="lightboxType" @click="saveMemberData">儲存</button>
+        <button v-if="lightboxType" @click="saveData">儲存</button>
         <button @click="closeLightbox">返回</button>
       </div>
     </div>
@@ -26,7 +26,7 @@ export default{
       this.showLightbox = false;
       document.body.style.overflow = "auto";
     },
-    saveMemberData(){
+    saveData(){
       this.$emit('toSaveData')
     }
   },

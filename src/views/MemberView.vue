@@ -13,7 +13,7 @@
                 <th scope="col" class="p-3">會員ID</th>
                 <th scope="col" class="p-2"><span class="l-2">姓名</span></th>
                 <th scope="col" class="p-2">連絡電話</th>
-                <th scope="col" class="p-2">是否停權</th>
+                <th scope="col" class="p-2">狀態正常</th>
                 <th scope="col" class="p-2">操作</th>
               </tr>
             </thead>

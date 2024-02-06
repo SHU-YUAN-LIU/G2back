@@ -9,7 +9,7 @@
     </label> -->
 <div class="switchBtn">
     <label>
-        <input type="checkbox" v-model="isChecked">
+        <input type="checkbox" @click="isChecked=!isChecked">
         <div>
             <span></span>
             <span>否</span> <span>是</span>
