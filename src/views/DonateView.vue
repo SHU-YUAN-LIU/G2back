@@ -9,32 +9,33 @@
             </div>
             <div class="donate_table">
 
-            <table>
-                <thead>
-                    <td>捐款日期</td>
-                    <td>姓名</td>
-                    <td>會員編號</td>
-                    <td>金額</td>
-                    <td>支付方式</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr :key="index" v-for="item in donatedata">
-                        <td class="donate_date">{{ item.donate_date }}</td>
-                        <td class="donate_name">王葳</td>
-                        <!-- <td class="donate_name">{{ item.donate_name }}</td> 要這個但是還沒搞定 -->
-                        <td class="donate_id">{{ item.member_no }}</td>
-                        <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
-                        </td>
-                        <td class="donate_method">{{ item.donate_method }}</td>
-                        <td class="donate_operate">
-                            <button @click="showLightbox">
-                                <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <td>捐款日期</td>
+                        <td>姓名</td>
+                        <td>會員編號</td>
+                        <td>金額</td>
+                        <td>支付方式</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr :key="index" v-for="item in donatedata">
+                            <td class="donate_date">{{ item.donate_date }}</td>
+                            <td class="donate_name">王葳</td>
+                            <!-- <td class="donate_name">{{ item.donate_name }}</td> 要這個但是還沒搞定 -->
+                            <td class="donate_id">{{ item.member_no }}</td>
+                            <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
+                            </td>
+                            <td class="donate_method">{{ item.donate_method }}</td>
+                            <td class="donate_operate">
+                                <button @click="showLightbox">
+                                    <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <Lightbox ref="lightbox" type="true">
