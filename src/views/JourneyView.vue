@@ -1,33 +1,27 @@
 <template>
     <MainHeader />
-    <Dropdown />
 
-    <div class="donate">
-        <div>
-            <Search />
-        </div>
-        <div class="donate_container">
-
+    <div class="admin">
+        <div class="admin_container">
             <table>
                 <thead>
-                    <td>捐款日期</td>
-                    <td>姓名</td>
-                    <td>會員編號</td>
-                    <td>金額</td>
-                    <td>支付方式</td>
+                    <td>活動編號</td>
+                    <td>開始日期</td>
+                    <td>候選人</td>
+                    <td>地點</td>
+                    <td>狀態</td>
                     <td>操作</td>
                 </thead>
                 <tbody>
                     <tr :key="index" v-for="index in 35">
-                        <td class="donate_date">2023/9/23</td>
-                        <td class="donate_name">王小明</td>
-                        <td class="donate_id">1234567</td>
-                        <td class="donate_amount">$ <span>1280</span>
-                        </td>
-                        <td class="donate_method">信用卡</td>
-                        <td class="donate_operate">
+                        <td class="admin_id">908009</td>
+                        <td class="admin_name">2023/9/23</td>
+                        <td class="admin_class">王小明</td>
+                        <td class="admin_class">桃園</td>
+                        <td class="admin_class">正常</td>
+                        <td class="admin_operate">
                             <button @click="showLightbox">
-                                <img src="../../public/images/icon/icon_info.png" alt="">查閱
+                                <img src="../../public/images/icon/icon_revise.png" alt="">修改
                             </button>
                         </td>
                     </tr>
@@ -35,79 +29,74 @@
             </table>
         </div>
     </div>
-    <Lightbox ref="lightbox" type="true">
-        <div class="donate_lightbox">
+    <Lightbox ref="lightbox">
+        <div class="admin_lightbox">
             <p>
-                <span>捐款日期: </span>
-                <span>2024/1/1</span>
+                <span>最後修改人: </span>
+                <span>王小明</span>
             </p>
             <p>
-                <span>狀態: </span>
-                <span>實名</span>
+                <span>最後修改日期: </span>
+                <span>2024/1/1</span>
             </p>
             <p class="title"><span>詳細資訊</span></p>
             <table>
                 <tr>
-                    <td>流水編號: </td>
-                    <td>90809809</td>
+                    <td>管理員編號</td>
+                    <td>test001</td>
                 </tr>
                 <tr>
-                    <td>姓名: </td>
-                    <td>王小明</td>
+                    <td>管理員姓名</td>
+                    <td><input type="text"></td>
                 </tr>
                 <tr>
-                    <td>會員ID: </td>
-                    <td>1828372</td>
+                    <td>狀態</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="啟用">啟用</option>
+                            <option value="停用">停用</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Email: </td>
-                    <td>xx@gmail.com</td>
+                    <td>密碼: </td>
+                    <td><input type="text"></td>
                 </tr>
                 <tr>
-                    <td>生日: </td>
-                    <td>1970.1.1</td>
+                    <td>權限等級: </td>
+                    <td><select name="" id="">
+                            <option value="一般管理員">一般管理員</option>
+                            <option value="超級管理員">超級管理員</option>
+                        </select></td>
                 </tr>
                 <tr>
-                    <td>連絡電話: </td>
-                    <td>0912345678</td>
-                </tr>
-                <tr>
-                    <td>捐款金額: </td>
-                    <td>1280</td>
-                </tr>
-                <tr>
-                    <td>單筆點數: </td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>捐款方式: </td>
-                    <td>信用卡</td>
+                    <td>入職日期: </td>
+                    <td>2024/1/1 00:00:00</td>
                 </tr>
             </table>
         </div>
     </Lightbox>
 </template>
+
+
+
 <script>
 import MainHeader from "../components/MainHeader.vue";
-import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
-import Search from "../components/SearchBtn.vue"
 export default {
     data() {
         return {
-            donateAccount: [
+            adminAccount: [
                 {
                     id: 231411424,
                     name: "王小明"
                 }
-            ],
-            searchPlaceholder: '请输入搜索内容'
+            ]
         };
     },
     components: {
         MainHeader,
         Lightbox,
-        Search,
     },
     methods: {
         showLightbox() {
@@ -116,17 +105,16 @@ export default {
     },
 }
 </script>
-    
- <!-- 燈箱內容的css -->
+
+<!-- 燈箱內容的css -->
 <style lang="scss">
 @import "../assets/scss/style.scss";
 
-.donate_lightbox {
+.admin_lightbox {
     width: 80%;
 
     p {
         display: flex;
-        margin: 0;
 
         span:nth-child(1) {
             width: 200px;
@@ -146,7 +134,6 @@ export default {
 
     table {
         width: 100%;
-        border: 1px solid #000;
 
         tr {
             height: 40px;
@@ -171,4 +158,7 @@ export default {
     }
 }
 </style>
-    
+
+
+
+
