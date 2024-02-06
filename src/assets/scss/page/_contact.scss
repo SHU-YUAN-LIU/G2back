@@ -6,11 +6,11 @@
     right: 0;
     background-color: $gray_1;
     z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .contact_container {
-        position: absolute;
-        top: 100px;
-        right: 80px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -66,5 +66,22 @@
                 }
             }
         }
+    }
+}
+
+.contact_lightbox {
+    width: 650px;
+    border: 2px solid blue;
+
+    .contact-no {
+        background: none;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        background-color: $black;
+        color: $white;
+        padding: 8px;
     }
 }
