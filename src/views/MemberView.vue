@@ -17,101 +17,17 @@
                 <th scope="col" class="p-2">操作</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- 第一行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
+            <tbody id="memberTbody">
+              <tr align="center" v-for="item in memberdata">
+                <td class="align-middle">{{ item.member_no }}</td>
+                <td class="align-middle">{{ item.member_name }}</td>
+                <td class="align-middle">{{ item.cellphone }}</td>
                 <td class="align-middle">
                   <switch_btn />
                 </td>
+
                 <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第二行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第三行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第四行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第五行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第六行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-              <!-- 第七行 -->
-              <tr align="center">
-                <td class="align-middle">231411424</td>
-                <td class="align-middle">王小明</td>
-                <td class="align-middle">0910101010</td>
-                <td class="align-middle">
-                  <switch_btn />
-                </td>
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox">
+                  <button class="showlightbtn" @click="showLightbox(item.member_no)">
                     <img src="../../public/images/icon/icon_revise.png" alt="">修改
                   </button>
                 </td>
@@ -124,7 +40,7 @@
       </div>
     </div>
   </div>
-  <Lightbox class="memberlightbox" lightboxType="false" ref="lightbox">
+  <Lightbox class="memberlightbox" lightboxType="true" ref="lightbox">
 
     <div class="admin_lightbox" style="overflow-y: scroll;">
       <p>
@@ -205,14 +121,62 @@ export default {
   data() {
     return {
       placeholder: '會員ID或電話',
+      memberdata: [],
     }
+  },
+  created() {
+    this.getMemberData();
   },
   mounted() {
     document.title = "青年進補黨(後台) - 會員管理";
   },
   methods: {
-    showLightbox() {
+    showLightbox(id) {
       this.$refs.lightbox.showLightbox = true;
+      console.log(id);
+    },
+    getMemberData() {
+      let url = `${import.meta.env.VITE_API_URL}/memberDataGetAll.php`;
+      fetch(url)
+        .then(response => response.json())
+        .then(result => {
+          const members = result.members;
+          console.log(111, result)
+
+          this.showMembers(members);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    },
+    showMembers(members) {
+      // let html = "";
+
+      for (let i = 0; i < members.length; i++) {
+        this.memberdata.push({
+          member_no: members[i].member_no,
+          member_name: members[i].member_name,
+          cellphone: members[i].cellphone,
+          status: members[i].status,
+        })
+        // html += "<tr align='center'>";
+        // html += `<td class="align-middle">${members[i].member_no}</td>`;
+        // html += `<td class="align-middle">${members[i].member_name}</td>`;
+        // html += `<td class="align-middle">${members[i].cellphone}</td>`;
+        // html += `<td class="align-middle">${members[i].status}</td>`;
+        // html += `<td class="align-middle">
+        //           <button class="showlightbtn" @click="showLightbox">
+        //             <img src="../../public/images/icon/icon_revise.png" alt="">修改
+        //           </button>
+        //         </td>`;
+        // html += "</tr>";
+      }
+
+
+
+
+      //將products資料放入頁面中
+      // document.getElementById("memberTbody").innerHTML = html;
     },
     updateData() {
       let memberData = {
