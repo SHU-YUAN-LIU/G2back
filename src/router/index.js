@@ -77,6 +77,11 @@ const router = createRouter({
       name: 'order',
       component: () => import('../views/OrderView.vue')
     },
+    {
+      path: '/countdown',
+      name: 'countdown',
+      component: () => import('../views/CountDown.vue')
+    },
   ]
 })
 

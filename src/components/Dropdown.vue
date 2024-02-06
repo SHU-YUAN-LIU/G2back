@@ -25,7 +25,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <RouterLink class="dropdown-item text-dark" to="journey">活動管理</RouterLink>
-                            <a class="dropdown-item text-dark" href="#">選舉倒數</a>
+                            <RouterLink class="dropdown-item text-dark" to="countdown">選舉倒數</RouterLink>
                             <RouterLink class="dropdown-item text-dark" to="policy">政策管理</RouterLink>
                         </div>
                     </li>
