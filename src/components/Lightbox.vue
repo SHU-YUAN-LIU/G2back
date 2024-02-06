@@ -1,10 +1,11 @@
 <template>
   <div class="lightbox_bg" v-if="showLightbox">
-    <div class="lightbox_content">
+    <div class="lightbox_content" >
       <slot></slot>
       <div class="lightbox_btn">
-        <button>新增</button>
-        <button @click="closeLightbox">取消</button>
+        <!-- 新增v-if條件判斷, 如果點擊修改才會有儲存按鈕 -->
+        <button v-if="lightboxType">儲存</button>
+        <button @click="closeLightbox">返回</button>
       </div>
     </div>
   </div>
@@ -15,11 +16,15 @@ export default{
   data(){
     return{
       showLightbox: false,
+      lightboxType:false,
     };
   },
+  // 新增props變數lightboxType, 如果頁面是修改按鈕在頁面導入元件時回傳true, 查閱按鈕回傳false
+  props:['lightboxType',],
   methods: {
     closeLightbox(){
       this.showLightbox = false;
+      document.body.style.overflow = "auto";
     }
   },
 
@@ -34,7 +39,7 @@ export default{
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(200, 200, 200, .7);
+  background: rgba(50, 50, 50, .7);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -46,8 +51,9 @@ export default{
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  overflow-y:scroll;
+  padding: 60px 0;
 }
 
 .lightbox_btn{
