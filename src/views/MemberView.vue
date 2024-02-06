@@ -215,10 +215,13 @@ export default {
       this.$refs.lightbox.showLightbox = true;
     },
     updateData() {
+      // 傳到php的資料
       let memberData = {
         member_name: document.getElementById("member_name").value,
       };
+      // php的路徑
       let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
+      // 傳送到php的方法
       fetch(url, {
         method: 'post',
         headers: {
@@ -226,6 +229,7 @@ export default {
         },
         body: JSON.stringify(memberData)
       })
+        // 接php的回傳值
         .then(response => response.json())
         .then(result => {
           if (!result.error) {

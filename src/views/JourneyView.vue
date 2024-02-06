@@ -1,5 +1,6 @@
 <template>
     <MainHeader />
+    <Dropdown />
 
     <div class="admin">
         <div class="admin_container">
@@ -29,6 +30,7 @@
             </table>
         </div>
     </div>
+    <!-- 燈箱 -->
     <Lightbox ref="lightbox">
         <div class="admin_lightbox">
             <p>
@@ -42,36 +44,31 @@
             <p class="title"><span>詳細資訊</span></p>
             <table>
                 <tr>
-                    <td>管理員編號</td>
-                    <td>test001</td>
-                </tr>
-                <tr>
-                    <td>管理員姓名</td>
+                    <td>活動主旨</td>
                     <td><input type="text"></td>
                 </tr>
                 <tr>
-                    <td>狀態</td>
-                    <td>
-                        <select name="" id="">
-                            <option value="啟用">啟用</option>
-                            <option value="停用">停用</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>密碼: </td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>權限等級: </td>
-                    <td><select name="" id="">
-                            <option value="一般管理員">一般管理員</option>
-                            <option value="超級管理員">超級管理員</option>
+                    <td>候選人</td>
+                    <td><select name="">
+                            <option value="">吳聰明</option>
+                            <option value="">劉煒煜</option>
                         </select></td>
                 </tr>
                 <tr>
-                    <td>入職日期: </td>
-                    <td>2024/1/1 00:00:00</td>
+                    <td>狀態: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>開始日期: </td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>結束日期: </td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>活動內容: </td>
+                    <td><textarea name="" id=""></textarea></td>
                 </tr>
             </table>
         </div>
@@ -82,6 +79,7 @@
 
 <script>
 import MainHeader from "../components/MainHeader.vue";
+import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 export default {
     data() {
@@ -96,6 +94,7 @@ export default {
     },
     components: {
         MainHeader,
+        Dropdown,
         Lightbox,
     },
     methods: {
@@ -144,17 +143,21 @@ export default {
             td {
                 text-align: center;
                 width: 50%;
-
-                input {
-                    height: 30px;
-                }
             }
 
-            td:nth-child(2) {
-                text-align: left;
-
+            input {
+                height: 30px;
             }
         }
+
+        td:nth-child(2) {
+            text-align: left;
+
+        }
+    }
+
+    textarea {
+        resize: none;
     }
 }
 </style>
