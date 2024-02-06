@@ -46,8 +46,8 @@ export default{
   justify-content: center;
 }
 .lightbox_content{
-  width: 1000px;
-  height: 600px;
+  width: 900px;
+  height: 500px;
   background: white;
   display: flex;
   flex-direction: column;

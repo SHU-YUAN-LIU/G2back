@@ -3,36 +3,38 @@
     <Dropdown />
 
     <div class="donate">
-        <div>
-            <Search />
-        </div>
         <div class="donate_container">
+            <div>
+                <Search />
+            </div>
+            <div class="donate_table">
 
-            <table>
-                <thead>
-                    <td>捐款日期</td>
-                    <td>姓名</td>
-                    <td>會員編號</td>
-                    <td>金額</td>
-                    <td>支付方式</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr :key="index" v-for="index in 35">
-                        <td class="donate_date">2023/9/23</td>
-                        <td class="donate_name">王小明</td>
-                        <td class="donate_id">1234567</td>
-                        <td class="donate_amount">$ <span>1280</span>
-                        </td>
-                        <td class="donate_method">信用卡</td>
-                        <td class="donate_operate">
-                            <button @click="showLightbox">
-                                <img src="../../public/images/icon/icon_info.png" alt="">查閱
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <td>捐款日期</td>
+                        <td>姓名</td>
+                        <td>會員編號</td>
+                        <td>金額</td>
+                        <td>支付方式</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr :key="index" v-for="index in 35">
+                            <td class="donate_date">2023/9/23</td>
+                            <td class="donate_name">王小明</td>
+                            <td class="donate_id">1234567</td>
+                            <td class="donate_amount">$ <span>1280</span>
+                            </td>
+                            <td class="donate_method">信用卡</td>
+                            <td class="donate_operate">
+                                <button @click="showLightbox">
+                                    <img src="../../public/images/icon/icon_info.png" alt="">查閱
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <Lightbox ref="lightbox" type="true">
@@ -89,7 +91,7 @@
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
-import Dropdown from "../components/Dropdown.vue";
+// import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 import Search from "../components/SearchBtn.vue";
 export default {
