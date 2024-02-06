@@ -14,7 +14,7 @@
                     <tr :key="index" v-for="index in 6">
                         <td class="banner_id">1</td>
                         <td class="banner_pic">
-                            <img src="../assets/image/index/banner1.png" alt="">
+                            <img src="../assets/image/banner/banner1.png" alt="">
                         </td>
                         <td class="banner_title">2024大選推廣</td>
                         <td class="banner_status">
@@ -30,7 +30,25 @@
             </table>
         </div>
     </div>
-    <Lightbox ref="lightbox">
+    <Lightbox ref="lightbox" lightboxType="true">
+        <div class="banner_lightbox">
+            <table>
+                <thead>
+                    <td>消息編號</td>
+                    <td>輪播圖預覽(電腦)</td>
+                    <td>輪播圖預覽(手機)</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="../assets/image/banner/banner1.png" alt=""></td>
+                        <td><div class="mobil_pic"><img src="../assets/image/banner/banner1_w350.png" alt=""></div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    
 
     </Lightbox>
 </template>
