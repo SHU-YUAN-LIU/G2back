@@ -5,26 +5,20 @@
         <div class="admin_container">
             <table>
                 <thead>
-                    <td>管理員編號</td>
-                    <td>姓名</td>
-                    <td>權限等級</td>
-                    <td>啟用狀態</td>
+                    <td>活動編號</td>
+                    <td>開始日期</td>
+                    <td>候選人</td>
+                    <td>地點</td>
+                    <td>狀態</td>
                     <td>操作</td>
                 </thead>
                 <tbody>
                     <tr :key="index" v-for="index in 35">
-                        <td class="admin_id">231411424</td>
-                        <td class="admin_name">王小明</td>
-                        <td class="admin_class">超級管理員</td>
-                        <td class="admin_status">
-                            <label>
-                                <input type="checkbox">
-                                <div>
-                                    <span></span>
-                                    <span>否</span> <span>是</span>
-                                </div>
-                            </label>
-                        </td>
+                        <td class="admin_id">908009</td>
+                        <td class="admin_name">2023/9/23</td>
+                        <td class="admin_class">王小明</td>
+                        <td class="admin_class">桃園</td>
+                        <td class="admin_class">正常</td>
                         <td class="admin_operate">
                             <button @click="showLightbox">
                                 <img src="../../public/images/icon/icon_revise.png" alt="">修改

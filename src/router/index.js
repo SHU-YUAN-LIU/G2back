@@ -57,6 +57,11 @@ const router = createRouter({
       name: 'policy',
       component: () => import('../views/PolicyView.vue')
     },
+    {
+      path: '/journey',
+      name: 'journey',
+      component: () => import('../views/JourneyView.vue')
+    },
   ]
 })
 
