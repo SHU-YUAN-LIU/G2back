@@ -1,10 +1,12 @@
-
-
 <template>
 <MainHeader />
 
 <div class="admin">
+    <div>
+        <Search />
+    </div>
     <div class="admin_container">
+        
         <table>
             <thead>
                 <td>管理員編號</td>
@@ -19,13 +21,7 @@
                     <td class="admin_name">王小明</td>
                     <td class="admin_class">超級管理員</td>
                     <td class="admin_status">
-                        <label>
-                            <input type="checkbox">
-                            <div>
-                                <span></span>
-                                <span>否</span> <span>是</span>
-                            </div>
-                        </label>
+                        <SwitchBtn />
                     </td>
                     <td class="admin_operate">
                         <button @click="showLightbox">
@@ -37,7 +33,7 @@
         </table>
     </div>
 </div>
-<Lightbox ref="lightbox">
+<Lightbox ref="lightbox" lightboxType="true">
     <div class="admin_lightbox">
         <p>
             <span>最後修改人: </span>
@@ -47,6 +43,7 @@
             <span>最後修改日期: </span>
             <span>2024/1/1</span>
         </p>
+
         <p class="title"><span>詳細資訊</span></p>
         <table>
         <tr>
@@ -88,6 +85,8 @@
 <script>
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
+import SwitchBtn from "../components/switch_btn.vue";
+import Search from "../components/SearchBtn.vue"
 export default{
     data(){
         return{
@@ -102,10 +101,13 @@ export default{
     components:{
     MainHeader,
     Lightbox,
+    SwitchBtn,
+    Search,
 },
     methods: {
         showLightbox(){
             this.$refs.lightbox.showLightbox = true;
+            document.body.style.overflow = 'hidden';
         }
     },
 }
@@ -118,6 +120,8 @@ export default{
     width: 80%;
     p{
         display: flex;
+        margin-top: 10px;
+        margin-bottom: 0;
 
         span:nth-child(1){
             width: 200px;
@@ -135,11 +139,17 @@ export default{
     }
     table{
         width: 100%;
+        border: 1px solid #000; 
         tr{
             height: 40px;
             line-height: 40px;
             display: flex;
             justify-content: space-evenly;
+
+            tr+tr{
+                margin-top: 20px;
+            }
+            
             td{
                 text-align: center;
                 width: 50%;

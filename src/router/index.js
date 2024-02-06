@@ -47,6 +47,31 @@ const router = createRouter({
       name: 'product',
       component: () => import('../views/ProductView.vue')
     },
+    {
+      path: '/banner',
+      name: 'banner',
+      component: () => import('../views/BannerView.vue')
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: () => import('../views/NewsView.vue')
+    },
+    {
+      path: '/cadre',
+      name: 'cadre',
+      component: () => import('../views/CadreView.vue')
+    },
+    {
+      path: '/policy',
+      name: 'policy',
+      component: () => import('../views/PolicyView.vue')
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: () => import('../views/OrderView.vue')
+    },
   ]
 })
 

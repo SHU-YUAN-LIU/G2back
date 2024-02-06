@@ -15,8 +15,8 @@
                             消息管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">輪播管理</a>
-                            <a class="dropdown-item text-dark" href="#">新聞管理</a>
+                            <RouterLink to="/banner" >輪播管理</RouterLink>
+                            <RouterLink to="/news" >新聞管理</RouterLink>
                         </div>
                     </li>
                     <!-- 大選管理 -->
@@ -28,7 +28,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-dark" href="#">活動管理</a>
                             <a class="dropdown-item text-dark" href="#">選舉倒數</a>
-                            <a class="dropdown-item text-dark" href="#">政策管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="policy">政策管理</RouterLink>
                         </div>
                     </li>
                     <!-- 商城管理 -->
@@ -39,16 +39,16 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <RouterLink class="dropdown-item text-dark" to="Product">商品管理</RouterLink>
-                            <a class="dropdown-item text-dark" href="#">訂單管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="order">訂單管理</RouterLink>
                         </div>
                     </li>
                     <!-- 捐款查詢 -->
                     <li class="nav-item">
-                        <a class="nav-link disabled text-dark" href="#">捐款查詢</a>
+                        <RouterLink class="text-dark" to="donate">捐款查詢</RouterLink>
                     </li>
                     <!-- 陳情查詢 -->
                     <li class="nav-item">
-                        <a class="nav-link disabled text-dark" href="../contact">陳情查詢</a>
+                        <RouterLink class="text-dark" to="contact">陳情查詢</RouterLink>
                     </li>
                     <!-- 帳戶管理 -->
                     <li class="nav-item dropdown">
@@ -57,9 +57,9 @@
                             帳戶管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">會員管理</a>
-                            <a class="dropdown-item text-dark" href="../views/AdminView.vue">管理員管理</a>
-                            <a class="dropdown-item text-dark" href="#">幹部管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="member">會員管理</RouterLink>
+                            <RouterLink class="dropdown-item text-dark" to="admin">管理員管理</RouterLink>
+                            <RouterLink class="dropdown-item text-dark" to="cadre">幹部管理</RouterLink>
                         </div>
                     </li>
                     <!-- 回到前台 -->
@@ -93,7 +93,7 @@ export default {
 
         };
     },
-    components:{
+    components: {
 
     }
 
