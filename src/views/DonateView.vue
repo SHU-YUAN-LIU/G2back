@@ -91,7 +91,7 @@
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
-// import Dropdown from "../components/Dropdown.vue";
+import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 import Search from "../components/SearchBtn.vue";
 export default {
@@ -108,6 +108,7 @@ export default {
     },
     components: {
         MainHeader,
+        Dropdown,
         Lightbox,
         Search,
     },

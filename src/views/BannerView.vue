@@ -1,5 +1,6 @@
 <template>
     <MainHeader />
+    <Dropdown />
     <div class="banner">
         <div class="banner_container">
             <table>
@@ -36,21 +37,23 @@
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
+import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-export default{
-    data(){
-        return{
+export default {
+    data() {
+        return {
         };
     },
-    components:{
-    MainHeader,
-    Lightbox,
-    SwitchBtn
+    components: {
+        MainHeader,
+        Dropdown,
+        Lightbox,
+        SwitchBtn
 
-},
+    },
     methods: {
-        showLightbox(){
+        showLightbox() {
             this.$refs.lightbox.showLightbox = true;
         }
     },
