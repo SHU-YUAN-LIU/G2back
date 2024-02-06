@@ -1,13 +1,13 @@
 .donate {
     position: absolute;
-<<<<<<< HEAD
     top: 0;
     bottom: 0;
     left: 270px;
     right: 0;
-    background-color: $gray_1;  
+    background-color: $gray_1;
     z-index: -1;
-    .donate_container{
+
+    .donate_container {
         position: absolute;
         top: 100px;
         right: 50px;
@@ -16,28 +16,31 @@
         align-items: flex-start;
         justify-content: center;
         z-index: 50;
-        .donate_table{
+
+        .donate_table {
             height: 400px;
             overflow-y: scroll;
             top: 0;
             bottom: 0;
             background: $white;
 
-            table{
+            table {
                 width: 900px;
-                td{
+
+                td {
                     text-align: center;
                 }
-                
-                thead{
+
+                thead {
                     background: #000;
                     color: $white;
                     height: 50px;
                     line-height: 50px;
                 }
-                tr{    
-                    td.donate_operate{
-                        button{
+
+                tr {
+                    td.donate_operate {
+                        button {
                             background: none;
                             border: none;
                             display: flex;
@@ -46,58 +49,12 @@
                             margin: auto;
                             position: relative;
                             top: 10px;
-                            img{
+
+                            img {
                                 width: 25px;
                                 height: 25px;
                                 margin-right: 10px;
                             }
-=======
-    right: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 50;
-
-    .donate_container {
-        height: 580px;
-        overflow-y: scroll;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-
-        table {
-            width: 1000px;
-            border: 1px solid #000;
-
-            td {
-                text-align: center;
-            }
-
-            thead {
-                background: #000;
-                color: $white;
-                height: 50px;
-                line-height: 50px;
-            }
-
-            tr {
-                td.donate_operate {
-                    button {
-                        background: none;
-                        border: none;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: auto;
-                        position: relative;
-                        top: 10px;
-
-                        img {
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 10px;
->>>>>>> a047edcdac6fecf965050428b910750b077cda4e
                         }
                     }
                 }

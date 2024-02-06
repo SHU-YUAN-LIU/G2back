@@ -3,9 +3,7 @@
         <!-- 左邊選單 -->
         <nav class="flex-column  navbar-expand-lg navbar-light bg-* header_left">
             <!-- logo -->
-            <a class="navbar-brand logoImg" href="#">
-                <img src="../assets/image/login/logo.png" alt="" width="169" height="125">
-            </a>
+            <img class="navbar-brand logoImg" src="../assets/image/login/logo.png" alt="" width="169" height="125">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="flex-column navbar-nav mr-auto">
                     <!-- 消息管理 -->
@@ -15,8 +13,8 @@
                             消息管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <RouterLink to="/banner">輪播管理</RouterLink>
-                            <RouterLink to="/news">新聞管理</RouterLink>
+                            <RouterLink class="dropdown-item text-dark" to="/banner">輪播管理</RouterLink>
+                            <RouterLink class="dropdown-item text-dark" to="/news">新聞管理</RouterLink>
                         </div>
                     </li>
                     <!-- 大選管理 -->
@@ -26,7 +24,7 @@
                             大選管理
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="#">活動管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="journey">活動管理</RouterLink>
                             <a class="dropdown-item text-dark" href="#">選舉倒數</a>
                             <RouterLink class="dropdown-item text-dark" to="policy">政策管理</RouterLink>
                         </div>

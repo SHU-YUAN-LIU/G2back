@@ -1,5 +1,6 @@
 <template>
     <MainHeader />
+    <Dropdown />
     <div class="mem-bg">
         <div class="mem_wrap-group">
             <div class="mem_wrap">
@@ -101,12 +102,14 @@
   
 <script>
 import MainHeader from '../components/MainHeader.vue'
+import Dropdown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
 import Lightbox from "../components/Lightbox.vue";
 export default {
     components: {
         MainHeader,
+        Dropdown,
         switch_btn,
         SearchBtn,
         Lightbox
