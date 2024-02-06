@@ -1,5 +1,7 @@
 <template>
     <MainHeader />
+    <Dropdown />
+    <SearchBtn />
     <div class="mem-bg">
         <div class="mem_wrap-group">
             <div class="mem_wrap">
@@ -24,7 +26,8 @@
                             <tr align="center" v-for="index in 7" :key="index">
                                 <td class="align-middle">231411424</td>
                                 <td class="align-middle">
-                                    <img class="img-fluid" style="max-width: 100px;" src="/images/product/product5_pic1.png">
+                                    <img class="img-fluid" style="max-width: 100px;"
+                                        src="/images/product/product5_pic1.png">
                                 </td>
                                 <td class="align-middle">進補黨馬克杯</td>
                                 <td class="align-middle">杯子</td>
@@ -48,6 +51,7 @@
 
 <script>
 import MainHeader from '../components/MainHeader.vue'
+import Dropdown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 export default {
     components: {
@@ -59,6 +63,10 @@ export default {
         return {
 
         }
+    },
+    components: {
+        MainHeader,
+        Dropdown,
     },
 
 }

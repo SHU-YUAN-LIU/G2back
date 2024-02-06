@@ -3,10 +3,11 @@
     <Dropdown />
 
     <div class="donate">
-        <div>
-            <Search />
-        </div>
         <div class="donate_container">
+            <div>
+                <Search />
+            </div>
+            <div class="donate_table">
 
             <table>
                 <thead>

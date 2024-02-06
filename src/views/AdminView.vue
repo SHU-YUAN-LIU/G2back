@@ -1,37 +1,41 @@
 <template>
     <MainHeader />
+    <dropDown />
     <div class="admin">
-        <div>
-            <Search />
-        </div>
         <div class="admin_container">
-
-            <table>
-                <thead>
-                    <td>管理員編號</td>
-                    <td>姓名</td>
-                    <td>權限等級</td>
-                    <td>啟用狀態</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr v-for="item in admindata">
-                        <td class="admin_id">{{ item.admin_no }}</td>
-                        <td class="admin_name">{{ item.admin_name }}</td>
-                        <td class="admin_class">{{ getleveldata(item.admin_level) }}</td>
-                        <td class="admin_status">
-                            <SwitchBtn />
-                        </td>
-                        <td class="admin_operate">
-                            <button @click="showLightbox">
-                                <img src="/images/icon/icon_revise.png" alt="">修改
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <Search />
+            </div>
+            <div class="admin_table">
+                <table>
+                    <thead>
+                        <td>管理員編號</td>
+                        <td>姓名</td>
+                        <td>權限等級</td>
+                        <td>啟用狀態</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in admindata">
+                            <td class="admin_id">{{ item.admin_no }}</td>
+                            <td class="admin_name">{{ item.admin_name }}</td>
+                            <td class="admin_class">{{ getleveldata(item.admin_level) }}</td>
+                            <td class="admin_status">
+                                <SwitchBtn />
+                            </td>
+                            <td class="admin_operate">
+                                <button @click="showLightbox">
+                                    <img src="/images/icon/icon_revise.png" alt="">修改
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
+    <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="admin_lightbox">
             <p>
@@ -88,7 +92,8 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-import Search from "../components/SearchBtn.vue"
+import Search from "../components/SearchBtn.vue";
+import dropDown from "../components/Dropdown.vue";
 export default {
     data() {
         return {
@@ -100,6 +105,7 @@ export default {
         Lightbox,
         SwitchBtn,
         Search,
+        dropDown,
     },
     created() {
         this.getData();
