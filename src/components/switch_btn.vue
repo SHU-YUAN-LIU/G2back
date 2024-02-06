@@ -9,7 +9,7 @@
     </label> -->
 <div class="switchBtn">
     <label>
-        <input type="checkbox">
+        <input type="checkbox" @click="isChecked=!isChecked">
         <div>
             <span></span>
             <span>否</span> <span>是</span>
@@ -17,4 +17,13 @@
     </label>
 </div>
 </template>
+<script>
+export default{
+    data(){
+        return{
+            isChecked:false,
+        };
+    },
+}
+</script>
 
