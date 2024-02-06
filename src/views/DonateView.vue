@@ -21,14 +21,14 @@
                 <tbody>
                     <tr :key="index" v-for="item in donatedata">
                         <td class="donate_date">{{ item.donate_date }}</td>
-                        <td class="donate_name">王葳</td>
-                        <!-- <td class="donate_name">{{ item.donate_name }}</td> 要這個但是還沒搞定 -->
-                        <td class="donate_id">{{ item.member_no }}</td>
+                        <!-- <td class="donate_name">王葳</td> -->
+                        <td class="donate_name">{{ item.member_name || '-' }}</td>
+                        <td class="donate_id">{{ item.member_no || '-' }}</td>
                         <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
                         </td>
                         <td class="donate_method">{{ item.donate_method }}</td>
                         <td class="donate_operate">
-                            <button @click="showLightbox">
+                            <button @click="showLightbox()">
                                 <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
                             </button>
                         </td>
@@ -37,7 +37,8 @@
             </table>
         </div>
     </div>
-    <Lightbox ref="lightbox" type="true">
+    </div>
+    <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
         <div class="donate_lightbox">
             <p>
                 <span>捐款日期: </span>
@@ -110,7 +111,7 @@ export default {
         Search,
     },
     methods: {
-        showLightbox() {
+        showLightbox(item) {
             this.$refs.lightbox.showLightbox = true;
         },
         getDonateData() {
@@ -133,7 +134,7 @@ export default {
             for (let i = 0; i < donates.length; i++) {
                 this.donatedata.push({
                     donate_date: donates[i].donate_date,
-                    donate_name: donates[i].donate_name,
+                    member_name: donates[i].member_name,
                     member_no: donates[i].member_no,
                     donate_amount: donates[i].donate_amount,
                     donate_method: donates[i].donate_method,
@@ -142,6 +143,7 @@ export default {
         },
     },
 }
+
 </script>
     
  <!-- 燈箱內容的css -->
