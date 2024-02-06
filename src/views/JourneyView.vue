@@ -1,9 +1,11 @@
 <template>
     <MainHeader />
     <Dropdown />
-    <SearchBtn />
     <div class="admin">
         <div class="admin_container">
+            <div>
+                <SearchBtn />
+            </div>
             <table>
                 <thead>
                     <td>活動編號</td>
