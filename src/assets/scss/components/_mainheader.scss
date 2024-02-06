@@ -5,6 +5,52 @@
 
     .nav-item {
         cursor: pointer;
+        height: 100px;
+        .header_left {
+            width: 341px;
+            display: flex;
+            align-items: center;
+
+            ul {
+                font-size: 24px;
+            }
+        }
+
+        .header_title {
+            background-color: #FF892E;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            padding: 0 30px;
+
+            h3 {
+                color: rgb(255, 255, 255);
+                @include title_3;
+                letter-spacing: 5px;
+            }
+
+            .header_account {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                p {
+                    color: aliceblue;
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .right_nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .nav-item {
+                cursor: pointer;
+            }
+        }
     }
 }
 
