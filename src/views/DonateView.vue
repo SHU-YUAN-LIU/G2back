@@ -33,41 +33,9 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>姓名: </td>
-                        <td>王小明</td>
-                    </tr>
-                    <tr>
-                        <td>會員ID: </td>
-                        <td>1828372</td>
-                    </tr>
-                    <tr>
-                        <td>Email: </td>
-                        <td>xx@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>生日: </td>
-                        <td>1970.1.1</td>
-                    </tr>
-                    <tr>
-                        <td>連絡電話: </td>
-                        <td>0912345678</td>
-                    </tr>
-                    <tr>
-                        <td>捐款金額: </td>
-                        <td>1280</td>
-                    </tr>
-                    <tr>
-                        <td>單筆點數: </td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>捐款方式: </td>
-                        <td>信用卡</td>
-                    </tr>
-                </table>
-            </div>
-        </Lightbox>
+                </tbody>
+            </table>
+        </div>
     </div>
     </div>
     <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
@@ -124,7 +92,7 @@
 </template>
 <script>
 import MainHeader from "../components/MainHeader.vue";
-import Dropdown from "../components/Dropdown.vue";
+// import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
 import Search from "../components/SearchBtn.vue";
 export default {
@@ -139,7 +107,6 @@ export default {
     },
     components: {
         MainHeader,
-        Dropdown,
         Lightbox,
         Search,
     },
