@@ -147,9 +147,9 @@ export default {
         member_no,
         status: this.memberstatus,
       };
-      // php的路徑
+      //php的路徑
       let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
-      // 傳送到php的方法
+      //傳送到php的方法(也可以用axios)
       fetch(url, {
         method: 'post',
         headers: {
@@ -157,7 +157,7 @@ export default {
         },
         body: JSON.stringify(memberData)
       })
-        // 接php的回傳值
+        //接php的回傳值
         .then(response => response.json())
         .then(result => {
           if (!result.error) {

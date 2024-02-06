@@ -1,12 +1,12 @@
 <template>
     <MainHeader />
-    <div class="mem-bg">
-        <div class="mem_wrap-group">
-            <div class="mem_wrap">
+    <div class="contact-bg">
+        <div class="contact_wrap-group">
+            <div class="contact_wrap">
                 <!-- 搜尋 -->
                 <SearchBtn :placeholder="placeholder" />
                 <!-- ----------------------------------------------------- -->
-                <div class="mem-info">
+                <div class="contact-info">
                     <table class="table">
                         <thead>
                             <tr class="table-dark " align="center ">
@@ -27,8 +27,8 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary" @click="showLightbox">
-                                        修改
+                                    <button @click="showLightbox" class="contact-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
@@ -40,8 +40,8 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        修改
+                                    <button @click="showLightbox" class="contact-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
@@ -53,8 +53,8 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        修改
+                                    <button @click="showLightbox" class="contact-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
@@ -66,8 +66,8 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        修改
+                                    <button @click="showLightbox" class="contact-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
@@ -79,12 +79,53 @@
                                 <td class="align-middle">我要週休三日</td>
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        修改
+                                    <button @click="showLightbox" class="contact-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
+                            <!-- 燈箱 -->
+                            <Lightbox ref="lightbox">
+                                <div class="contact-wrap">
+                                    <p>
+                                        <span>陳情日期: </span>
+                                        <span>2024/1/1</span>
+                                    </p>
+                                    <p class="title"><span>詳細資訊</span></p>
+                                    <table>
+                                        <tr>
+                                            <td>陳情編號</td>
+                                            <td>9809809</td>
+                                        </tr>
+                                        <tr>
+                                            <td>會員名稱:</td>
+                                            <td>周絕人</td>
+                                        </tr>
+                                        <tr>
+                                            <td>會員編號:</td>
+                                            <td>878787878</td>
+                                        </tr>
+                                        <tr>
+                                            <td>電子信箱:</td>
+                                            <td>andy123@yahoo.com.tw</td>
+                                        </tr>
 
+                                        <tr>
+                                            <td>陳情狀態</td>
+                                            <td>
+                                                <select name="" id="">
+                                                    <option value="已受理">已受理</option>
+                                                    <option value="處理中">處理中</option>
+                                                    <option value="已回覆">已回覆</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+
+                                </div>
+                            </Lightbox>
 
                         </tbody>
                     </table>
@@ -112,7 +153,8 @@ export default {
             placeholder: '請輸入關鍵字',
         }
     },
-    method: {
+    methods: {
+        //$refs通過這個屬性來訪問元件的屬性或方法
         showLightbox() {
             this.$refs.lightbox.showLightbox = true;
         }
