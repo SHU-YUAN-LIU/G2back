@@ -1,4 +1,7 @@
 <template>
+    <div>
+        <background />
+    </div>
     <div class="login_wrap">
         <div class="login_container">
             <div class="login_logo">
@@ -10,28 +13,28 @@
                 <input type="text" name="memId">
                 <p>密碼</p>
                 <input type="text" name="memPsw">
-                <button type="button" class="btn"><router-link to="/index">登入 ➜</router-link></button>
-                <!-- <button type="submit" class="btn">登入 ➜</button> -->
+                <router-link to="/banner">
+                    <commitButton :commitButton="commit" />
+                </router-link>
             </form>
         </div>
     </div>
-    <background />
 </template>
 <script>
 import background from "../components/background_triangle.vue";
+import commitButton from "../components/commitButton.vue";
 import axios from 'axios';
 
 export default {
     data() {
         return {
             // url: `${import.meta.env.VITE_API_URL}/demo/demo.php`,
+            commit: '登入',
         }
     },
     components: {
         background,
-    },
-    methods: {
-
+        commitButton
     },
     mounted() {
 
@@ -60,7 +63,4 @@ export default {
 
 </script>
 
-<style>
-
-
-</style>
+<style></style>

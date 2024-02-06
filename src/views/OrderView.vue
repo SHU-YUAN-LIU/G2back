@@ -1,5 +1,6 @@
 <template>
     <MainHeader />
+    <Dropdown />
     <div class="mem-bg">
         <div class="mem_wrap-group">
             <div class="mem_wrap">
@@ -29,8 +30,22 @@
                                 <td class="align-middle">處理中</td>
                                 <td class="align-middle">信用卡</td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary" @click="showLightbox">
-                                        修改
+                                    <button @click="showLightbox" class="order-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- 第二行 -->
+                            <tr align="center">
+                                <td class="align-middle">908009123</td>
+                                <td class="align-middle">2024.01.01</td>
+                                <td class="align-middle">賴清德</td>
+                                <td class="align-middle">$3000</td>
+                                <td class="align-middle">處理中</td>
+                                <td class="align-middle">信用卡</td>
+                                <td class="align-middle">
+                                    <button @click="showLightbox" class="order-modify">
+                                        <img src="../../public/images/icon/icon_revise.png" alt="">修改
                                     </button>
                                 </td>
                             </tr>
@@ -87,12 +102,14 @@
   
 <script>
 import MainHeader from '../components/MainHeader.vue'
+import Dropdown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
 import Lightbox from "../components/Lightbox.vue";
 export default {
     components: {
         MainHeader,
+        Dropdown,
         switch_btn,
         SearchBtn,
         Lightbox
@@ -104,6 +121,7 @@ export default {
         }
     },
     methods: {
+        //$refs通過這個屬性來訪問元件的屬性或方法
         showLightbox() {
             this.$refs.lightbox.showLightbox = true;
         }
