@@ -91,7 +91,7 @@
 import MainHeader from "../components/MainHeader.vue";
 import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
-import Search from "../components/SearchBtn.vue"
+import Search from "../components/SearchBtn.vue";
 export default {
     data() {
         return {

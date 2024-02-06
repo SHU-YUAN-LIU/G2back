@@ -44,7 +44,7 @@
                     </li>
                     <!-- 捐款查詢 -->
                     <li class="nav-item">
-                        <a class="nav-link disabled text-dark" href="#">捐款查詢</a>
+                        <RouterLink class="dropdown-item text-dark" to="donate">捐款查詢</RouterLink>
                     </li>
                     <!-- 陳情查詢 -->
                     <li class="nav-item">
