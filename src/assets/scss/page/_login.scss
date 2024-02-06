@@ -5,8 +5,8 @@
     align-items: center;
 
     .login_container {
-        width: 800px;
-        height: 500px;
+        width: 900px;
+        height: 600px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -16,12 +16,18 @@
         box-shadow: 0 15px 30px rgba(0, 0, 0, .2),
             0 10px 10px rgba(0, 0, 0, .2);
 
+
         .login_logo {
             max-width: 200px;
+            position: relative;
+            top: 0px;
+
 
             img {
                 width: 100%;
             }
+
+
         }
 
         .login_form {
@@ -30,6 +36,10 @@
 
             input {
                 @include input_1;
+            }
+
+            p {
+                margin-bottom: 0px;
             }
         }
 

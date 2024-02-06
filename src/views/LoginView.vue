@@ -1,4 +1,7 @@
 <template>
+    <div>
+        <background />
+    </div>
     <div class="login_wrap">
         <div class="login_container">
             <div class="login_logo">
@@ -16,7 +19,6 @@
             </form>
         </div>
     </div>
-    <background />
 </template>
 <script>
 import background from "../components/background_triangle.vue";

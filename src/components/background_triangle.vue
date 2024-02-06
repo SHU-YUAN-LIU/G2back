@@ -7,8 +7,9 @@
 
 <style scoped lang="scss">
 @import "../assets/scss/base/_color.scss";
-.background_triangle{
-  z-index: -1;
+
+.background_triangle {
+  z-index: -100;
   width: 100%;
   position: fixed;
   top: 0;
@@ -16,20 +17,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  div{
+
+  div {
     height: 250px;
   }
 
-  .triangle_top{
+  .triangle_top {
     clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
     background: $orange;
   }
-  .triangle_bottom{
+
+  .triangle_bottom {
     clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
     background: $green;
   }
 }
-
-
 </style>

@@ -1,6 +1,10 @@
-foo + bar {
-  color: red;
-}/*# sourceMappingURL=index.css.map */tyle-type: none;
+#navbar {
+  width: 80%;
+  height: 23px;
+}
+
+#navbar ul {
+  list-style-type: none;
 }
 
 #navbar li {
