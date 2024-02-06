@@ -124,8 +124,8 @@
       </div>
     </div>
   </div>
-  <Lightbox class="memberlightbox" ref="lightbox" >
-    
+  <Lightbox class="memberlightbox" lightboxType="false" ref="lightbox">
+
     <div class="admin_lightbox" style="overflow-y: scroll;">
       <p>
         <span>建立日期: </span>
@@ -143,7 +143,7 @@
         </tr>
         <tr>
           <td>姓名:</td>
-          <td><input type="text" value="王小明"></td>
+          <td><input id="member_name" type="text" value="王小明"></td>
         </tr>
         <tr>
           <td>生日:</td>
@@ -182,9 +182,10 @@
           <td>點數:</td>
           <td><input type="text" value="999"></td>
         </tr>
-        
+
       </table>
     </div>
+    <button id="updateMemberData" @click="updateData">修改</button>
   </Lightbox>
 </template>
 
@@ -212,7 +213,28 @@ export default {
   methods: {
     showLightbox() {
       this.$refs.lightbox.showLightbox = true;
-    }
+    },
+    updateData() {
+      let memberData = {
+        member_name: document.getElementById("member_name").value,
+      };
+      let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
+      fetch(url, {
+        method: 'post',
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(memberData)
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (!result.error) {
+            alert(result.msg)
+            this.$refs.lightbox.showLightbox = false
+          }
+        })
+        .catch(error => console.log(error))
+    },
   },
 
 }
