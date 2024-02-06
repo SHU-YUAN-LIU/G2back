@@ -6,8 +6,6 @@
         <div class="mem_wrap-group">
             <div class="mem_wrap">
                 <!-- 搜尋 -->
-
-                <!-- ----------------------------------------------------- -->
                 <div class="mem-info">
                     <table class="table">
                         <thead>
