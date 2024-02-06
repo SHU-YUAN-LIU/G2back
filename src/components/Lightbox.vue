@@ -1,6 +1,6 @@
 <template>
   <div class="lightbox_bg" v-if="showLightbox">
-    <div class="lightbox_content">
+    <div class="lightbox_content" >
       <slot></slot>
       <div class="lightbox_btn">
         <button>新增</button>
