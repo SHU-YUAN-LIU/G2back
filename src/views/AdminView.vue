@@ -120,7 +120,9 @@ export default{
     width: 80%;
     p{
         display: flex;
-        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 0;
+
         span:nth-child(1){
             width: 200px;
         }
@@ -143,6 +145,10 @@ export default{
             line-height: 40px;
             display: flex;
             justify-content: space-evenly;
+
+            tr+tr{
+                margin-top: 20px;
+            }
             
             td{
                 text-align: center;

@@ -58,7 +58,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <RouterLink class="dropdown-item text-dark" to="member">會員管理</RouterLink>
-                            <a class="dropdown-item text-dark" href="../views/AdminView.vue">管理員管理</a>
+                            <RouterLink class="dropdown-item text-dark" to="admin">管理員管理</RouterLink>
                             <RouterLink class="dropdown-item text-dark" to="cadre">幹部管理</RouterLink>
                         </div>
                     </li>

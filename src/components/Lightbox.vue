@@ -3,7 +3,8 @@
     <div class="lightbox_content">
       <slot></slot>
       <div class="lightbox_btn">
-        <button v-if="lightboxType">新增</button>
+        <!-- 新增v-if條件判斷, 如果點擊修改才會有儲存按鈕 -->
+        <button v-if="lightboxType">儲存</button>
         <button @click="closeLightbox">返回</button>
       </div>
     </div>
@@ -18,6 +19,7 @@ export default{
       lightboxType:false,
     };
   },
+  // 新增props變數lightboxType, 如果頁面是修改按鈕在頁面導入元件時回傳true, 查閱按鈕回傳false
   props:['lightboxType',],
   methods: {
     closeLightbox(){
