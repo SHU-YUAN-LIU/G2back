@@ -1,7 +1,7 @@
 <template>
     <MainHeader />
     <Dropdown />
-
+    <SearchBtn />
     <div class="admin">
         <div class="admin_container">
             <table>
@@ -30,6 +30,7 @@
             </table>
         </div>
     </div>
+
     <!-- 燈箱 -->
     <Lightbox ref="lightbox">
         <div class="admin_lightbox">
@@ -80,6 +81,7 @@
 <script>
 import MainHeader from "../components/MainHeader.vue";
 import Dropdown from "../components/Dropdown.vue";
+import SearchBtn from "../components/SearchBtn.vue";
 import Lightbox from "../components/Lightbox.vue";
 export default {
     data() {
@@ -95,6 +97,7 @@ export default {
     components: {
         MainHeader,
         Dropdown,
+        SearchBtn,
         Lightbox,
     },
     methods: {
