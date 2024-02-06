@@ -15,16 +15,16 @@
                     <td>操作</td>
                 </thead>
                 <tbody>
-                    <tr :key="index" v-for="index in 35">
-                        <td class="admin_id">231411424</td>
-                        <td class="admin_name">王小明</td>
-                        <td class="admin_class">超級管理員</td>
+                    <tr v-for="item in admindata">
+                        <td class="admin_id">{{ item.admin_no }}</td>
+                        <td class="admin_name">{{ item.admin_name }}</td>
+                        <td class="admin_class">{{ getleveldata(item.admin_level) }}</td>
                         <td class="admin_status">
                             <SwitchBtn />
                         </td>
                         <td class="admin_operate">
                             <button @click="showLightbox">
-                                <img src="../../public/images/icon/icon_revise.png" alt="">修改
+                                <img src="/images/icon/icon_revise.png" alt="">修改
                             </button>
                         </td>
                     </tr>
@@ -84,6 +84,7 @@
 
 
 <script>
+import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
@@ -91,12 +92,7 @@ import Search from "../components/SearchBtn.vue"
 export default {
     data() {
         return {
-            adminAccount: [
-                {
-                    id: 231411424,
-                    name: "王小明"
-                }
-            ]
+            admindata: [],
         };
     },
     components: {
@@ -105,12 +101,32 @@ export default {
         SwitchBtn,
         Search,
     },
+    created() {
+        this.getData();
+    },
     methods: {
         showLightbox() {
             this.$refs.lightbox.showLightbox = true;
             document.body.style.overflow = 'hidden';
+        },
+        getData() {
+            axios.get(`${import.meta.env.VITE_API_URL}` + "/adminDataGetAll.php")
+                .then(res => {
+                    this.admindata = res.data.admins;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        },
+        getleveldata(admin_level) {
+            if (admin_level == 0) {
+                return "超級管理員";
+            }
+            else if (admin_level == 1) {
+                return "一般管理員";
+            };
         }
-    },
+    }
 }
 </script>
 
