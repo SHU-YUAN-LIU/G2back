@@ -26,7 +26,7 @@
             </div> -->
           </li>
           <li>
-            <router-link to="#">捐款查詢</router-link>
+            <router-link to="donate">捐款查詢</router-link>
           </li>
           <li class="dropdown">
             <span>帳戶管理 ❯</span>
