@@ -138,7 +138,6 @@ export default {
   methods: {
     showLightbox(id) {
       this.$refs.lightbox.showLightbox = true;
-
       // console.log(id);
       this.currentlightbox = this.memberdata.filter((item) => {
         return item.member_no == id
