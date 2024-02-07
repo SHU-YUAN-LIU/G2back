@@ -109,7 +109,7 @@
                     <strong>陳情日期:</strong>
                     <span>2024/1/1</span>
                 </div>
-                <hr>
+                <p class="contact-title ">詳細資訊</p>
                 <div class="contact-row">
                     <strong>陳情編號:</strong>
                     <span>908099</span>
@@ -131,11 +131,6 @@
                 </div>
                 <hr>
                 <div class="contact-row">
-                    <strong>陳情主旨:</strong>
-                    <span>我要週休三日</span>
-                </div>
-                <hr>
-                <div class="contact-row">
                     <strong>陳情狀態:</strong>
                     <select class="form-select">
                         <option selected></option>
@@ -143,6 +138,11 @@
                         <option value="2">處理中</option>
                         <option value="3">已回覆</option>
                     </select>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情主旨:</strong>
+                    <span>我要週休三日</span>
                 </div>
                 <hr>
                 <div class="contact-row">

@@ -113,5 +113,9 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
+        &:first-child {
+            margin-bottom: 12px;
+        }
     }
 }
