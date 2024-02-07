@@ -3,8 +3,9 @@
     <dropDown />
     <div class="admin">
         <div class="admin_container">
-            <div>
+            <div class="admin-btn">
                 <Search :placeholder="placeholder" />
+                <addBtn />
             </div>
             <div class="admin_table">
                 <table class="table table-hover" style="position: relative;">
@@ -59,7 +60,7 @@
                 <hr>
                 <div class="admin-row">
                     <strong>管理員姓名:</strong>
-                    <input type="text" v-model="lightboxdata.admin_name">
+                    <input class="form-control" type="text" placeholder="請輸入姓名" v-model="lightboxdata.admin_name">
                 </div>
                 <hr>
                 <div class="admin-row">
@@ -73,7 +74,7 @@
                 <hr>
                 <div class="admin-row">
                     <strong>密碼:</strong>
-                    <input type="text" v-model="lightboxdata.admin_psw">
+                    <input class="form-control" type="text" placeholder=" 請輸入密碼" v-model="lightboxdata.admin_psw">
                 </div>
                 <hr>
                 <div class="admin-row">
@@ -90,54 +91,6 @@
                     <span>{{ lightboxdata.admin_hiredate }}</span>
                 </div>
             </div>
-            <!-- --------------------------------- -->
-            <!-- 以下是原本的 以下是原本的 以下是原本的 以下是原本的 以下是原本的-->
-            <!-- <p>
-                <span>最後修改人: </span>
-                <span>{{ lightboxdata.modifier_name }}</span>
-            </p>
-            <p>
-                <span>最後修改日期: </span>
-                <span>{{ lightboxdata.modify_date }}</span>
-            </p>
-
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>管理員編號</td>
-                    <td>{{ lightboxdata.admin_no }}</td>
-                </tr>
-                <tr>
-                    <td>管理員姓名</td>
-                    <td><input type="text" v-model="lightboxdata.admin_name"></td>
-                </tr>
-                <tr>
-                    <td>狀態</td>
-                    <td>
-                        <select v-model="lightboxdata.status">
-                            <option value="A">啟用</option>
-                            <option value="IA">停用</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>密碼: </td>
-                    <td><input type="text" v-model="lightboxdata.admin_psw"></td>
-                </tr>
-                <tr>
-                    <td>權限等級: </td>
-                    <td><select v-model="lightboxdata.admin_level">
-                            <option value="1">一般管理員</option>
-                            <option value="0">超級管理員</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>入職日期: </td>
-                    <td>{{ lightboxdata.admin_hiredate }}</td>
-                </tr>
-            </table> -->
-            <!-- 以上是原本的 以上是原本的 以上是原本的 以上是原本的 以上是原本的-->
         </div>
     </Lightbox>
 </template>
@@ -150,6 +103,7 @@ import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
 import Search from "../components/SearchBtn.vue";
 import dropDown from "../components/Dropdown.vue";
+import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
@@ -164,6 +118,7 @@ export default {
         SwitchBtn,
         Search,
         dropDown,
+        addBtn,
     },
     created() {
         this.getData();
