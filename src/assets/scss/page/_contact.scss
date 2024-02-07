@@ -2,13 +2,16 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 270px;
+    // left: 270px;
+    left: 20%;
     right: 0;
     background-color: $gray_1;
-    z-index: -1;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
+    // border: 5px solid rgb(255, 0, 162);
+    margin-top: 80px;
 
     .contact_container {
         display: flex;
@@ -16,16 +19,24 @@
         align-items: flex-start;
         justify-content: center;
         z-index: 50;
+        height: 80%;
+        width: 80%;
+        // border: 2px solid blue;
+
+
 
         .contact_table {
-            height: 400px;
             overflow-y: scroll;
             top: 0;
             bottom: 0;
             background: $white;
+            height: 100%;
+            width: 100%;
+            // border: 2px solid red;
+
 
             table {
-                width: 800px;
+                width: 100%;
 
                 td {
                     text-align: center;
@@ -38,50 +49,57 @@
                     line-height: 50px;
                 }
 
-                tr {
-                    td.contact_status {
+                td.contact_operate {
+                    button {
+                        background: none;
+                        border: none;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                    }
+                        margin: auto;
+                        position: relative;
+                        // top: 10px;
 
-                    td.contact_operate {
-                        button {
-                            background: none;
-                            border: none;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin: auto;
-                            position: relative;
-                            top: 10px;
-
-                            img {
-                                width: 25px;
-                                height: 25px;
-                                margin-right: 10px;
-                            }
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
                         }
                     }
                 }
+
             }
         }
     }
 }
 
+//燈箱
 .contact_lightbox {
-    width: 650px;
-    border: 2px solid blue;
+    // width: 650px;
+    width: 80%;
+    // height: 80%;
+    // border: 2px solid blue;
 
     .contact-no {
         background: none;
     }
 
-    p {
+    .contact-title {
         width: 100%;
         text-align: center;
         background-color: $black;
         color: $white;
         padding: 8px;
     }
+
+}
+
+.form-select {
+    width: 40% !important;
+}
+
+.form-control {
+    width: 80% !important;
+    display: flex;
+    justify-content: center;
 }
