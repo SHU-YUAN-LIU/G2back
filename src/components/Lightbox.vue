@@ -1,6 +1,6 @@
 <template>
   <div class="lightbox_bg" v-if="showLightbox">
-    <div class="lightbox_content" >
+    <div class="lightbox_content">
       <slot></slot>
       <div class="lightbox_btn">
         <!-- 新增v-if條件判斷, 如果點擊修改才會有儲存按鈕 -->
@@ -12,21 +12,21 @@
 </template>
 
 <script>
-export default{
-  data(){
-    return{
+export default {
+  data() {
+    return {
       showLightbox: false,
-      lightboxType:false,
+      lightboxType: false,
     };
   },
   // 新增props變數lightboxType, 如果頁面是修改按鈕在頁面導入元件時回傳true, 查閱按鈕回傳false
-  props:['lightboxType',],
+  props: ['lightboxType',],
   methods: {
-    closeLightbox(){
+    closeLightbox() {
       this.showLightbox = false;
       document.body.style.overflow = "auto";
     },
-    saveData(){
+    saveData() {
       this.$emit('toSaveData')
     }
   },
@@ -36,7 +36,8 @@ export default{
 
 <style scoped lang="scss">
 @import "../assets/scss/base/_color.scss";
-.lightbox_bg{
+
+.lightbox_bg {
   position: fixed;
   top: 0;
   right: 0;
@@ -48,22 +49,26 @@ export default{
   align-items: center;
   justify-content: center;
 }
-.lightbox_content{
-  width: 900px;
-  height: 500px;
+
+.lightbox_content {
+  // width: 900px;
+  // height: 500px;
+  width: 55%;
+  height: 65%;
   background: white;
   display: flex;
   flex-direction: column;
+  // justify-content: center;
   align-items: center;
-  overflow-y:scroll;
+  overflow-y: scroll;
   padding: 60px 0;
 }
 
-.lightbox_btn{
-  margin-top: 60px;
+.lightbox_btn {
+  margin-top: 30px;
 }
 
-button{
+button {
   width: 180px;
   height: 60px;
   border-radius: 50px;
@@ -71,8 +76,7 @@ button{
   background: none;
 }
 
-button:first-child{
+button:first-child {
   margin-right: 20px;
 }
-
 </style>

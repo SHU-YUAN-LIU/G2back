@@ -3,12 +3,14 @@
     <dropDown />
     <div class="admin">
         <div class="admin_container">
-            <div>
-                <Search />
+            <div class="admin-btn">
+                <Search :placeholder="placeholder" />
+                <addBtn />
             </div>
             <div class="admin_table">
-                <table>
-                    <thead>
+                <table class="table table-hover" style="position: relative;">
+
+                    <thead style="position: sticky; top:0;  z-index: 99;">
                         <td>管理員編號</td>
                         <td>姓名</td>
                         <td>權限等級</td>
@@ -24,8 +26,8 @@
                                 <SwitchBtn />
                             </td>
                             <td class="admin_operate">
-                                <button @click="showLightbox">
-                                    <img src="/images/icon/icon_revise.png" alt="">修改
+                                <button @click="showLightbox(item.admin_no)">
+                                    <img src="/public/images/icon/icon_revise.png" alt="">修改
                                 </button>
                             </td>
                         </tr>
@@ -35,53 +37,60 @@
         </div>
     </div>
 
+
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="admin_lightbox">
-            <p>
-                <span>最後修改人: </span>
-                <span>王小明</span>
-            </p>
-            <p>
-                <span>最後修改日期: </span>
-                <span>2024/1/1</span>
-            </p>
-
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>管理員編號</td>
-                    <td>test001</td>
-                </tr>
-                <tr>
-                    <td>管理員姓名</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>狀態</td>
-                    <td>
-                        <select name="" id="">
-                            <option value="啟用">啟用</option>
-                            <option value="停用">停用</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>密碼: </td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>權限等級: </td>
-                    <td><select name="" id="">
-                            <option value="一般管理員">一般管理員</option>
-                            <option value="超級管理員">超級管理員</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>入職日期: </td>
-                    <td>2024/1/1 00:00:00</td>
-                </tr>
-            </table>
+            <!-- --------------------------------- -->
+            <div class="admin-row-group">
+                <div class="admin-row">
+                    <strong>最後修改人:</strong>
+                    <span>{{ lightboxdata.modifier_name }}</span>
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>最後修改日期:</strong>
+                    <span>{{ lightboxdata.modify_date }}</span>
+                </div>
+                <p class="admin-title ">詳細資訊</p>
+                <div class="admin-row">
+                    <strong>管理員編號:</strong>
+                    <span>{{ lightboxdata.admin_no }}</span>
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>管理員姓名:</strong>
+                    <input class="form-control" type="text" placeholder="請輸入姓名" v-model="lightboxdata.admin_name">
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>狀態:</strong>
+                    <select class="form-select" v-model="lightboxdata.status">
+                        <option selected></option>
+                        <option value="A">啟用</option>
+                        <option value="IA">停用</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>密碼:</strong>
+                    <input class="form-control" type="text" placeholder=" 請輸入密碼" v-model="lightboxdata.admin_psw">
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>權限等級:</strong>
+                    <select class="form-select" v-model="lightboxdata.admin_level">
+                        <option selected></option>
+                        <option value="1">一般管理員</option>
+                        <option value="0">超級管理員</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>入職日期:</strong>
+                    <span>{{ lightboxdata.admin_hiredate }}</span>
+                </div>
+            </div>
         </div>
     </Lightbox>
 </template>
@@ -94,10 +103,13 @@ import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
 import Search from "../components/SearchBtn.vue";
 import dropDown from "../components/Dropdown.vue";
+import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
             admindata: [],
+            lightboxdata: [],
+            lightbox_num: 0,
         };
     },
     components: {
@@ -106,15 +118,20 @@ export default {
         SwitchBtn,
         Search,
         dropDown,
+        addBtn,
     },
     created() {
         this.getData();
     },
     methods: {
-        showLightbox() {
+        showLightbox(admin_no) {
             this.$refs.lightbox.showLightbox = true;
+            this.lightbox_num = admin_no;
+            this.lightboxdata = this.admindata.find(item => item.admin_no == admin_no);
+            // console.log(this.admindata);
             document.body.style.overflow = 'hidden';
         },
+
         getData() {
             axios.get(`${import.meta.env.VITE_API_URL}` + "/adminDataGetAll.php")
                 .then(res => {
