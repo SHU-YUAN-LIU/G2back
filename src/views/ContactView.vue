@@ -39,7 +39,7 @@
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="contact_lightbox">
-            <div class="mb-3 row">
+            <!-- <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label "><strong>陳情日期:</strong></label>
                 <div class="col-sm-10">
                     <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="2024/1/1">
@@ -99,8 +99,65 @@
             <div class="mb-3 row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"><strong>回覆內容:</strong></label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+            </div> -->
+
+
+
+            <!-- --------------------------------- -->
+            <div class="contact-row-group">
+                <div class="contact-row">
+                    <strong>陳情日期:</strong>
+                    <span>2024/1/1</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情編號:</strong>
+                    <span>908099</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>會員名稱:</strong>
+                    <span>黑崎一護</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>會員編號:</strong>
+                    <span>87878787</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>電子信箱:</strong>
+                    <span>andy123@yahoo.com.tw</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情主旨:</strong>
+                    <span>我要週休三日</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情狀態:</strong>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option value="1">已受理</option>
+                        <option value="2">處理中</option>
+                        <option value="3">已回覆</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>回覆內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
             </div>
+            <!-- --------------------------------- -->
         </div>
+
     </Lightbox>
 </template>
 

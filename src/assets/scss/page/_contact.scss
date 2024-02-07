@@ -103,3 +103,15 @@
     display: flex;
     justify-content: center;
 }
+
+.contact-row-group {
+    text-align: start;
+
+    .contact-row {
+        text-wrap: nowrap;
+        gap: 45px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
