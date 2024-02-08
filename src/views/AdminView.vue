@@ -4,7 +4,7 @@
     <div class="admin">
         <div class="admin_container">
             <div class="admin-btn">
-                <SearchBtn :placeholder="'placeholder'" />
+                <SearchBtn :placeholder="'請輸入管理員編號'" @toSearchData="searchdata" />
                 <addBtn @click="showLightbox(2, 0)" />
             </div>
             <div class="admin_table">
@@ -18,12 +18,12 @@
                         <td>操作</td>
                     </thead>
                     <tbody>
-                        <tr v-for="item in admindata">
+                        <tr v-for="item in findadmindata">
                             <td class="admin_id">{{ item.admin_no }}</td>
                             <td class="admin_name">{{ item.admin_name }}</td>
                             <td class="admin_lavel">{{ getleveldata(item.admin_level) }}</td>
                             <td class="admin_status">
-                                <SwitchBtn />
+                                <SwitchBtn :ischecked="item.status == 'A'" @change="changestatus(item.admin_no,item.status)"/>
                             </td>
                             <td class="admin_operate">
                                 <button @click="showLightbox(1, item.admin_no)">
@@ -38,7 +38,7 @@
     </div>
 
     <!-- 修改燈箱架構 -->
-    <Lightbox ref="lightbox1" :lightboxType="true">
+    <Lightbox ref="lightbox1" :lightboxType="true" @toSaveData="savedata(lightboxdata.admin_no)">
         <div class="admin_lightbox">
             <!-- --------------------------------- -->
             <div class="admin-row-group">
@@ -142,8 +142,13 @@ export default {
         return {
             placeholder: '請輸入管理員編號',
             admindata: [],
+            findadmindata: [],
             lightboxdata: [],
-            insertdata: {},
+            updatedata: {},
+            insertdata: {
+                status: "A",
+                admin_level: "1"
+            },
             lightbox_num: 0,
         };
     },
@@ -167,9 +172,8 @@ export default {
             this.$refs[`lightbox${id}`].showLightbox = true;
             if (admin_no > 0) {
                 this.lightbox_num = admin_no;
-                this.lightboxdata = this.admindata.find(item => item.admin_no == admin_no);
+                this.lightboxdata = this.findadmindata.find(item => item.admin_no == admin_no);
             }
-            // console.log(this.admindata);
             document.body.style.overflow = 'hidden';
         },
 
@@ -177,6 +181,7 @@ export default {
             axios.get(`${import.meta.env.VITE_API_URL}` + "/adminDataGetAll.php")
                 .then(res => {
                     this.admindata = res.data.admins;
+                    this.findadmindata = res.data.admins;
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
@@ -191,17 +196,54 @@ export default {
             };
         },
         inserdata() {
-            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataInsert.php",this.insertdata)
+            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataInsert.php", this.insertdata)
                 .then(res => {
-                    // this.admindata = res.data.admins;
                     console.log('insert data:', res.data.msg);
                     this.$refs[`lightbox2`].showLightbox = false;
-                    this.insertdata ={};
+                    this.insertdata = {
+                        status: "A",
+                        admin_level: "1"
+                    };
                     this.getData();
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
+        },
+        searchdata(value) {
+            this.findadmindata = this.admindata.filter((item) => {
+                return item.admin_no.toString().includes(value);
+            })
+        },
+        savedata(admin_no) {
+            this.updatedata = this.findadmindata.find(item => item.admin_no == admin_no);
+
+            //因為從表單獲取時是字串 必須全部換回int欄位
+            this.updatedata.admin_no = parseInt(this.updatedata.admin_no);
+            this.updatedata.admin_level = parseInt(this.updatedata.admin_level);
+            this.updatedata.creator = parseInt(this.updatedata.creator);
+            this.updatedata.modifier = parseInt(this.updatedata.modifier);
+
+            console.log( this.updatedata);
+            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataUpdate.php", this.updatedata)
+                .then(res => {
+                    console.log('insert data:', res.data.msg);
+                    this.$refs[`lightbox1`].showLightbox = false;
+                    this.updatedata = {};
+                    this.getData();
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        },
+        changestatus(admin_no,status){
+            if (status == "A"){
+                this.findadmindata.find(item => item.admin_no == admin_no).status = "IA";
+            }else
+            {
+                this.findadmindata.find(item => item.admin_no == admin_no).status = "A";
+            }
+            this.savedata(admin_no);
         }
     }
 }
