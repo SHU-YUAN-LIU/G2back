@@ -23,7 +23,8 @@
                             <td class="admin_name">{{ item.admin_name }}</td>
                             <td class="admin_lavel">{{ getleveldata(item.admin_level) }}</td>
                             <td class="admin_status">
-                                <SwitchBtn :ischecked="item.status == 'A'" @change="changestatus(item.admin_no,item.status)"/>
+                                <SwitchBtn :ischecked="item.status == 'A'"
+                                    @change="changestatus(item.admin_no, item.status)" />
                             </td>
                             <td class="admin_operate">
                                 <button @click="showLightbox(1, item.admin_no)">
@@ -42,7 +43,8 @@
         <div class="admin_lightbox">
             <!-- --------------------------------- -->
             <div class="admin-row-group">
-                <div class="admin-row">
+                <div class="
+                .">
                     <strong>最後修改人:</strong>
                     <span>{{ lightboxdata.modifier_name }}</span>
                 </div>
@@ -224,7 +226,7 @@ export default {
             this.updatedata.creator = parseInt(this.updatedata.creator);
             this.updatedata.modifier = parseInt(this.updatedata.modifier);
 
-            console.log( this.updatedata);
+            console.log(this.updatedata);
             axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataUpdate.php", this.updatedata)
                 .then(res => {
                     console.log('insert data:', res.data.msg);
@@ -236,11 +238,10 @@ export default {
                     console.error('Error fetching data:', error);
                 });
         },
-        changestatus(admin_no,status){
-            if (status == "A"){
+        changestatus(admin_no, status) {
+            if (status == "A") {
                 this.findadmindata.find(item => item.admin_no == admin_no).status = "IA";
-            }else
-            {
+            } else {
                 this.findadmindata.find(item => item.admin_no == admin_no).status = "A";
             }
             this.savedata(admin_no);

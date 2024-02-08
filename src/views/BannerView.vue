@@ -71,6 +71,8 @@
         </div>
     </Lightbox>
 </template>
+
+
 <script>
 import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
