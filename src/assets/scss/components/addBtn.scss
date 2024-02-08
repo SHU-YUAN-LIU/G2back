@@ -1,0 +1,16 @@
+.btn-outline-primary {
+    border-radius: 50px !important;
+    background-color: $white !important;
+    width: 100px !important;
+    transition: all .2s ease-in-out !important;
+    outline: 1px solid transparent !important;
+    border: 1.3px solid $orange !important;
+
+
+    &:hover {
+        color: $orange !important;
+        outline: 1px solid $orange !important;
+        border: 1.3px solid $orange !important;
+    }
+
+}

@@ -3,8 +3,10 @@
         <!-- 左邊選單 -->
         <nav class="flex-column  navbar-expand-lg navbar-light bg-* header_left">
             <!-- logo -->
-            <img class="navbar-brand logoImg" src="../assets/image/login/logo.png" alt="" width="169" height="125">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="logoImg">
+                <img class="navbar-brand " src="../assets/image/login/logo.png" alt="" width="169" height="125">
+            </div>
+            <div class="collapse navbar-collapse header-info" id="navbarSupportedContent">
                 <ul class="flex-column navbar-nav mr-auto">
                     <!-- 消息管理 -->
                     <li class="nav-item dropdown">

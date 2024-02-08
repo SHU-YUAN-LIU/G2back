@@ -1,14 +1,16 @@
 <template>
     <MainHeader />
-    <dropDown />
+    <Dropdown />
     <div class="contact">
         <div class="contact_container">
+            <!-- 搜尋 -->
             <div>
-                <Search />
+                <SearchBtn :placeholder="placeholder" />
             </div>
             <div class="contact_table">
-                <table>
-                    <thead>
+                <table class="table table-hover" style="position: relative;">
+
+                    <thead style="position: sticky; top:0;  z-index: 99;">
                         <td>陳情編號</td>
                         <td>陳情日期</td>
                         <td>陳情者姓名</td>
@@ -38,28 +40,59 @@
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="contact_lightbox">
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">陳情編號</label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail"
-                        value="email@example.com">
+            <div class="contact-row-group">
+                <div class="contact-row">
+                    <strong>陳情日期:</strong>
+                    <span>2024/1/1</span>
                 </div>
-            </div>
-            <p>詳細資訊</p>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">陳情編號</label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail"
-                        value="email@example.com">
+                <p class="contact-title ">詳細資訊</p>
+                <div class="contact-row">
+                    <strong>陳情編號:</strong>
+                    <span>908099</span>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword">
+                <hr>
+                <div class="contact-row">
+                    <strong>會員名稱:</strong>
+                    <span>黑崎一護</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>會員編號:</strong>
+                    <span>87878787</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>電子信箱:</strong>
+                    <span>andy123@yahoo.com.tw</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情狀態:</strong>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option value="1">已受理</option>
+                        <option value="2">處理中</option>
+                        <option value="3">已回覆</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情主旨:</strong>
+                    <span>我要週休三日</span>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>陳情內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+                <hr>
+                <div class="contact-row">
+                    <strong>回覆內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
             </div>
         </div>
+
     </Lightbox>
 </template>
 
@@ -69,19 +102,84 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-import Search from "../components/SearchBtn.vue";
-import dropDown from "../components/Dropdown.vue";
+import SearchBtn from "../components/SearchBtn.vue";
+import Dropdown from "../components/Dropdown.vue";
 export default {
     data() {
         return {
+            placeholder: '請輸入標題或關鍵字',
             contactdata: [
                 {
                     contact_id: '1',
                     contact_date: '2024/.1.01',
-                    contact_name: '葳哥',
+                    contact_name: '葳利炸醬麵',
+                    contact_title: '我要睡覺',
+                    contact_status: '我要睡覺',
+                },
+                {
+                    contact_id: '2',
+                    contact_date: '2024/.1.01',
+                    contact_name: '柏昇高體重',
                     contact_title: '我要睡覺',
                     contact_status: '處理中',
-                }
+                },
+                {
+                    contact_id: '3',
+                    contact_date: '2024/.1.01',
+                    contact_name: '磬亮晶晶',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '4',
+                    contact_date: '2024/.1.01',
+                    contact_name: '欣慧切版',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '5',
+                    contact_date: '2024/.1.01',
+                    contact_name: '蕙伃尾巴',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '6',
+                    contact_date: '2024/.1.01',
+                    contact_name: '旻璇轉跳躍',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '7',
+                    contact_date: '2024/.1.01',
+                    contact_name: '函果伃',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '8',
+                    contact_date: '2024/.1.01',
+                    contact_name: '蔡英文',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '9',
+                    contact_date: '2024/.1.01',
+                    contact_name: '柯文哲',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+                {
+                    contact_id: '10',
+                    contact_date: '2024/.1.01',
+                    contact_name: '王世堅',
+                    contact_title: '我要睡覺',
+                    contact_status: '處理中',
+                },
+
             ],
         };
     },
@@ -89,10 +187,13 @@ export default {
         MainHeader,
         Lightbox,
         SwitchBtn,
-        Search,
-        dropDown,
+        SearchBtn,
+        Dropdown,
     },
     created() {
+    },
+    mounted() {
+        document.title = "青年進補黨(後台) - 陳情查詢";
     },
     methods: {
         showLightbox() {
