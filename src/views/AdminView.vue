@@ -65,7 +65,6 @@
                 <div class="admin-row">
                     <strong>狀態:</strong>
                     <select class="form-select" v-model="lightboxdata.status">
-                        <option selected></option>
                         <option value="A">啟用</option>
                         <option value="IA">停用</option>
                     </select>
@@ -79,7 +78,6 @@
                 <div class="admin-row">
                     <strong>權限等級:</strong>
                     <select class="form-select" v-model="lightboxdata.admin_level">
-                        <option selected></option>
                         <option value="1">一般管理員</option>
                         <option value="0">超級管理員</option>
                     </select>
@@ -94,33 +92,33 @@
     </Lightbox>
 
     <!-- 新增燈箱架構 -->
-    <Lightbox ref="lightbox2" :lightboxType="true">
+    <Lightbox ref="lightbox2" :lightboxType="true" @toSaveData="inserdata()">
         <div class="admin_lightbox">
             <!-- --------------------------------- -->
             <div class="admin-row-group">
                 <p class="admin-title ">詳細資訊</p>
                 <div class="admin-row">
                     <strong>管理員姓名:</strong>
-                    <input class="form-control" type="text" placeholder="請輸入姓名">
+                    <input class="form-control" type="text" placeholder="請輸入姓名" v-model="insertdata.admin_name">
                 </div>
                 <hr>
                 <div class="admin-row">
                     <strong>狀態:</strong>
-                    <select class="form-select">
-                        <option value="A" selected>啟用</option>
+                    <select class="form-select" v-model="insertdata.status">
+                        <option value="A">啟用</option>
                         <option value="IA">停用</option>
                     </select>
                 </div>
                 <hr>
                 <div class="admin-row">
                     <strong>密碼:</strong>
-                    <input class="form-control" type="text" placeholder=" 請輸入密碼">
+                    <input class="form-control" type="text" placeholder=" 請輸入密碼" v-model="insertdata.admin_psw">
                 </div>
                 <hr>
                 <div class="admin-row">
                     <strong>權限等級:</strong>
-                    <select class="form-select">
-                        <option value="1" selected>一般管理員</option>
+                    <select class="form-select" v-model="insertdata.admin_level">
+                        <option value="1">一般管理員</option>
                         <option value="0">超級管理員</option>
                     </select>
                 </div>
@@ -145,6 +143,7 @@ export default {
             placeholder: '請輸入管理員編號',
             admindata: [],
             lightboxdata: [],
+            insertdata: {},
             lightbox_num: 0,
         };
     },
@@ -190,6 +189,19 @@ export default {
             else if (admin_level == 1) {
                 return "一般管理員";
             };
+        },
+        inserdata() {
+            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataInsert.php",this.insertdata)
+                .then(res => {
+                    // this.admindata = res.data.admins;
+                    console.log('insert data:', res.data.msg);
+                    this.$refs[`lightbox2`].showLightbox = false;
+                    this.insertdata ={};
+                    this.getData();
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
         }
     }
 }
