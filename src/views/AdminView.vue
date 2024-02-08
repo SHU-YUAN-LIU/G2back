@@ -4,8 +4,8 @@
     <div class="admin">
         <div class="admin_container">
             <div class="admin-btn">
-                <Search :placeholder="placeholder" />
-                <addBtn />
+                <Search :placeholder="'placeholder'" />
+                <addBtn @click="showLightbox(2, 0)" />
             </div>
             <div class="admin_table">
                 <table class="table table-hover" style="position: relative;">
@@ -26,7 +26,7 @@
                                 <SwitchBtn />
                             </td>
                             <td class="admin_operate">
-                                <button @click="showLightbox(item.admin_no)">
+                                <button @click="showLightbox(1, item.admin_no)">
                                     <img src="/public/images/icon/icon_revise.png" alt="">修改
                                 </button>
                             </td>
@@ -37,9 +37,8 @@
         </div>
     </div>
 
-
-    <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <!-- 修改燈箱架構 -->
+    <Lightbox ref="lightbox1" :lightboxType="true">
         <div class="admin_lightbox">
             <!-- --------------------------------- -->
             <div class="admin-row-group">
@@ -93,6 +92,42 @@
             </div>
         </div>
     </Lightbox>
+
+    <!-- 新增燈箱架構 -->
+    <Lightbox ref="lightbox2" :lightboxType="true">
+        <div class="admin_lightbox">
+            <!-- --------------------------------- -->
+            <div class="admin-row-group">
+                <p class="admin-title ">詳細資訊</p>
+                <div class="admin-row">
+                    <strong>管理員姓名:</strong>
+                    <input class="form-control" type="text" placeholder="請輸入姓名" >
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>狀態:</strong>
+                    <select class="form-select">
+                        <option value="A" selected>啟用</option>
+                        <option value="IA">停用</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>密碼:</strong>
+                    <input class="form-control" type="text" placeholder=" 請輸入密碼">
+                </div>
+                <hr>
+                <div class="admin-row">
+                    <strong>權限等級:</strong>
+                    <select class="form-select">
+                        <option value="1" selected>一般管理員</option>
+                        <option value="0">超級管理員</option>
+                    </select>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </Lightbox>
 </template>
 
 
@@ -124,10 +159,13 @@ export default {
         this.getData();
     },
     methods: {
-        showLightbox(admin_no) {
-            this.$refs.lightbox.showLightbox = true;
-            this.lightbox_num = admin_no;
-            this.lightboxdata = this.admindata.find(item => item.admin_no == admin_no);
+        showLightbox(id, admin_no) {
+            // lightbox1
+            this.$refs[`lightbox${id}`].showLightbox = true;
+            if (admin_no > 0) {
+                this.lightbox_num = admin_no;
+                this.lightboxdata = this.admindata.find(item => item.admin_no == admin_no);
+            }
             // console.log(this.admindata);
             document.body.style.overflow = 'hidden';
         },
