@@ -1,8 +1,3 @@
-.news_search {
-    position:relative;
-    left: 300px;
-    margin-bottom: 30px;
-}
 .news {
     width: 80%;
     position: absolute;
@@ -11,48 +6,47 @@
     justify-content: center;
     z-index: 50;
     .news_container {
-        height: 650px;
-        overflow-y: scroll;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        table {
-            width: 1000px;
-            border: 1px solid #000;
-            td {
-                text-align: center;
-            }
-            td.news_pic {
-                padding: 10px 0;
-            }
-            thead {
-                background: #000;
-                color: $white;
-                height: 50px;
-                line-height: 50px;
-            }
-    
-            tr {
-                td.news_status {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+        .news_table {
+            overflow-y: scroll;
+            height: 650px;
+            table {
+                width: 1000px;
+                border: 1px solid #000;
+                td {
+                    text-align: center;
                 }
-    
-                td.news_operate {
-                    button {
-                        background: none;
-                        border: none;
+                td.news_pic {
+                    padding: 10px 0;
+                }
+                thead {
+                    background: #000;
+                    color: $white;
+                    height: 50px;
+                    line-height: 50px;
+                }
+        
+                tr {
+                    td.news_status {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin: auto;
-                        position: relative;
-                        top: 10px;
-                        img {
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 10px;
+                    }
+        
+                    td.news_operate {
+                        button {
+                            background: none;
+                            border: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: auto;
+                            position: relative;
+                            top: 10px;
+                            img {
+                                width: 25px;
+                                height: 25px;
+                                margin-right: 10px;
+                            }
                         }
                     }
                 }
