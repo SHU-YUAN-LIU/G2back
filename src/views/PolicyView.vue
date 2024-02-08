@@ -30,21 +30,44 @@
             </div>
         </div>
     </div>
+    <!-- 燈箱架構 -->
+    <Lightbox ref="lightbox" lightboxType="true">
+        <div class="policy_lightbox">
+            <div class="policy-row-group">
+                <p class="policy-title ">詳細資訊</p>
+                <div class="policy-row">
+                    <strong>政策主旨:</strong>
+                    <input class="form-control" type="text" value="房屋改革">
+                </div>
+                <hr>
+                <div class="policy-row">
+                    <strong>政策內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"
+                        value="政策內容政策內容政策內容政策內容政策內容政策內容政策內容政策內容政策內容政策內容政策內容政策內容"></textarea>
+                </div>
+            </div>
+        </div>
+    </Lightbox>
 </template>
 
 <script>
 import MainHeader from '../components/MainHeader.vue'
 import Dropdown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
+import SearchBtn from "../components/SearchBtn.vue";
+import Lightbox from "../components/Lightbox.vue";
 export default {
     components: {
         MainHeader,
         Dropdown,
         switch_btn,
+        SearchBtn,
+        Lightbox,
 
     },
     data() {
         return {
+            placeholder: '請輸入關鍵字',
             policydata: [
                 {
                     policy_no: '1',
@@ -62,6 +85,15 @@ export default {
             ]
         }
     },
+    mounted() {
+        document.title = "青年進補黨(後台) - 政策管理";
+    },
+    methods: {
+        showLightbox() {
+            this.$refs.lightbox.showLightbox = true;
+            document.body.style.overflow = 'hidden';
+        },
+    }
 
 }
 </script>
