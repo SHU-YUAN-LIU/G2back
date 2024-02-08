@@ -102,6 +102,7 @@ import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
+            placeholder: '請輸入關鍵字',
         };
     },
     components: {
