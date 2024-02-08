@@ -139,7 +139,7 @@ export default {
                 {
                     order_id: '2',
                     order_date: '2024/.1.01',
-                    order_name: '曾柏恩',
+                    order_name: '曾博恩',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '貨到付款',
@@ -163,7 +163,7 @@ export default {
                 {
                     order_id: '5',
                     order_date: '2024/.1.01',
-                    order_name: '週興哲',
+                    order_name: '周興哲',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '行動支付',
@@ -171,7 +171,7 @@ export default {
                 {
                     order_id: '6',
                     order_date: '2024/.1.01',
-                    order_name: '洲湯豪',
+                    order_name: '周湯豪',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '信用卡',
@@ -179,7 +179,7 @@ export default {
                 {
                     order_id: '5',
                     order_date: '2024/.1.01',
-                    order_name: '週興哲',
+                    order_name: '柯震東',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '行動支付',
@@ -187,7 +187,7 @@ export default {
                 {
                     order_id: '6',
                     order_date: '2024/.1.01',
-                    order_name: '洲湯豪',
+                    order_name: '魏如萱',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '信用卡',
@@ -195,7 +195,7 @@ export default {
                 {
                     order_id: '5',
                     order_date: '2024/.1.01',
-                    order_name: '週興哲',
+                    order_name: 'Linkin Park',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '行動支付',
@@ -203,7 +203,7 @@ export default {
                 {
                     order_id: '6',
                     order_date: '2024/.1.01',
-                    order_name: '洲湯豪',
+                    order_name: 'Edward',
                     order_price: '$3600',
                     order_status: '處理中',
                     order_pay: '信用卡',
