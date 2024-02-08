@@ -12,7 +12,7 @@
             <div class="banner_table">
                 <table class="table table-hover" style="position: relative;">
                     <!-- 表頭 -->
-                    <thead>
+                    <thead align='center'>
                         <td>消息編號</td>
                         <td>輪播圖預覽</td>
                         <td>主旨</td>

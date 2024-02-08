@@ -50,8 +50,21 @@
 
                     td {
                         text-align: center;
+
+                        &:nth-child(1) {
+                            padding-left: 20px;
+                        }
                     }
 
+                }
+
+                td.banner_pic {
+                    width: 280px;
+                    height: 125px;
+
+                    img {
+                        width: 100%;
+                    }
                 }
 
                 td.banner_operate {
