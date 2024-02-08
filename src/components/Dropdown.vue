@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <!-- 左邊選單 -->
-        <nav class="flex-column  navbar-expand-lg navbar-light bg-* header_left">
+        <nav class="flex-column  navbar-expand-lg bg-* header_left">
             <!-- logo -->
             <div class="logoImg">
                 <img class="navbar-brand " src="../assets/image/login/logo.png" alt="" width="169" height="125">
