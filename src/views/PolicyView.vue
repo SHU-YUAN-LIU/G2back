@@ -1,35 +1,32 @@
 <template>
     <MainHeader />
     <Dropdown />
-    <div class="mem-bg">
-        <div class="mem_wrap-group">
-            <div class="mem_wrap">
-                <!-- 搜尋 -->
+    <div class="policy">
+        <div class="policy_container">
+            <!-- 搜尋 -->
+            <div>
+                <SearchBtn :placeholder="placeholder" />
+            </div>
+            <div class="policy_table">
+                <table class="table table-hover" style="position: relative;">
 
-                <!-- ----------------------------------------------------- -->
-                <div class="mem-info">
-                    <table class="table">
-                        <thead>
-                            <tr class="table-dark " align="center ">
-                                <th scope="col" class="p-3">政策編號編號</th>
-                                <th scope="col" class="p-2">主旨</th>
-                                <th scope="col" class="p-2">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 第一行 -->
-                            <tr align="center" v-for="index in 7" :key="index">
-                                <td class="align-middle">2024001</td>
-                                <td class="align-middle">打擊房價</td>
-                                <td class="align-middle">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        修改
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <thead style="position: sticky; top:0;  z-index: 99;">
+                        <td>政策編號編號</td>
+                        <td>主旨</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in policydata">
+                            <td class="policy_no">{{ item.policy_no }}</td>
+                            <td class="policy_title">{{ item.policy_title }}</td>
+                            <td class="policy_operate">
+                                <button @click="showLightbox">
+                                    <img src="/public/images/icon/icon_revise.png" alt="">修改
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -48,7 +45,21 @@ export default {
     },
     data() {
         return {
+            policydata: [
+                {
+                    policy_no: '1',
+                    policy_title: '房屋改革',
+                },
+                {
+                    policy_no: '2',
+                    policy_title: '經濟改革',
+                },
+                {
+                    policy_no: '3',
+                    policy_title: '打擊房價',
+                },
 
+            ]
         }
     },
 

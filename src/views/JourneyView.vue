@@ -1,80 +1,97 @@
 <template>
     <MainHeader />
     <Dropdown />
-    <div class="admin">
-        <div class="admin_container">
-            <div>
-                <SearchBtn />
+    <div class="journey">
+        <div class="journey_container">
+            <!-- 搜尋 -->
+            <div class="journey-btn">
+                <SearchBtn :placeholder="placeholder" />
+                <addBtn />
             </div>
-            <table>
-                <thead>
-                    <td>活動編號</td>
-                    <td>開始日期</td>
-                    <td>候選人</td>
-                    <td>地點</td>
-                    <td>狀態</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr :key="index" v-for="index in 35">
-                        <td class="admin_id">908009</td>
-                        <td class="admin_name">2023/9/23</td>
-                        <td class="admin_class">王小明</td>
-                        <td class="admin_class">桃園</td>
-                        <td class="admin_class">正常</td>
-                        <td class="admin_operate">
-                            <button @click="showLightbox">
-                                <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="journey_table">
+                <table class="table table-hover" style="position: relative;">
+
+                    <thead style="position: sticky; top:0;  z-index: 99;">
+                        <td>活動編號</td>
+                        <td>開始日期</td>
+                        <td>候選人</td>
+                        <td>地點</td>
+                        <td>狀態</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in journeydata">
+                            <td class="journey_id">{{ item.journey_id }}</td>
+                            <td class="journey_date">{{ item.journey_date }}</td>
+                            <td class="journey_name">{{ item.journey_name }}</td>
+                            <td class="journey_locate">{{ item.journey_locate }}</td>
+                            <td class="journey_status">{{ item.journey_status }}</td>
+                            <td class="journey_operate">
+                                <button @click="showLightbox">
+                                    <img src="/public/images/icon/icon_revise.png" alt="">修改
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <!-- 燈箱 -->
-    <Lightbox ref="lightbox">
-        <div class="admin_lightbox">
-            <p>
-                <span>最後修改人: </span>
-                <span>王小明</span>
-            </p>
-            <p>
-                <span>最後修改日期: </span>
-                <span>2024/1/1</span>
-            </p>
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>活動主旨</td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>候選人</td>
-                    <td><select name="">
-                            <option value="">吳聰明</option>
-                            <option value="">劉煒煜</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>狀態: </td>
-                    <td><input type="text"></td>
-                </tr>
-                <tr>
-                    <td>開始日期: </td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>結束日期: </td>
-                    <td><input type="date"></td>
-                </tr>
-                <tr>
-                    <td>活動內容: </td>
-                    <td><textarea name="" id=""></textarea></td>
-                </tr>
-            </table>
+    <Lightbox ref="lightbox" lightboxType="true">
+        <div class="journey_lightbox">
+            <div class="journey-row-group">
+                <div class="journey-row">
+                    <strong>最後修改人:</strong>
+                    <span>吳康人</span>
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>最後修改日期:</strong>
+                    <span>2024/1/1</span>
+                </div>
+                <p class="journey-title ">詳細資訊</p>
+                <div class="journey-row">
+                    <strong>活動主旨:</strong>
+                    <input class="form-control" type="text" placeholder=" 請輸入密碼">
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>候選人:</strong>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option value="">劉書齊</option>
+                        <option value="">劉煒煜</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>狀態:</strong>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option value="">活動進行中</option>
+                        <option value="">活動結束</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>開始日期:</strong>
+                    <input type="date" class="form-control">
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>結束日期:</strong>
+                    <input type="date" class="form-control">
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>回覆內容:</strong>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+            </div>
         </div>
+
     </Lightbox>
 </template>
 
@@ -85,14 +102,33 @@ import MainHeader from "../components/MainHeader.vue";
 import Dropdown from "../components/Dropdown.vue";
 import SearchBtn from "../components/SearchBtn.vue";
 import Lightbox from "../components/Lightbox.vue";
+import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
-            adminAccount: [
+            placeholder: '請輸入標題或關鍵字',
+            journeydata: [
                 {
-                    id: 231411424,
-                    name: "王小明"
-                }
+                    journey_id: '1',
+                    journey_date: '2023/09/23',
+                    journey_name: '周湯豪',
+                    journey_locate: '桃園',
+                    journey_status: '正常',
+                },
+                {
+                    journey_id: '2',
+                    journey_date: '2023/09/23',
+                    journey_name: '為李安',
+                    journey_locate: '中壢',
+                    journey_status: '正常',
+                },
+                {
+                    journey_id: '3',
+                    journey_date: '2023/09/23',
+                    journey_name: '蔚如宣',
+                    journey_locate: '澎湖',
+                    journey_status: '正常',
+                },
             ]
         };
     },
@@ -101,6 +137,7 @@ export default {
         Dropdown,
         SearchBtn,
         Lightbox,
+        addBtn,
     },
     methods: {
         showLightbox() {
@@ -109,63 +146,7 @@ export default {
     },
 }
 </script>
-
-<!-- 燈箱內容的css -->
-<style lang="scss">
-@import "../assets/scss/style.scss";
-
-.admin_lightbox {
-    width: 80%;
-
-    p {
-        display: flex;
-
-        span:nth-child(1) {
-            width: 200px;
-        }
-    }
-
-    .title {
-        text-align: center;
-        background: black;
-        color: $white;
-        width: 100%;
-        height: 45px;
-        line-height: 45px;
-        display: flex;
-        justify-content: center;
-    }
-
-    table {
-        width: 100%;
-
-        tr {
-            height: 40px;
-            line-height: 40px;
-            display: flex;
-            justify-content: space-evenly;
-
-            td {
-                text-align: center;
-                width: 50%;
-            }
-
-            input {
-                height: 30px;
-            }
-        }
-
-        td:nth-child(2) {
-            text-align: left;
-
-        }
-    }
-
-    textarea {
-        resize: none;
-    }
-}
-</style>
+<style lang="scss"></style>
 
 
 
