@@ -8,7 +8,7 @@
         <span>否/是</span>
     </label> -->
     <div class="switchBtn">
-        <label>
+        <label class="switch-label">
             <input type="checkbox" :checked="ischecked">
             <div>
                 <span></span>

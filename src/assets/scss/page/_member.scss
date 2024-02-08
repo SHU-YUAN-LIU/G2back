@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -87,13 +88,35 @@
         width: 100%;
         height: 45px;
         line-height: 45px;
+=======
+.member {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    // left: 270px;
+    left: 20%;
+    right: 0;
+    background-color: $gray_1;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 5px solid rgb(255, 0, 162);
+    margin-top: 80px;
+
+    .member_container {
+>>>>>>> dev
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: center;
-    }
+        z-index: 50;
+        height: 80%;
+        width: 80%;
+        // border: 2px solid blue;
 
-    table {
-        width: 100%;
 
+<<<<<<< HEAD
         tr {
             height: 40px;
             line-height: 40px;
@@ -104,34 +127,109 @@
                 width: 50%;
                 input {
                     height: 30px;
-                }
-            }
+=======
 
-            td:nth-child(2) {
-                text-align: left;
+        .member_table {
+            overflow-y: scroll;
+            top: 0;
+            bottom: 0;
+            background: $white;
+            height: 100%;
+            width: 100%;
+            // border: 2px solid red;
+
+
+            table {
+                width: 100%;
+
+                td {
+                    text-align: center;
+>>>>>>> dev
+                }
+
+                thead {
+                    background: #000;
+                    color: $white;
+                    height: 50px;
+                    line-height: 50px;
+                }
+
+                .member_title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                td.member_operate {
+                    button {
+                        background: none;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: auto;
+                        position: relative;
+                        // top: 10px;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
 
             }
         }
     }
-
 }
 
-.member-modify {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    // position: relative;
-    top: 10px;
-    gap: 5px;
-    // text-wrap: nowrap;
+//燈箱
+.member_lightbox {
+    // width: 650px;
+    width: 80%;
+    // height: 80%;
+    // border: 2px solid blue;
 
-    img {
-        width: 25px;
-        height: 25px;
+    .member-no {
+        background: none;
+    }
+
+    .member-title-bar {
+        width: 100%;
+        text-align: center;
+        background-color: $black;
+        color: $white;
+        padding: 8px;
+        margin: 20px 0;
 
     }
 
+}
+
+.form-select {
+    width: 40% !important;
+}
+
+.form-control {
+    width: 80% !important;
+    display: flex;
+    justify-content: center;
+}
+
+.member-row-group {
+    text-align: start;
+
+    .member-row {
+        text-wrap: nowrap;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        strong {
+            width: 80px;
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
 }

@@ -2,30 +2,41 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 270px;
+    // left: 270px;
+    left: 20%;
     right: 0;
     background-color: $gray_1;
-    z-index: -1;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 5px solid rgb(255, 0, 162);
+    margin-top: 80px;
 
     .donate_container {
-        position: absolute;
-        top: 100px;
-        right: 80px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         z-index: 50;
+        height: 80%;
+        width: 80%;
+        // border: 2px solid blue;
+
+
 
         .donate_table {
-            height: 400px;
             overflow-y: scroll;
             top: 0;
             bottom: 0;
             background: $white;
+            height: 100%;
+            width: 100%;
+            // border: 2px solid red;
+
 
             table {
-                width: 800px;
+                width: 100%;
 
                 td {
                     text-align: center;
@@ -38,27 +49,94 @@
                     line-height: 50px;
                 }
 
-                tr {
-                    td.donate_operate {
-                        button {
-                            background: none;
-                            border: none;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin: auto;
-                            position: relative;
-                            top: 10px;
+                td.donate_operate {
+                    button {
+                        background: none;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: auto;
+                        position: relative;
+                        // top: 10px;
 
-                            img {
-                                width: 25px;
-                                height: 25px;
-                                margin-right: 10px;
-                            }
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
                         }
                     }
                 }
+
             }
         }
     }
 }
+
+//燈箱
+
+
+// .donate {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 270px;
+//     right: 0;
+//     background-color: $gray_1;
+//     z-index: -1;
+
+//     .donate_container {
+//         position: absolute;
+//         top: 100px;
+//         right: 80px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: flex-start;
+//         justify-content: center;
+//         z-index: 50;
+
+//         .donate_table {
+//             height: 400px;
+//             overflow-y: scroll;
+//             top: 0;
+//             bottom: 0;
+//             background: $white;
+
+//             table {
+//                 width: 800px;
+
+//                 td {
+//                     text-align: center;
+//                 }
+
+//                 thead {
+//                     background: #000;
+//                     color: $white;
+//                     height: 50px;
+//                     line-height: 50px;
+//                 }
+
+//                 tr {
+//                     td.donate_operate {
+//                         button {
+//                             background: none;
+//                             border: none;
+//                             display: flex;
+//                             align-items: center;
+//                             justify-content: center;
+//                             margin: auto;
+//                             position: relative;
+//                             top: 10px;
+
+//                             img {
+//                                 width: 25px;
+//                                 height: 25px;
+//                                 margin-right: 10px;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

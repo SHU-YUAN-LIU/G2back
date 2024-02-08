@@ -1,43 +1,43 @@
 <template>
     <MainHeader />
     <Dropdown />
-
     <div class="donate">
         <div class="donate_container">
+            <!-- 搜尋 -->
             <div>
-                <Search />
+                <SearchBtn :placeholder="placeholder" />
             </div>
             <div class="donate_table">
+                <table class="table table-hover" style="position: relative;">
 
-            <table>
-                <thead>
-                    <td>捐款日期</td>
-                    <td>姓名</td>
-                    <td>會員編號</td>
-                    <td>金額</td>
-                    <td>支付方式</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr :key="index" v-for="item in donatedata">
-                        <td class="donate_date">{{ item.donate_date }}</td>
-                        <!-- <td class="donate_name">王葳</td> -->
-                        <td class="donate_name">{{ item.member_name || '-' }}</td>
-                        <td class="donate_id">{{ item.member_no || '-' }}</td>
-                        <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
-                        </td>
-                        <td class="donate_method">{{ item.donate_method }}</td>
-                        <td class="donate_operate">
-                            <button @click="showLightbox()">
-                                <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    <thead style="position: sticky; top:0;  z-index: 99;">
+                        <td>捐款日期</td>
+                        <td>捐款姓名</td>
+                        <td>會員編號</td>
+                        <td>捐款金額</td>
+                        <td>支付方式</td>
+                        <td>操作</td>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in donatedata" :key="index">
+                            <td class="donate_date">{{ item.donate_date }}</td>
+                            <td class="donate_name">{{ item.member_name || '-' }}</td>
+                            <td class="donate_id">{{ item.member_no || '-' }}</td>
+                            <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
+                            </td>
+                            <td class="donate_method">{{ item.donate_method }}</td>
+                            <td class="donate_operate">
+                                <button @click="showLightbox()">
+                                    <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    </div>
+    <!-- 燈箱 -->
     <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
         <div class="donate_lightbox">
             <p>
@@ -91,24 +91,45 @@
     </Lightbox>
 </template>
 <script>
+import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
-// import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
-import Search from "../components/SearchBtn.vue";
+import SwitchBtn from "../components/switch_btn.vue";
+import SearchBtn from "../components/SearchBtn.vue";
+import Dropdown from "../components/Dropdown.vue";
 export default {
     data() {
         return {
-            donatedata: [],
-            searchPlaceholder: '请输入搜索内容'
+            placeholder: '請輸入標題或關鍵字',
+            donatedata: [{
+                donate_date: '2023/9/23',
+                member_name: '劉橙汁',
+                member_no: '1',
+                donate_amount: '$2000',
+                donate_method: '信用卡',
+            },
+            {
+                donate_date: '2023/9/23',
+                member_name: '劉丁',
+                member_no: '2',
+                donate_amount: '$2000',
+                donate_method: '信用卡',
+            }
+            ],
         };
     },
     created() {
         this.getDonateData();
     },
+    mounted() {
+        document.title = "青年進補黨(後台) - 捐款查詢";
+    },
     components: {
         MainHeader,
         Lightbox,
-        Search,
+        SwitchBtn,
+        SearchBtn,
+        Dropdown,
     },
     methods: {
         showLightbox(item) {
@@ -145,59 +166,5 @@ export default {
 }
 
 </script>
-    
- <!-- 燈箱內容的css -->
-<style lang="scss">
-@import "../assets/scss/style.scss";
-
-.donate_lightbox {
-    width: 80%;
-
-    p {
-        display: flex;
-        margin: 0;
-
-        span:nth-child(1) {
-            width: 200px;
-        }
-    }
-
-    .title {
-        text-align: center;
-        background: black;
-        color: $white;
-        width: 100%;
-        height: 45px;
-        line-height: 45px;
-        display: flex;
-        justify-content: center;
-    }
-
-    table {
-        width: 100%;
-        border: 1px solid #000;
-
-        tr {
-            height: 40px;
-            line-height: 40px;
-            display: flex;
-            justify-content: space-evenly;
-
-            td {
-                text-align: center;
-                width: 50%;
-
-                input {
-                    height: 30px;
-                }
-            }
-
-            td:nth-child(2) {
-                text-align: left;
-
-            }
-        }
-    }
-}
-</style>
+<style lang="scss"></style>
     

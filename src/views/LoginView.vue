@@ -40,7 +40,7 @@ export default {
 
     },
     created() {
-        this.fetchData()
+        // this.fetchData()
     },
     methods: {
         // fetchData() {
@@ -53,11 +53,11 @@ export default {
         //         console.log(res);
         //     })
         // }
-        fetchData() {
-            axios.get(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
-                console.log(res);
-            })
-        }
+        // fetchData() {
+        //     axios.get(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
+        //         console.log(res);
+        //     })
+        // }
     }
 }
 
