@@ -50,8 +50,8 @@
                     <p class="banner-title-bar ">新聞編號 </p>
                     <p class="banner-title-bar ">輪播圖片預覽</p>
                 </div>
-                <div class="banner-row" v-for="index in 6">
-                    <div> {{ index }}.</div>
+                <div class="banner-row">
+                    <div> 1.</div>
                     <div class="mb-3">
                         <label for="formFileMultiple" class="form-label">電腦版圖片</label>
                         <input class="form-control" type="file" id="formFileMultiple" multiple>
