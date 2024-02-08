@@ -1,10 +1,10 @@
 <template>
     <MainHeader />
-    <dropDown />
+    <Dropdown />
     <div class="admin">
         <div class="admin_container">
             <div class="admin-btn">
-                <Search :placeholder="'placeholder'" />
+                <SearchBtn :placeholder="'placeholder'" />
                 <addBtn @click="showLightbox(2, 0)" />
             </div>
             <div class="admin_table">
@@ -21,7 +21,7 @@
                         <tr v-for="item in admindata">
                             <td class="admin_id">{{ item.admin_no }}</td>
                             <td class="admin_name">{{ item.admin_name }}</td>
-                            <td class="admin_class">{{ getleveldata(item.admin_level) }}</td>
+                            <td class="admin_lavel">{{ getleveldata(item.admin_level) }}</td>
                             <td class="admin_status">
                                 <SwitchBtn />
                             </td>
@@ -51,7 +51,7 @@
                     <strong>最後修改日期:</strong>
                     <span>{{ lightboxdata.modify_date }}</span>
                 </div>
-                <p class="admin-title ">詳細資訊</p>
+                <p class="admin-title-bar ">詳細資訊</p>
                 <div class="admin-row">
                     <strong>管理員編號:</strong>
                     <span>{{ lightboxdata.admin_no }}</span>
@@ -101,7 +101,7 @@
                 <p class="admin-title ">詳細資訊</p>
                 <div class="admin-row">
                     <strong>管理員姓名:</strong>
-                    <input class="form-control" type="text" placeholder="請輸入姓名" >
+                    <input class="form-control" type="text" placeholder="請輸入姓名">
                 </div>
                 <hr>
                 <div class="admin-row">
@@ -136,12 +136,13 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-import Search from "../components/SearchBtn.vue";
-import dropDown from "../components/Dropdown.vue";
+import SearchBtn from "../components/SearchBtn.vue";
+import Dropdown from "../components/Dropdown.vue";
 import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
+            placeholder: '請輸入管理員編號',
             admindata: [],
             lightboxdata: [],
             lightbox_num: 0,
@@ -151,9 +152,12 @@ export default {
         MainHeader,
         Lightbox,
         SwitchBtn,
-        Search,
-        dropDown,
+        SearchBtn,
+        Dropdown,
         addBtn,
+    },
+    mounted() {
+        document.title = "青年進補黨(後台) - 管理員管理";
     },
     created() {
         this.getData();
@@ -190,63 +194,4 @@ export default {
     }
 }
 </script>
-
-<!-- 燈箱內容的css -->
-<style lang="scss">
-@import "../assets/scss/style.scss";
-
-.admin_lightbox {
-    width: 80%;
-
-    p {
-        display: flex;
-        margin-top: 10px;
-        margin-bottom: 0;
-
-        span:nth-child(1) {
-            width: 200px;
-        }
-    }
-
-    .title {
-        text-align: center;
-        background: black;
-        color: $white;
-        width: 100%;
-        height: 45px;
-        line-height: 45px;
-        display: flex;
-        justify-content: center;
-    }
-
-    table {
-        width: 100%;
-        border: 1px solid #000;
-
-        tr {
-            height: 40px;
-            line-height: 40px;
-            display: flex;
-            justify-content: space-evenly;
-
-            tr+tr {
-                margin-top: 20px;
-            }
-
-            td {
-                text-align: center;
-                width: 50%;
-
-                input {
-                    height: 30px;
-                }
-            }
-
-            td:nth-child(2) {
-                text-align: left;
-
-            }
-        }
-    }
-}
-</style>
+<style lang="scss"></style>
