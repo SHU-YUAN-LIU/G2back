@@ -52,9 +52,9 @@
                 </div>
 
                 <div class="countdown-row-input">
-                    <input class="form-control" type="text" placeholder="請輸入投票名稱" style="">
-                    <input class="form-control" type="date" style="">
-                    <div class="countdown-row-switch" style="width:274.57px;">
+                    <input class="form-control" type="text" placeholder="請輸入投票名稱">
+                    <input class="form-control" type="date">
+                    <div class="countdown-row-switch" style="width:560px;">
                         <SwitchBtn />
                     </div>
                 </div>

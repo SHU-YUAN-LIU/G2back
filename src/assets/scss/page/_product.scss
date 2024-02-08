@@ -39,6 +39,10 @@
             table {
                 width: 100%;
 
+                tr {
+                    text-wrap: nowrap;
+                }
+
                 thead {
                     position: sticky;
                     top: 0;
@@ -50,6 +54,11 @@
 
                     td {
                         text-align: center;
+                        vertical-align: middle;
+
+                        &:first-child {
+                            padding: 0 20px;
+                        }
                     }
 
                 }

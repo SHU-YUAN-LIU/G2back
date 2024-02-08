@@ -40,6 +40,11 @@
 
                 td {
                     text-align: center;
+                    vertical-align: middle;
+
+                    &:first-child {
+                        padding: 0 30px;
+                    }
                 }
 
                 thead {
@@ -116,7 +121,7 @@
         align-items: center;
 
         strong {
-            width: 80px;
+            width: 100px;
             display: flex;
             justify-content: flex-start;
         }
