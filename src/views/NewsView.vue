@@ -3,13 +3,6 @@
     <Dropdown />
     <div class="news">
         <div class="news_container">
-<<<<<<< HEAD
-            <div>
-                <Search />
-            </div>
-            <div class="news_table">
-                <table>
-=======
             <!-- 搜尋框 -->
             <div class="news-btn">
                 <SearchBtn :placeholder="placeholder" />
@@ -19,7 +12,6 @@
             <div class="news_table">
                 <table class="table table-hover" style="position: relative;">
                     <!-- 表頭 -->
->>>>>>> dev
                     <thead>
                         <td>編號</td>
                         <td>主圖預覽</td>
@@ -28,16 +20,10 @@
                         <td>啟用狀態</td>
                         <td>操作</td>
                     </thead>
-<<<<<<< HEAD
-                    <tbody>
-                        <tr :key="index" v-for="index in 6">
-                            <td class="news_id">1</td>
-=======
                     <!-- 欄位內容 -->
                     <tbody>
                         <tr :key="index" v-for="index in 6" align='center'>
                             <td class="news_id">{{ index }}.</td>
->>>>>>> dev
                             <td class="news_pic">
                                 <img src="../assets/image/news/news.png" alt="">
                             </td>
@@ -57,39 +43,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <Lightbox ref="lightbox" lightboxType="true">
-        <div class="news_lightbox">
-            <div class="news_title"><label>新聞標題:</label><input type="text"></div>
-            <div class="news_author"><label>作者:</label><input type="text"></div>
-            <div class="news_introduction"><label>引言:</label><textarea name="" id="" cols="30" rows="10"></textarea></div>
-            <div class="news_upload_pic">
-                <label for="">主要圖片上傳:</label>
-                <div class="news_main_pic"><img src="" alt=""></div>
-                <div class="news_file_name">
-                    <input type="file">
-                    <p>檔名:<span></span></p>
-                </div>
-            </div>
-            <div class="news_content">
-                <p>新聞內文</p>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-            <div class="news_marquee?">
-                <p>是否啟用跑馬燈</p>
-                <select name="" id="">
-                    <option value="是">是</option>
-                    <option value="否">否</option>
-                </select>      
-            </div>
-            <div class="news_marquee_status">
-                <p>啟用狀態</p>
-                <select name="" id="">
-                    <option value="是">是</option>
-                    <option value="否">否</option>
-                </select>      
-            </div>
-=======
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="news_lightbox">
@@ -135,7 +88,6 @@
                     </select>
                 </div>
             </div>
->>>>>>> dev
         </div>
     </Lightbox>
 </template>
@@ -144,14 +96,9 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-<<<<<<< HEAD
-import Search from "../components/SearchBtn.vue";
-
-=======
 import SearchBtn from "../components/SearchBtn.vue";
 import Dropdown from "../components/Dropdown.vue";
 import addBtn from "../components/addBtn.vue";
->>>>>>> dev
 export default {
     data() {
         return {
@@ -162,13 +109,9 @@ export default {
         MainHeader,
         Lightbox,
         SwitchBtn,
-<<<<<<< HEAD
-        Search,
-=======
         SearchBtn,
         Dropdown,
         addBtn,
->>>>>>> dev
     },
     methods: {
         showLightbox() {
