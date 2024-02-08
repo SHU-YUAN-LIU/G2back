@@ -22,7 +22,7 @@
                     </thead>
                     <!-- 欄位內容 -->
                     <tbody>
-                        <tr :key="index" v-for="index in 6">
+                        <tr :key="index" v-for="index in 6" align='center'>
                             <td class="news_id">{{ index }}.</td>
                             <td class="news_pic">
                                 <img src="../assets/image/news/news.png" alt="">
