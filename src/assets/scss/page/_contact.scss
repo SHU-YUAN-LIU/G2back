@@ -75,10 +75,8 @@
 
 //燈箱
 .contact_lightbox {
-    // width: 650px;
     width: 80%;
-    // height: 80%;
-    // border: 2px solid blue;
+
 
     .contact-no {
         background: none;
@@ -90,6 +88,10 @@
         background-color: $black;
         color: $white;
         padding: 8px;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 }
@@ -109,13 +111,14 @@
 
     .contact-row {
         text-wrap: nowrap;
-        gap: 45px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
 
-        &:first-child {
-            margin-bottom: 12px;
+        strong {
+            width: 80px;
+            display: flex;
+            justify-content: flex-start;
         }
     }
 }

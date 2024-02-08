@@ -4,7 +4,7 @@
     <div class="order">
         <div class="order_container">
             <div>
-                <Search :placeholder="placeholder" />
+                <SearchBtn :placeholder="placeholder" />
             </div>
             <div class="order_table">
                 <table class="table table-hover" style="position: relative;">
@@ -121,7 +121,7 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-import Search from "../components/SearchBtn.vue";
+import SearchBtn from "../components/SearchBtn.vue";
 import dropDown from "../components/Dropdown.vue";
 export default {
     data() {
@@ -217,7 +217,7 @@ export default {
         MainHeader,
         Lightbox,
         SwitchBtn,
-        Search,
+        SearchBtn,
         dropDown,
     },
     created() {
