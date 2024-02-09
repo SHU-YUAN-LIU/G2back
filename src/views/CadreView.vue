@@ -91,20 +91,31 @@
                 </div>
                 <hr>
                 <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">黨幹部圖片</label>
-                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    <div class="cadre-row">
+                        <strong>黨幹部圖片:</strong>
+                        <input class="form-control" type="file">
+                    </div>
                 </div>
+                <hr>
                 <div class="contact-row">
-                    <strong>現任職位:</strong>
-                    <textarea class="form-control" rows="8" placeholder="請輸入現任職位"></textarea>
+                    <div class="cadre-row">
+                        <strong>現任職位:</strong>
+                        <textarea class="form-control" rows="8" placeholder="請輸入現任職位"></textarea>
+                    </div>
                 </div>
+                <hr>
                 <div class="contact-row">
-                    <strong>學歷:</strong>
-                    <textarea class="form-control" rows="8" placeholder="請輸入學歷"></textarea>
+                    <div class="cadre-row">
+                        <strong>學歷:</strong>
+                        <textarea class="form-control" rows="8" placeholder="請輸入學歷"></textarea>
+                    </div>
                 </div>
+                <hr>
                 <div class="contact-row">
-                    <strong>經歷:</strong>
-                    <textarea class="form-control" rows="8" placeholder="請輸入經歷"></textarea>
+                    <div class="cadre-row">
+                        <strong>經歷:</strong>
+                        <textarea class="form-control" rows="8" placeholder="請輸入經歷"></textarea>
+                    </div>
                 </div>
             </div>
         </div>

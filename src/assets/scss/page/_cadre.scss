@@ -46,6 +46,11 @@
 
                 td {
                     text-align: center;
+                    vertical-align: middle;
+
+                    &:first-child {
+                        padding: 0 20px;
+                    }
                 }
 
                 thead {

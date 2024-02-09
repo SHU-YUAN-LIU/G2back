@@ -62,8 +62,8 @@
                     </select>
                 </div>
                 <hr>
-                <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">上傳圖片</label>
+                <div class="product-row">
+                    <strong>上傳圖片:</strong>
                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
             </div>
@@ -82,25 +82,25 @@ import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
-            placeholder: '請輸入管理員編號',
+            placeholder: '請輸入關鍵字',
             lightboxdata: [],
             lightbox_num: 0,
             productdata: [{
-                product_no: '231411424',
+                product_no: '1',
                 product5_pic1: '',
                 product_name: '進補黨馬克杯',
                 product_class: '杯子',
                 product_price: '$3600',
             },
             {
-                product_no: '231411424',
+                product_no: '2',
                 product5_pic1: '',
                 product_name: '進補黨馬克杯',
                 product_class: '杯子',
                 product_price: '$3600',
             },
             {
-                product_no: '231411424',
+                product_no: '3',
                 product5_pic1: '',
                 product_name: '進補黨馬克杯',
                 product_class: '杯子',

@@ -42,7 +42,7 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType="true">
         <div class="banner_lightbox">
             <!-- --------------------------------- -->
             <div class="banner-row-group">
@@ -84,6 +84,7 @@ import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
+            placeholder: '請輸入關鍵字',
         };
     },
     components: {

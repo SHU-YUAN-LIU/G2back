@@ -102,6 +102,7 @@ import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
+            placeholder: '請輸入關鍵字',
         };
     },
     components: {
@@ -119,3 +120,20 @@ export default {
     },
 }
 </script>
+<style lang="scss">
+@import "../assets/scss/style.scss";
+.news_lightbox {
+    div {
+        display: flex; 
+        align-items: center;
+        label {
+            width: min-content;
+            padding: 10px;
+        }
+
+    }
+
+
+}
+
+</style>
