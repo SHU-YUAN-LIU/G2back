@@ -3,13 +3,14 @@
     <Dropdown />
     <div class="donate">
         <div class="donate_container">
-            <!-- 搜尋 -->
-            <div>
+            <!-- 搜尋框 -->
+            <div class="news-btn">
                 <SearchBtn :placeholder="placeholder" />
+                <addBtn />
             </div>
             <div class="donate_table">
                 <table class="table table-hover" style="position: relative;">
-
+                    <!-- 表頭 -->
                     <thead style="position: sticky; top:0;  z-index: 99;">
                         <td>捐款日期</td>
                         <td>捐款姓名</td>
@@ -18,6 +19,7 @@
                         <td>支付方式</td>
                         <td>操作</td>
                     </thead>
+                    <!-- 欄位內容 -->
                     <tbody>
                         <tr v-for="item in donatedata" :key="index">
                             <td class="donate_date">{{ item.donate_date }}</td>
@@ -37,8 +39,38 @@
             </div>
         </div>
     </div>
-    <!-- 燈箱 -->
+    <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
+        <Lightbox ref="lightbox" lightboxType="true">
+            <div class="donate_lightbox">
+                <div class="donate-row-group">
+                    <div class="donate-row">
+                        <strong>建立日期:</strong>
+                        <span>2024/1/1</span>
+                    </div>
+                    <div class="donate-title-bar ">
+                        <span>投票名稱</span>
+                        <span>投票結束日期</span>
+                        <span>是否隱藏</span>
+                    </div>
+
+                    <div class="donate-row-input">
+                        <input class="form-control" type="text" placeholder="請輸入投票名稱" style="">
+                        <input class="form-control" type="date" style="">
+                        <div class="donate-row-switch" style="width:274.57px;">
+                            <SwitchBtn />
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </Lightbox>
+
+
+
+
+
+
         <div class="donate_lightbox">
             <p>
                 <span>捐款日期: </span>
@@ -97,6 +129,7 @@ import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
 import SearchBtn from "../components/SearchBtn.vue";
 import Dropdown from "../components/Dropdown.vue";
+import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
@@ -130,6 +163,7 @@ export default {
         SwitchBtn,
         SearchBtn,
         Dropdown,
+        addBtn,
     },
     methods: {
         showLightbox(item) {

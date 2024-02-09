@@ -66,7 +66,6 @@
                     <label for="formFileMultiple" class="form-label">上傳圖片</label>
                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
-
             </div>
         </div>
     </Lightbox>
