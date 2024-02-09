@@ -54,7 +54,7 @@
                 <p class="journey-title ">詳細資訊</p>
                 <div class="journey-row">
                     <strong>活動主旨:</strong>
-                    <input class="form-control" type="text" placeholder=" 請輸入密碼">
+                    <input class="form-control" type="text" placeholder=" 請輸入活動主旨">
                 </div>
                 <hr>
                 <div class="journey-row">
@@ -86,7 +86,7 @@
                 </div>
                 <hr>
                 <div class="journey-row">
-                    <strong>回覆內容:</strong>
+                    <strong>活動內容:</strong>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
             </div>
