@@ -4,7 +4,7 @@
     <div class="donate">
         <div class="donate_container">
             <!-- 搜尋框 -->
-            <div class="news-btn">
+            <div class="donate-btn">
                 <SearchBtn :placeholder="placeholder" />
                 <addBtn />
             </div>
@@ -25,7 +25,7 @@
                             <td class="donate_date">{{ item.donate_date }}</td>
                             <td class="donate_name">{{ item.member_name || '-' }}</td>
                             <td class="donate_id">{{ item.member_no || '-' }}</td>
-                            <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
+                            <td class="donate_amount"> <span>{{ item.donate_amount }}</span>
                             </td>
                             <td class="donate_method">{{ item.donate_method }}</td>
                             <td class="donate_operate">
@@ -40,85 +40,64 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
-        <Lightbox ref="lightbox" lightboxType="true">
-            <div class="donate_lightbox">
-                <div class="donate-row-group">
-                    <div class="donate-row">
-                        <strong>建立日期:</strong>
-                        <span>2024/1/1</span>
-                    </div>
-                    <div class="donate-title-bar ">
-                        <span>投票名稱</span>
-                        <span>投票結束日期</span>
-                        <span>是否隱藏</span>
-                    </div>
-
-                    <div class="donate-row-input">
-                        <input class="form-control" type="text" placeholder="請輸入投票名稱" style="">
-                        <input class="form-control" type="date" style="">
-                        <div class="donate-row-switch" style="width:274.57px;">
-                            <SwitchBtn />
-                        </div>
-                    </div>
-                    <hr>
+    <Lightbox ref="lightbox" lightboxType="true">
+        <div class="donate_lightbox">
+            <div class="donate-row-group">
+                <div class="donate-row">
+                    <strong>捐款日期:</strong>
+                    <span>2024/1/1</span>
+                </div>
+                <div class="donate-row">
+                    <strong>狀態:</strong>
+                    <span>實名
+                    </span>
+                </div>
+                <p class="donate-title ">詳細資訊</p>
+                <div class="donate-row">
+                    <strong>流水編號:</strong>
+                    <span>908099</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>姓名:</strong>
+                    <span>王小明</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>會員ID: </strong>
+                    <span>1828372</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>Email:</strong>
+                    <span>andy123@yahoo.com.tw</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>生日:</strong>
+                    <span>1970.1.1</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>連絡電話:</strong>
+                    <span>0912345678</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>捐款金額:</strong>
+                    <span>$1280</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>單筆點數:</strong>
+                    <span>20</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>捐款方式:</strong>
+                    <span>信用卡</span>
                 </div>
             </div>
-        </Lightbox>
-
-
-
-
-
-
-        <div class="donate_lightbox">
-            <p>
-                <span>捐款日期: </span>
-                <span>2024/1/1</span>
-            </p>
-            <p>
-                <span>狀態: </span>
-                <span>實名</span>
-            </p>
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>流水編號: </td>
-                    <td>90809809</td>
-                </tr>
-                <tr>
-                    <td>姓名: </td>
-                    <td>王小明</td>
-                </tr>
-                <tr>
-                    <td>會員ID: </td>
-                    <td>1828372</td>
-                </tr>
-                <tr>
-                    <td>Email: </td>
-                    <td>xx@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>生日: </td>
-                    <td>1970.1.1</td>
-                </tr>
-                <tr>
-                    <td>連絡電話: </td>
-                    <td>0912345678</td>
-                </tr>
-                <tr>
-                    <td>捐款金額: </td>
-                    <td>1280</td>
-                </tr>
-                <tr>
-                    <td>單筆點數: </td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>捐款方式: </td>
-                    <td>信用卡</td>
-                </tr>
-            </table>
         </div>
     </Lightbox>
 </template>
@@ -200,5 +179,5 @@ export default {
 }
 
 </script>
-<style lang="scss"></style>
+
     
