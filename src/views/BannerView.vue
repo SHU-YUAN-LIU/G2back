@@ -24,7 +24,7 @@
                         <tr v-for="index in 6" valign="middle" align='center'>
                             <td class="banner_no">{{ index }}.</td>
                             <td class="banner_pic">
-                                <img src="../assets/image/index/banner1.png" alt="">
+                                <img src="../assets/image/banner/banner1.png" alt="">
                             </td>
                             <td class="banner_title">2024大選推廣</td>
                             <td class="banner_status">
