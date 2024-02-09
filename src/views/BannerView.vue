@@ -1,6 +1,6 @@
 <template>
     <MainHeader />
-    <dropDown />
+    <Dropdown />
     <div class="banner">
         <div class="banner_container">
             <!-- 搜尋框 -->
@@ -42,7 +42,7 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType="true">
         <div class="banner_lightbox">
             <!-- --------------------------------- -->
             <div class="banner-row-group">
