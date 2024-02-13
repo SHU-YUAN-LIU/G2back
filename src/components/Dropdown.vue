@@ -63,8 +63,9 @@
                         </div>
                     </li>
                     <!-- 回到前台 -->
-                    <li class="nav-item">
-                        <a class="nav-link disabled text-dark" href="#">回到前台</a>
+                    <li class="nav-item back-home">
+                        <RouterLink class="nav-link  text-dark back" to="#">回到前台
+                        </RouterLink>
                     </li>
                 </ul>
 

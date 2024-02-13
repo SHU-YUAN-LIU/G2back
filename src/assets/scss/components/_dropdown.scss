@@ -62,3 +62,14 @@
     // align-items: flex-star !important;
     flex-grow: 0 !important;
 }
+
+.back-home {
+    font-size: 24px;
+    font-family: $font_family_2;
+    cursor: pointer;
+    color: $black;
+}
+
+.back:hover {
+    color: $orange !important;
+}
