@@ -20,14 +20,15 @@
                         <td>操作</td>
                     </thead>
                     <tbody>
-                        <tr v-for="item in productdata" valign="middle" align='center'>
+                        <tr v-for="item in findproductsdata" valign="middle" align='center'>
                             <td class="product_no">{{ item.product_no }}</td>
                             <td>
-                                <img class="img-fluid" style="max-width: 80px;" src="/images/product/product5_pic1.png">
+                                <img class="img-fluid" style="max-width: 80px;"
+                                    :src="getproductpic(item.product_pic1)">
                             </td>
                             <td class="product_name">{{ item.product_name }}</td>
                             <td class="product_class">{{ item.product_class }}</td>
-                            <td class="product_price">{{ item.product_price }}</td>
+                            <td class="product_price">{{ item.price }}</td>
                             <td>
                                 <SwitchBtn />
                             </td>
@@ -83,30 +84,10 @@ export default {
     data() {
         return {
             placeholder: '請輸入關鍵字',
+            productsdata: [],
+            findproductsdata: [],
             lightboxdata: [],
             lightbox_num: 0,
-            productdata: [{
-                product_no: '1',
-                product5_pic1: '',
-                product_name: '進補黨馬克杯',
-                product_class: '杯子',
-                product_price: '$3600',
-            },
-            {
-                product_no: '2',
-                product5_pic1: '',
-                product_name: '進補黨馬克杯',
-                product_class: '杯子',
-                product_price: '$3600',
-            },
-            {
-                product_no: '3',
-                product5_pic1: '',
-                product_name: '進補黨馬克杯',
-                product_class: '杯子',
-                product_price: '$3600',
-            },
-            ],
         };
     },
     components: {
@@ -118,17 +99,30 @@ export default {
         addBtn,
     },
     created() {
+        this.getData();
     },
     mounted() {
         document.title = "青年進補黨(後台) - 商品管理";
     },
     methods: {
+        getproductpic(src) {
+            return `${import.meta.env.VITE_RESOURCE_URL}images/product/product_data/` + src;
+        },
         showLightbox(product_no) {
             this.$refs.lightbox.showLightbox = true;
             // console.log(this.productdata);
             document.body.style.overflow = 'hidden';
         },
-
+        getData() {
+            axios.get(`${import.meta.env.VITE_API_URL}` + "/productDataGetAll.php")
+                .then(res => {
+                    this.productsdata = res.data.products;
+                    this.findproductsdata = res.data.products;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        },
     }
 }
 </script>
