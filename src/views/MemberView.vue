@@ -109,7 +109,7 @@
 
 <script>
 import MainHeader from '../components/MainHeader.vue'
-import Dropdown from "../components/Dropdown.vue";
+import dropDown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
 import Lightbox from "../components/Lightbox.vue";
@@ -150,12 +150,12 @@ export default {
     getMemberData() {
       this.memberdata = [];
       this.currentlightbox = [];
-      let url = `${import.meta.env.VITE_API_URL}/memberDataGetAll.php`;
+      let url = `${import.meta.env.VITE_PHP_URL}/memberDataGetAll.php`;
       fetch(url)
         .then(response => response.json())
         .then(result => {
           const members = result.members;
-          // console.log(111, result)
+          console.log(111, members)
 
           this.showMembers(members);
         })
@@ -206,7 +206,7 @@ export default {
           member_no,
           status: this.memberstatus,
         };
-        let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
+        let url = `${import.meta.env.VITE_PHP_URL}/memberDataUpdate.php`;
         fetch(url, {
           method: 'post',
           headers: {
@@ -230,7 +230,7 @@ export default {
         status: this.memberstatus,
       };
       //php的路徑
-      let url = `${import.meta.env.VITE_API_URL}/memberDataUpdate.php`;
+      let url = `${import.meta.env.VITE_PHP_URL}/memberDataUpdate.php`;
       //傳送到php的方法(也可以用axios)
       fetch(url, {
         method: 'post',
