@@ -91,7 +91,6 @@
         <div class="member-row">
           <strong>狀態:</strong>
           <select class="form-select" id="member_status" :value="currentlightbox[0].status">
-            <option selected></option>
             <option value="正常">正常</option>
             <option value="停用">停用</option>
           </select>
@@ -109,7 +108,7 @@
 
 <script>
 import MainHeader from '../components/MainHeader.vue'
-import dropDown from "../components/Dropdown.vue";
+import Dropdown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
 import Lightbox from "../components/Lightbox.vue";
