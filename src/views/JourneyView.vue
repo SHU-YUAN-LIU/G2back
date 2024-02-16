@@ -53,6 +53,38 @@
                 </div>
                 <p class="journey-title ">詳細資訊</p>
                 <div class="journey-row">
+                    <strong>候選人:</strong>
+                    <select class="form-select">
+                        <option selected></option>
+                        <option value="">劉書齊</option>
+                        <option value="">劉煒煜</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="journey-row">
+                    <strong>活動地點:</strong>
+                    <select class="form-select">
+                        <option selected>全部地點</option>
+                        <option value="">基隆市</option>
+                        <option value="">台北市</option>
+                        <option value="">新北市</option>
+                        <option value="">桃園市</option>
+                        <option value="">新竹市</option>
+                        <option value="">苗栗縣</option>
+                        <option value="">台中市</option>
+                        <option value="">彰化縣</option>
+                        <option value="">雲林縣</option>
+                        <option value="">嘉義市</option>
+                        <option value="">台南市</option>
+                        <option value="">高雄市</option>
+                        <option value="">屏東縣</option>
+                        <option value="">南投縣</option>
+                        <option value="">花蓮縣</option>
+                        <option value="">台東縣</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="journey-row">
                     <strong>活動主旨:</strong>
                     <input class="form-control" type="text" placeholder=" 請輸入活動主旨">
                 </div>

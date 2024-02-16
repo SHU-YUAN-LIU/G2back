@@ -6,7 +6,6 @@
             <!-- 搜尋框 -->
             <div class="donate-btn">
                 <SearchBtn :placeholder="placeholder" />
-                <addBtn />
             </div>
             <div class="donate_table">
                 <table class="table table-hover" style="position: relative;">
@@ -40,7 +39,7 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType="false">
         <div class="donate_lightbox">
             <div class="donate-row-group">
                 <div class="donate-row">
@@ -108,7 +107,6 @@ import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
 import SearchBtn from "../components/SearchBtn.vue";
 import Dropdown from "../components/Dropdown.vue";
-import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
@@ -142,7 +140,6 @@ export default {
         SwitchBtn,
         SearchBtn,
         Dropdown,
-        addBtn,
     },
     methods: {
         showLightbox(item) {

@@ -7,9 +7,9 @@
                     <img src="../../public/images/header/img.png" alt="" class="icon">
                 </div>
                 <p>王曉明</p>
-                <div class="header_icon">
-                    <img src="../assets/image/index/logout.png" alt="" class="icon">
-                </div>
+                <botton class="header_icon">
+                    <img src="../../public/images/icon/logout.svg" alt="" class="icon">
+                </botton>
             </div>
         </div>
     </div>
