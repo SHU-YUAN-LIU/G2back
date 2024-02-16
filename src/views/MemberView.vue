@@ -1,107 +1,109 @@
 <template>
-     <MainHeader />
-    <!-- <dropDown /> -->
-  <div class="mem-bg">
-    <div class="mem_wrap-group">
-      <div class="mem_wrap">
-        <!-- 搜尋 -->
+  <MainHeader />
+  <Dropdown />
+  <div class="member">
+    <div class="member_container">
+      <!-- 搜尋 -->
+      <div>
         <SearchBtn :placeholder="placeholder" />
-        <!-- ----------------------------------------------------- -->
-        <div class="mem-info">
-          <table class="table">
-            <thead>
-              <tr class="table-dark " align="center ">
-                <th scope="col" class="p-3">會員ID</th>
-                <th scope="col" class="p-2"><span class="l-2">姓名</span></th>
-                <th scope="col" class="p-2">連絡電話</th>
-                <th scope="col" class="p-2">狀態正常</th>
-                <th scope="col" class="p-2">操作</th>
-              </tr>
-            </thead>
-            <tbody id="memberTbody">
-              <tr align="center" v-for="item in memberdata">
-                <td class="align-middle">{{ item.member_no }}</td>
-                <td class="align-middle">{{ item.member_name }}</td>
-                <td class="align-middle">{{ item.cellphone }}</td>
-                <td class="align-middle">
-                  <switch_btn :ischecked="item.status == '正常'" @change="changeMemberStatus(item.member_no)" />
-                </td>
+      </div>
+      <div class="member_table">
+        <table class="table table-hover" style="position: relative;">
 
-                <td class="align-middle">
-                  <button class="showlightbtn" @click="showLightbox(item.member_no)">
-                    <img src="../../public/images/icon/icon_revise.png" alt="">修改
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <thead style="position: sticky; top:0;  z-index: 99;">
+            <td>會員ID</td>
+            <td>姓名</td>
+            <td>連絡電話</td>
+            <td>是否停權</td>
+            <td>操作</td>
+          </thead>
+          <tbody>
+            <tr v-for="item in memberdata">
+              <td class="member_id">{{ item.member_no }}</td>
+              <td class="member_date">{{ item.member_name }}</td>
+              <td class="member_name">{{ item.cellphone }}</td>
+              <td class="member_title">
+                <switch_btn :ischecked="item.status == '正常'" @change="changeMemberStatus(item.member_no)" />
+              </td>
+              <td class="member_operate">
+                <button @click="showLightbox(item.member_no)">
+                  <img src="/public/images/icon/icon_revise.png" alt="">修改
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  <Lightbox class="memberlightbox" @toSaveData="updateData(currentlightbox[0].member_no)" lightboxType="true"
-    ref="lightbox">
 
-    <div class="admin_lightbox" style="overflow-y: scroll;">
-      <p>
-        <span>建立日期: </span>
-        <span>{{ currentlightbox[0].create_date }}</span>
-      </p>
-      <p>
-        <span>修改日期: </span>
-        <span>{{ currentlightbox[0].modify_date }}</span>
-      </p>
-      <p class="title"><span>詳細資訊</span></p>
-      <table>
-        <tr>
-          <td>會員ID:</td>
-          <td>{{ currentlightbox[0].member_no }}</td>
-        </tr>
-        <tr>
-          <td>姓名:</td>
-          <td>{{ currentlightbox[0].member_name }}</td>
-        </tr>
-        <tr>
-          <td>生日:</td>
-          <td>{{ currentlightbox[0].birthday }}</td>
-        </tr>
-        <tr>
-          <td>地址:</td>
-          <td>{{ currentlightbox[0].address }}</td>
-        </tr>
-        <tr>
-          <td>行動電話:</td>
-          <td>{{ currentlightbox[0].cellphone }}</td>
-        </tr>
-        <tr>
-          <td>室內電話:</td>
-          <td>{{ currentlightbox[0].phone }}</td>
-        </tr>
-        <tr>
-          <td>EMAIL:</td>
-          <td>{{ currentlightbox[0].email }}</td>
-        </tr>
-        <tr>
-          <td>密碼:</td>
-          <td>{{ currentlightbox[0].password }}</td>
-        </tr>
-        <tr>
-          <td>狀態:</td>
-          <td>
-            <select id="member_status" :value="currentlightbox[0].status">
-              <option value="正常">正常</option>
-              <option value="停用">停用</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>點數:</td>
-          <td>{{ currentlightbox[0].point }}</td>
-        </tr>
 
-      </table>
+  <!-- 燈箱 -->
+  <Lightbox class="memberlightbox" @toSaveData="updateData(currentlightbox[0].member_no)" ref="lightbox"
+    lightboxType="true">
+    <div class="member_lightbox">
+      <div class="member-row-group">
+        <div class="member-row">
+          <strong>建立日期:</strong>
+          <span>{{ currentlightbox[0].create_date }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>修改日期:</strong>
+          <span>{{ currentlightbox[0].modify_date }}</span>
+        </div>
+        <p class="member-title-bar ">詳細資訊</p>
+        <div class="member-row">
+          <strong>會員ID:</strong>
+          <span>{{ currentlightbox[0].member_no }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>姓名:</strong>
+          <span>{{ currentlightbox[0].member_name }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>地址:</strong>
+          <span>{{ currentlightbox[0].address }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>行動電話:</strong>
+          <span>{{ currentlightbox[0].cellphone }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>室內電話:</strong>
+          <span>{{ currentlightbox[0].phone }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>EMAIL:</strong>
+          <span>{{ currentlightbox[0].email }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>密碼:</strong>
+          <span>{{ currentlightbox[0].password }}</span>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>狀態:</strong>
+          <select class="form-select" id="member_status" :value="currentlightbox[0].status">
+            <option selected></option>
+            <option value="正常">正常</option>
+            <option value="停用">停用</option>
+          </select>
+        </div>
+        <hr>
+        <div class="member-row">
+          <strong>點數:</strong>
+          <span>{{ currentlightbox[0].point }}</span>
+        </div>
+
+      </div>
     </div>
-
   </Lightbox>
 </template>
 
@@ -111,15 +113,8 @@ import dropDown from "../components/Dropdown.vue";
 import switch_btn from '../components/switch_btn.vue'
 import SearchBtn from '../components/SearchBtn.vue'
 import Lightbox from "../components/Lightbox.vue";
-export default {
-  components: {
-    MainHeader,
-    dropDown,
-    switch_btn,
-    SearchBtn,
-    Lightbox,
 
-  },
+export default {
   data() {
     return {
       placeholder: '會員ID或電話',
@@ -129,6 +124,14 @@ export default {
 
     }
   },
+  components: {
+    MainHeader,
+    Dropdown,
+    switch_btn,
+    SearchBtn,
+    Lightbox,
+  },
+
   created() {
     this.getMemberData();
   },

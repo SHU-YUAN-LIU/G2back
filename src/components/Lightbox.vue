@@ -13,14 +13,15 @@
 
 <script>
 export default {
+   // 新增props變數lightboxType, 如果頁面是修改按鈕在頁面導入元件時回傳true, 查閱按鈕回傳false
+  props: {
+    lightboxType: Boolean, // 定義lightboxType的prop類型為Boolean(props有值時不應該重複在data定義)
+  },
   data() {
     return {
       showLightbox: false,
-      lightboxType: false,
     };
   },
-  // 新增props變數lightboxType, 如果頁面是修改按鈕在頁面導入元件時回傳true, 查閱按鈕回傳false
-  props: ['lightboxType',],
   methods: {
     closeLightbox() {
       this.showLightbox = false;

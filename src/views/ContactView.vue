@@ -1,10 +1,11 @@
 <template>
     <MainHeader />
-    <dropDown />
+    <Dropdown />
     <div class="contact">
         <div class="contact_container">
+            <!-- 搜尋 -->
             <div>
-                <Search :placeholder="placeholder" />
+                <SearchBtn :placeholder="placeholder" />
             </div>
             <div class="contact_table">
                 <table class="table table-hover" style="position: relative;">
@@ -39,71 +40,6 @@
     <!-- 燈箱架構 -->
     <Lightbox ref="lightbox" lightboxType="true">
         <div class="contact_lightbox">
-            <!-- <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label "><strong>陳情日期:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="2024/1/1">
-                </div>
-            </div>
-            <p class="contact-title ">詳細資訊</p>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>陳情編號:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="908099">
-                </div>
-            </div>
-            <hr>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>會員名稱:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="黑崎一護">
-                </div>
-            </div>
-            <hr>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>會員編號:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="87878787">
-                </div>
-            </div>
-            <hr>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>電子信箱:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail"
-                        value="andy123@yahoo.com.tw">
-                </div>
-            </div>
-            <hr>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>陳情主旨:</strong></label>
-                <div class="col-sm-10">
-                    <input type="text" disabled class="form-control-plaintext contact-no" id="staticEmail" value="我要週休三日">
-                </div>
-            </div>
-            <hr>
-
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label "><strong>陳情狀態:</strong></label>
-                <select class="form-select">
-                    <option selected></option>
-                    <option value="1">已受理</option>
-                    <option value="2">處理中</option>
-                    <option value="3">已回覆</option>
-                </select>
-            </div>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>陳情內容:</strong></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-            </div>
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>回覆內容:</strong></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-            </div> -->
-
-
-
-            <!-- --------------------------------- -->
             <div class="contact-row-group">
                 <div class="contact-row">
                     <strong>陳情日期:</strong>
@@ -155,7 +91,6 @@
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
             </div>
-            <!-- --------------------------------- -->
         </div>
 
     </Lightbox>
@@ -167,8 +102,8 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
-import Search from "../components/SearchBtn.vue";
-import dropDown from "../components/Dropdown.vue";
+import SearchBtn from "../components/SearchBtn.vue";
+import Dropdown from "../components/Dropdown.vue";
 export default {
     data() {
         return {
@@ -252,10 +187,13 @@ export default {
         MainHeader,
         Lightbox,
         SwitchBtn,
-        Search,
-        dropDown,
+        SearchBtn,
+        Dropdown,
     },
     created() {
+    },
+    mounted() {
+        document.title = "青年進補黨(後台) - 陳情查詢";
     },
     methods: {
         showLightbox() {

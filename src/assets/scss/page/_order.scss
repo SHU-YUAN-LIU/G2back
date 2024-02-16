@@ -40,6 +40,11 @@
 
                 td {
                     text-align: center;
+                    vertical-align: middle;
+
+                    &:first-child {
+                        padding: 0 15px;
+                    }
                 }
 
                 thead {
@@ -75,31 +80,50 @@
 
 //燈箱
 .order_lightbox {
-    // width: 650px;
     width: 80%;
-    // height: 80%;
-    // border: 2px solid blue;
 
-    .order-no {
-        background: none;
-    }
-
-    .order-title {
+    .order-title-bar {
         width: 100%;
         text-align: center;
         background-color: $black;
         color: $white;
         padding: 8px;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            padding: 0 40px;
+        }
     }
 
 }
 
-.form-select {
-    width: 40% !important;
-}
 
 .form-control {
     width: 80% !important;
     display: flex;
     justify-content: center;
+}
+
+.order-row-group {
+    text-align: start;
+
+    .order-row {
+        text-wrap: nowrap;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        strong {
+            width: 100px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .form-select {
+            width: 80% !important;
+        }
+    }
 }

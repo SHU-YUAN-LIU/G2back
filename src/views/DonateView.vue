@@ -1,114 +1,148 @@
 <template>
     <MainHeader />
     <Dropdown />
-
     <div class="donate">
         <div class="donate_container">
-            <div>
-                <Search />
+            <!-- 搜尋框 -->
+            <div class="donate-btn">
+                <SearchBtn :placeholder="placeholder" />
+                <addBtn />
             </div>
             <div class="donate_table">
-
-            <table>
-                <thead>
-                    <td>捐款日期</td>
-                    <td>姓名</td>
-                    <td>會員編號</td>
-                    <td>金額</td>
-                    <td>支付方式</td>
-                    <td>操作</td>
-                </thead>
-                <tbody>
-                    <tr :key="index" v-for="item in donatedata">
-                        <td class="donate_date">{{ item.donate_date }}</td>
-                        <!-- <td class="donate_name">王葳</td> -->
-                        <td class="donate_name">{{ item.member_name || '-' }}</td>
-                        <td class="donate_id">{{ item.member_no || '-' }}</td>
-                        <td class="donate_amount">$ <span>{{ item.donate_amount }}</span>
-                        </td>
-                        <td class="donate_method">{{ item.donate_method }}</td>
-                        <td class="donate_operate">
-                            <button @click="showLightbox()">
-                                <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="table table-hover" style="position: relative;">
+                    <!-- 表頭 -->
+                    <thead style="position: sticky; top:0;  z-index: 99;">
+                        <td>捐款日期</td>
+                        <td>捐款姓名</td>
+                        <td>會員編號</td>
+                        <td>捐款金額</td>
+                        <td>支付方式</td>
+                        <td>操作</td>
+                    </thead>
+                    <!-- 欄位內容 -->
+                    <tbody>
+                        <tr v-for="item in donatedata" :key="index">
+                            <td class="donate_date">{{ item.donate_date }}</td>
+                            <td class="donate_name">{{ item.member_name || '-' }}</td>
+                            <td class="donate_id">{{ item.member_no || '-' }}</td>
+                            <td class="donate_amount"> <span>{{ item.donate_amount }}</span>
+                            </td>
+                            <td class="donate_method">{{ item.donate_method }}</td>
+                            <td class="donate_operate">
+                                <button @click="showLightbox()">
+                                    <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    </div>
-    <Lightbox ref="lightbox" type="true" @toSaveData="updateData(currentightbox[0].member_no)">
+    <!-- 燈箱架構 -->
+    <Lightbox ref="lightbox" lightboxType="true">
         <div class="donate_lightbox">
-            <p>
-                <span>捐款日期: </span>
-                <span>2024/1/1</span>
-            </p>
-            <p>
-                <span>狀態: </span>
-                <span>實名</span>
-            </p>
-            <p class="title"><span>詳細資訊</span></p>
-            <table>
-                <tr>
-                    <td>流水編號: </td>
-                    <td>90809809</td>
-                </tr>
-                <tr>
-                    <td>姓名: </td>
-                    <td>王小明</td>
-                </tr>
-                <tr>
-                    <td>會員ID: </td>
-                    <td>1828372</td>
-                </tr>
-                <tr>
-                    <td>Email: </td>
-                    <td>xx@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>生日: </td>
-                    <td>1970.1.1</td>
-                </tr>
-                <tr>
-                    <td>連絡電話: </td>
-                    <td>0912345678</td>
-                </tr>
-                <tr>
-                    <td>捐款金額: </td>
-                    <td>1280</td>
-                </tr>
-                <tr>
-                    <td>單筆點數: </td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>捐款方式: </td>
-                    <td>信用卡</td>
-                </tr>
-            </table>
+            <div class="donate-row-group">
+                <div class="donate-row">
+                    <strong>捐款日期:</strong>
+                    <span>2024/1/1</span>
+                </div>
+                <div class="donate-row">
+                    <strong>狀態:</strong>
+                    <span>實名
+                    </span>
+                </div>
+                <p class="donate-title ">詳細資訊</p>
+                <div class="donate-row">
+                    <strong>流水編號:</strong>
+                    <span>908099</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>姓名:</strong>
+                    <span>王小明</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>會員ID: </strong>
+                    <span>1828372</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>Email:</strong>
+                    <span>andy123@yahoo.com.tw</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>生日:</strong>
+                    <span>1970.1.1</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>連絡電話:</strong>
+                    <span>0912345678</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>捐款金額:</strong>
+                    <span>$1280</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>單筆點數:</strong>
+                    <span>20</span>
+                </div>
+                <hr>
+                <div class="donate-row">
+                    <strong>捐款方式:</strong>
+                    <span>信用卡</span>
+                </div>
+            </div>
         </div>
     </Lightbox>
 </template>
 <script>
+import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
-// import Dropdown from "../components/Dropdown.vue";
 import Lightbox from "../components/Lightbox.vue";
-import Search from "../components/SearchBtn.vue";
+import SwitchBtn from "../components/switch_btn.vue";
+import SearchBtn from "../components/SearchBtn.vue";
+import Dropdown from "../components/Dropdown.vue";
+import addBtn from "../components/addBtn.vue";
 export default {
     data() {
         return {
-            donatedata: [],
-            searchPlaceholder: '请输入搜索内容'
+            placeholder: '請輸入標題或關鍵字',
+            donatedata: [{
+                donate_date: '2023/9/23',
+                member_name: '劉橙汁',
+                member_no: '1',
+                donate_amount: '$2000',
+                donate_method: '信用卡',
+            },
+            {
+                donate_date: '2023/9/23',
+                member_name: '劉丁',
+                member_no: '2',
+                donate_amount: '$2000',
+                donate_method: '信用卡',
+            }
+            ],
         };
     },
     created() {
         this.getDonateData();
     },
+    mounted() {
+        document.title = "青年進補黨(後台) - 捐款查詢";
+    },
     components: {
         MainHeader,
         Lightbox,
-        Search,
+        SwitchBtn,
+        SearchBtn,
+        Dropdown,
+        addBtn,
     },
     methods: {
         showLightbox(item) {
@@ -145,59 +179,5 @@ export default {
 }
 
 </script>
-    
- <!-- 燈箱內容的css -->
-<style lang="scss">
-@import "../assets/scss/style.scss";
 
-.donate_lightbox {
-    width: 80%;
-
-    p {
-        display: flex;
-        margin: 0;
-
-        span:nth-child(1) {
-            width: 200px;
-        }
-    }
-
-    .title {
-        text-align: center;
-        background: black;
-        color: $white;
-        width: 100%;
-        height: 45px;
-        line-height: 45px;
-        display: flex;
-        justify-content: center;
-    }
-
-    table {
-        width: 100%;
-        border: 1px solid #000;
-
-        tr {
-            height: 40px;
-            line-height: 40px;
-            display: flex;
-            justify-content: space-evenly;
-
-            td {
-                text-align: center;
-                width: 50%;
-
-                input {
-                    height: 30px;
-                }
-            }
-
-            td:nth-child(2) {
-                text-align: left;
-
-            }
-        }
-    }
-}
-</style>
     
