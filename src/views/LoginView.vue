@@ -29,12 +29,15 @@ export default {
             // url: `${import.meta.env.VITE_API_URL}/demo/demo.php`,
             commit: '登入',
             account: '',
-            psw:'',
+            psw: '',
         }
     },
     components: {
         background,
         commitButton
+    },
+    beforeMount() {
+        localStorage.removeItem('adminId');
     },
     mounted() {
 
@@ -58,24 +61,26 @@ export default {
         //         console.log(res);
         //     })
         // }
-        adminLogin(){
+        adminLogin() {
             var formData = new FormData();
-            formData.append('account',this.account);
-            formData.append('psw',this.psw);
+            formData.append('account', this.account);
+            formData.append('psw', this.psw);
             axios({
-                method:"post",
-                url:`${import.meta.env.VITE_PHP_URL}` + "/adminLogin.php",
-                data:formData,
+                method: "post",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/adminLogin.php",
+                data: formData,
                 headers: { "Content-Type": "multipart/form-data" },
             })
-            .then(res => {
-                    console.log(res.data.admin.length);
+                .then(res => {
+                    // console.log(res.data.admin.length);
                     // console.log(res.data.admin[0].status);
-                    if(res.data.admin.length===0){
+                    if (res.data.admin.length === 0) {
                         alert("帳號密碼錯誤");
-                    }else if(res.data.admin[0].status=="IA"){
+                    } else if (res.data.admin[0].status == "IA") {
                         alert("帳戶已停用");
-                    }else{
+                    } else {
+                        // console.log(res.data.admin);
+                        localStorage.setItem('adminId', JSON.stringify(res.data.admin));
                         this.$router.push({ name: 'index' });
                     }
                 })
