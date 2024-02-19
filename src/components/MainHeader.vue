@@ -6,11 +6,32 @@
                 <div class="header_img">
                     <img src="../../public/images/header/img.png" alt="" class="icon">
                 </div>
-                <p>王曉明</p>
-                <div class="header_icon">
-                    <img src="../assets/image/index/logout.png" alt="" class="icon">
+                <p>{{ name }}</p>
+                <div class="header_icon" @click="logout">
+                    <img src="../../public/images/icon/logout.svg" alt="" class="icon">
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            name: "",
+            admin_no: 0,
+        }
+    },
+    mounted() {
+        this.admin_no = JSON.parse(localStorage.getItem('adminId'))[0].admin_no;
+        this.name = JSON.parse(localStorage.getItem('adminId'))[0].admin_name;
+    },
+    methods: {
+        logout() {
+            localStorage.removeItem('adminId');
+            this.$router.push('/login');
+        }
+    },
+}
+</script>

@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <!-- 左邊選單 -->
-        <nav class="flex-column  navbar-expand-lg navbar-light bg-* header_left">
+        <nav class="flex-column  navbar-expand-lg bg-* header_left">
             <!-- logo -->
             <div class="logoImg">
                 <img class="navbar-brand " src="../assets/image/login/logo.png" alt="" width="169" height="125">
@@ -63,8 +63,9 @@
                         </div>
                     </li>
                     <!-- 回到前台 -->
-                    <li class="nav-item">
-                        <a class="nav-link disabled text-dark" href="#">回到前台</a>
+                    <li class="nav-item back-home">
+                        <RouterLink class="nav-link  text-dark back" to="#">回到前台
+                        </RouterLink>
                     </li>
                 </ul>
 
