@@ -28,7 +28,7 @@
                         </td>
                         <td class="donate_method">{{ item.donate_method }}</td>
                         <td class="donate_operate">
-                            <button @click="showLightbox()">
+                            <button @click="showLightbox(item.donate_no)">
                                 <img src="../../public/images/icon/icon_info.png" alt="icon_info.png">查閱
                             </button>
                         </td>
@@ -42,49 +42,49 @@
         <div class="donate_lightbox">
             <p>
                 <span>捐款日期: </span>
-                <span>2024/1/1</span>
+                <span>{{ lightboxdata.donate_date }}</span>
             </p>
             <p>
                 <span>狀態: </span>
-                <span>實名</span>
+                <span>{{ lightboxdata.donate_class }}</span>
             </p>
             <p class="title"><span>詳細資訊</span></p>
             <table>
                 <tr>
                     <td>流水編號: </td>
-                    <td>90809809</td>
+                    <td>{{ lightboxdata.donate_no }}</td>
                 </tr>
                 <tr>
                     <td>姓名: </td>
-                    <td>王小明</td>
+                    <td>{{ lightboxdata.member_name || '-' }}</td>
                 </tr>
                 <tr>
                     <td>會員ID: </td>
-                    <td>1828372</td>
+                    <td>{{ lightboxdata.member_no || '-' }}</td>
                 </tr>
                 <tr>
                     <td>Email: </td>
-                    <td>xx@gmail.com</td>
+                    <td>{{ lightboxdata.email || '-' }}</td>
                 </tr>
                 <tr>
                     <td>生日: </td>
-                    <td>1970.1.1</td>
+                    <td>{{ lightboxdata.birthday || '-' }}</td>
                 </tr>
                 <tr>
                     <td>連絡電話: </td>
-                    <td>0912345678</td>
+                    <td>{{ lightboxdata.phone || '-' }}</td>
                 </tr>
                 <tr>
                     <td>捐款金額: </td>
-                    <td>1280</td>
+                    <td>{{ lightboxdata.donate_amount }}</td>
                 </tr>
                 <tr>
                     <td>單筆點數: </td>
-                    <td>20</td>
+                    <td>{{ lightboxdata.member_name ? Math.floor(lightboxdata.donate_amount / 100) : '-' }}</td>
                 </tr>
                 <tr>
                     <td>捐款方式: </td>
-                    <td>信用卡</td>
+                    <td>{{ lightboxdata.donate_method }}</td>
                 </tr>
             </table>
         </div>
@@ -99,7 +99,8 @@ export default {
     data() {
         return {
             donatedata: [],
-            searchPlaceholder: '请输入搜索内容'
+            searchPlaceholder: '请输入搜索内容',
+            lightboxdata: [],
         };
     },
     created() {
@@ -111,8 +112,11 @@ export default {
         Search,
     },
     methods: {
-        showLightbox(item) {
+        showLightbox(donate_no) {
             this.$refs.lightbox.showLightbox = true;
+            this.lightboxdata = this.donatedata.find(item => item.donate_no === donate_no);
+            // console.log(this.admindata);
+            document.body.style.overflow = 'hidden';
         },
         getDonateData() {
             let url = `${import.meta.env.VITE_API_URL}/donateDataGetAll.php`;
@@ -138,6 +142,12 @@ export default {
                     member_no: donates[i].member_no,
                     donate_amount: donates[i].donate_amount,
                     donate_method: donates[i].donate_method,
+                    email: donates[i].email,
+                    birthday: donates[i].birthday,
+                    phone: donates[i].phone,
+                    point: donates[i].point,
+                    donate_no: donates[i].donate_no,
+                    donate_class: donates[i].donate_class,
                 })
             }
         },
