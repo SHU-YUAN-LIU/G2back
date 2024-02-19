@@ -198,6 +198,9 @@ export default {
             };
         },
         inserdata() {
+            this.insertdata.creator = parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no);
+            this.insertdata.modifier = parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no);
+
             axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataInsert.php", this.insertdata)
                 .then(res => {
                     console.log('insert data:', res.data.msg);
@@ -224,15 +227,23 @@ export default {
             this.updatedata.admin_no = parseInt(this.updatedata.admin_no);
             this.updatedata.admin_level = parseInt(this.updatedata.admin_level);
             this.updatedata.creator = parseInt(this.updatedata.creator);
-            this.updatedata.modifier = parseInt(this.updatedata.modifier);
+            this.updatedata.modifier = parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no);
 
-            console.log(this.updatedata);
+            // console.log(this.updatedata);
             axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataUpdate.php", this.updatedata)
                 .then(res => {
-                    console.log('insert data:', res.data.msg);
+                    // console.log('insert data:', res.data.msg);
                     this.$refs[`lightbox1`].showLightbox = false;
-                    this.updatedata = {};
                     this.getData();
+
+                    // console.log(this.updatedata.admin_no);
+                    if(this.updatedata.admin_no == parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no)){
+                        alert("檢測到修改自己資料，請重新登入");
+                        localStorage.removeItem('adminId');
+                        this.$router.push('/login');
+                    }
+
+                    this.updatedata = {};
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
