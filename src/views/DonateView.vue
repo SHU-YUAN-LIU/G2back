@@ -146,7 +146,7 @@ export default {
             this.$refs.lightbox.showLightbox = true;
         },
         getDonateData() {
-            let url = `${import.meta.env.VITE_API_URL}/donateDataGetAll.php`;
+            let url = `${import.meta.env.VITE_PHP_URL}/donateDataGetAll.php`;
             fetch(url)
                 .then(response => response.json())
                 .then(result => {

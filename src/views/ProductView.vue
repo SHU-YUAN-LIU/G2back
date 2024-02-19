@@ -114,7 +114,7 @@ export default {
             document.body.style.overflow = 'hidden';
         },
         getData() {
-            axios.get(`${import.meta.env.VITE_API_URL}` + "/productDataGetAll.php")
+            axios.get(`${import.meta.env.VITE_PHP_URL}` + "/productDataGetAll.php")
                 .then(res => {
                     this.productsdata = res.data.products;
                     this.findproductsdata = res.data.products;

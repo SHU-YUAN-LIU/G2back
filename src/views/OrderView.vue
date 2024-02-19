@@ -180,7 +180,7 @@ export default {
             this.orderItemdata = [];
             var formData = new FormData();
             formData.append('order_no', clicked_order_no);
-            axios.post(`${import.meta.env.VITE_API_URL}` + "/getOrderData.php", formData)
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/getOrderData.php", formData)
                 .then(res => {
                     console.log(res);
                     this.orderItemdata = res.data.order;
@@ -193,7 +193,7 @@ export default {
                 });
         },
         getAllOrders() {
-            axios.get(`${import.meta.env.VITE_API_URL}` + "/ordersGetAll.php")
+            axios.get(`${import.meta.env.VITE_PHP_URL}` + "/ordersGetAll.php")
                 .then(res => {
                     console.log(res.data.order);
                     this.orderdata = res.data.order;
@@ -215,7 +215,7 @@ export default {
             formData.append('status', this.orderstatus);
             axios({
                 method: "post",
-                url: `${import.meta.env.VITE_API_URL}` + "/changeOrderStatus.php",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/changeOrderStatus.php",
                 data: formData,
                 headers: { "Content-Type": "multipart/form-data" },
             })

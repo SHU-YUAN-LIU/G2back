@@ -126,6 +126,24 @@
         justify-content: flex-start;
         align-items: center;
 
+        .all-location {
+            width: 80% !important;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        input {
+            display: flex;
+            justify-content: center;
+            border-radius: $border-radius-1 ;
+            border: 1px solid $gray_2;
+            height: 40px;
+        }
+        .activity-space{
+            margin-left:20px ;
+        }
+
         strong {
             width: 120px;
             display: flex;

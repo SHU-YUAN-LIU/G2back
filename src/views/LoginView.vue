@@ -26,7 +26,6 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            // url: `${import.meta.env.VITE_API_URL}/demo/demo.php`,
             commit: '登入',
             account: '',
             psw: '',
@@ -46,21 +45,7 @@ export default {
         // this.fetchData()
     },
     methods: {
-        // fetchData() {
-        //     fetch(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
-        //         console.log(res);
-        //     })
-        // }
-        // fetchData() {
-        //     fetch(`${import.meta.env.VITE_API_URL}/public/api/prod_getAll.php`).then(res => {
-        //         console.log(res);
-        //     })
-        // }
-        // fetchData() {
-        //     axios.get(`${import.meta.env.VITE_API_URL}/AjaxLab/2_Ajax_fetch_books/prod_getAll.php`).then(res => {
-        //         console.log(res);
-        //     })
-        // }
+
         adminLogin() {
             var formData = new FormData();
             formData.append('account', this.account);

@@ -180,7 +180,7 @@ export default {
         },
 
         getData() {
-            axios.get(`${import.meta.env.VITE_API_URL}` + "/adminDataGetAll.php")
+            axios.get(`${import.meta.env.VITE_PHP_URL}` + "/adminDataGetAll.php")
                 .then(res => {
                     this.admindata = res.data.admins;
                     this.findadmindata = res.data.admins;
@@ -198,7 +198,7 @@ export default {
             };
         },
         inserdata() {
-            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataInsert.php", this.insertdata)
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/adminDataInsert.php", this.insertdata)
                 .then(res => {
                     console.log('insert data:', res.data.msg);
                     this.$refs[`lightbox2`].showLightbox = false;
@@ -227,7 +227,7 @@ export default {
             this.updatedata.modifier = parseInt(this.updatedata.modifier);
 
             console.log(this.updatedata);
-            axios.post(`${import.meta.env.VITE_API_URL}` + "/adminDataUpdate.php", this.updatedata)
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/adminDataUpdate.php", this.updatedata)
                 .then(res => {
                     console.log('insert data:', res.data.msg);
                     this.$refs[`lightbox1`].showLightbox = false;
