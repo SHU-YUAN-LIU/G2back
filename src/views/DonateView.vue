@@ -5,7 +5,7 @@
     <div class="donate_container">
       <!-- 搜尋框 -->
       <div class="donate-btn">
-        <SearchBtn :placeholder="placeholder" />
+        <SearchBtn :placeholder="'請輸入會員編號'" @toSearchData="searchdata" />
       </div>
       <div class="donate_table">
         <table>
@@ -18,9 +18,8 @@
             <td>操作</td>
           </thead>
           <tbody>
-            <tr :key="index" v-for="item in donatedata">
+            <tr :key="item.donate_no" v-for="item in filterdata">
               <td class="donate_date">{{ item.donate_date }}</td>
-              <!-- <td class="donate_name">王葳</td> -->
               <td class="donate_name">{{ item.member_name || "-" }}</td>
               <td class="donate_id">{{ item.member_no || "-" }}</td>
               <td class="donate_amount">
@@ -29,10 +28,7 @@
               <td class="donate_method">{{ item.donate_method }}</td>
               <td class="donate_operate">
                 <button @click="showLightbox(item.donate_no)">
-                  <img
-                    src="../../public/images/icon/icon_info.png"
-                    alt="icon_info.png"
-                  />查閱
+                  <img src="/images/icon/icon_info.png" />查閱
                 </button>
               </td>
             </tr>
@@ -85,11 +81,7 @@
         <tr>
           <td>單筆點數:</td>
           <td>
-            {{
-              lightboxdata.member_name
-                ? Math.floor(lightboxdata.donate_amount / 100)
-                : "-"
-            }}
+            {{ lightboxdata.member_name ? Math.floor(lightboxdata.donate_amount / 100) : "-" }}
           </td>
         </tr>
         <tr>
@@ -111,7 +103,7 @@ export default {
   data() {
     return {
       donatedata: [],
-      searchPlaceholder: "请输入搜索内容",
+      filterdata: [],
       lightboxdata: [],
     };
   },
@@ -134,7 +126,6 @@ export default {
       this.lightboxdata = this.donatedata.find(
         (item) => item.donate_no === donate_no
       );
-      // console.log(this.admindata);
       document.body.style.overflow = "hidden";
     },
     getDonateData() {
@@ -142,18 +133,13 @@ export default {
       fetch(url)
         .then((response) => response.json())
         .then((result) => {
-          const donates = result.donates;
-          console.log(111, result);
-
-          this.showDonates(donates);
+          this.showDonates(result.donates);
         })
         .catch((error) => {
           console.log(error);
         });
     },
     showDonates(donates) {
-      // let html = "";
-
       for (let i = 0; i < donates.length; i++) {
         this.donatedata.push({
           donate_date: donates[i].donate_date,
@@ -163,13 +149,25 @@ export default {
           donate_method: donates[i].donate_method,
           email: donates[i].email,
           birthday: donates[i].birthday,
-          phone: donates[i].phone,
+          phone: donates[i].cellphone,
           point: donates[i].point,
           donate_no: donates[i].donate_no,
           donate_class: donates[i].donate_class,
         });
       }
+
+      this.filterdata = this.donatedata;
     },
+    searchdata(value) {
+      if (value == null || value == "") {
+        this.filterdata = this.donatedata;
+      } else {
+        this.filterdata = this.donatedata.filter((item) => {
+
+          return item.member_no !== null && item.member_no.toString().includes(value);
+        })
+      }
+    }
   },
 };
 </script>
