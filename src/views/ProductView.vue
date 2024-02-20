@@ -53,6 +53,18 @@
                     <strong>商品名稱:</strong>
                     <input class="form-control" type="text" placeholder="請輸入名稱">
                 </div>
+                <div class="product-row">
+                    <strong>商品類別:</strong>
+                    <input class="form-control" type="text" placeholder="請輸入類別">
+                </div>
+                <div class="product-row">
+                    <strong>商品售價:</strong>
+                    <input class="form-control" type="text" placeholder="請輸入售價">
+                </div>
+                <div class="product-row">
+                    <strong>商品數量:</strong>
+                    <input class="form-control" type="text" placeholder="請輸入數量">
+                </div>
                 <hr>
                 <div class="product-row">
                     <strong>狀態:</strong>
@@ -68,6 +80,7 @@
                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                 </div>
             </div>
+            <!-- ------------------------- -->
         </div>
     </Lightbox>
 </template>
