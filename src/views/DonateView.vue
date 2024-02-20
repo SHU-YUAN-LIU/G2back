@@ -44,59 +44,72 @@
   <!-- 燈箱架構 -->
   <Lightbox ref="lightbox" :lightboxType="false">
     <div class="donate_lightbox">
-      <p>
-        <span>捐款日期: </span>
-        <span>{{ lightboxdata.donate_date }}</span>
-      </p>
-      <p>
-        <span>狀態: </span>
-        <span>{{ lightboxdata.donate_class }}</span>
-      </p>
-      <p class="title"><span>詳細資訊</span></p>
-      <table>
-        <tr>
-          <td>流水編號:</td>
-          <td>{{ lightboxdata.donate_no }}</td>
-        </tr>
-        <tr>
-          <td>姓名:</td>
-          <td>{{ lightboxdata.member_name || "-" }}</td>
-        </tr>
-        <tr>
-          <td>會員ID:</td>
-          <td>{{ lightboxdata.member_no || "-" }}</td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>{{ lightboxdata.email || "-" }}</td>
-        </tr>
-        <tr>
-          <td>生日:</td>
-          <td>{{ lightboxdata.birthday || "-" }}</td>
-        </tr>
-        <tr>
-          <td>連絡電話:</td>
-          <td>{{ lightboxdata.phone || "-" }}</td>
-        </tr>
-        <tr>
-          <td>捐款金額:</td>
-          <td>{{ lightboxdata.donate_amount }}</td>
-        </tr>
-        <tr>
-          <td>單筆點數:</td>
-          <td>
-            {{
-              lightboxdata.member_name
-                ? Math.floor(lightboxdata.donate_amount / 100)
-                : "-"
-            }}
-          </td>
-        </tr>
-        <tr>
-          <td>捐款方式:</td>
-          <td>{{ lightboxdata.donate_method }}</td>
-        </tr>
-      </table>
+      <!-- ---------------------------------------------- -->
+      <div class="donate-row-group">
+        <p class="donate-title"><span>捐款資訊</span></p>
+        <div class="donate-row">
+          <strong>捐款日期: </strong>
+          <span>{{ lightboxdata.donate_date }}</span>
+        </div>
+        <hr>
+        <p class="donate-row">
+          <strong>狀態: </strong>
+          <span>{{ lightboxdata.donate_class }}</span>
+        </p>
+        <hr>
+        <div class="donate-row">
+          <strong>流水編號:</strong>
+          <span>{{ lightboxdata.donate_no }}</span>
+        </div>
+
+        <p class="donate-title"><span>詳細資訊</span></p>
+          <div class="donate-row">
+            <strong>姓名:</strong>
+            <td>{{ lightboxdata.member_name || "-" }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>會員ID:</strong>
+            <td>{{ lightboxdata.member_no || "-" }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>Email:</strong>
+            <td>{{ lightboxdata.email || "-" }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>生日:</strong>
+            <td>{{ lightboxdata.birthday || "-" }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>連絡電話:</strong>
+            <td>{{ lightboxdata.phone || "-" }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>捐款金額:</strong>
+            <td>{{ lightboxdata.donate_amount }}</td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>單筆點數:</strong>
+            <td>
+              {{
+                lightboxdata.member_name
+                  ? Math.floor(lightboxdata.donate_amount / 100)
+                  : "-"
+              }}
+            </td>
+          </div>
+          <hr>
+          <div class="donate-row">
+            <strong>捐款方式:</strong>
+            <td>{{ lightboxdata.donate_method }}</td>
+          </div>
+        
+      </div>
     </div>
   </Lightbox>
 </template>
@@ -173,3 +186,5 @@ export default {
   },
 };
 </script>
+
+<style lang="scss"></style>
