@@ -135,3 +135,22 @@
 
     }
 }
+
+.product-pic-group {
+    width: 298px;
+    display: flex;
+    flex-direction: column;
+}
+.big-pic {
+    background-color: gray;
+    
+}
+.s-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.s-group .small-pic {
+    width: 61px;
+    background-color: gray;
+}
