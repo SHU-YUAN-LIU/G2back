@@ -49,7 +49,6 @@
   <Lightbox ref="lightbox" lightboxType="true">
     <div class="product_lightbox">
       <!-- --------------------------------- -->
-      
 
       <div class="product-row-group">
         <p class="product-title-bar">商品圖片</p>
@@ -57,7 +56,7 @@
         <div class="product-pic-zone">
           <div class="product-pic-group">
             <div class="big-pic">上傳圖片</div>
-    
+
             <div class="s-group">
               <div class="small-pic">上傳</div>
               <div class="small-pic">上傳</div>
@@ -66,45 +65,45 @@
             </div>
           </div>
           <div class="pic-up">
-              <div class="product-row">
-                <strong>上傳圖片1:</strong>
-                <input
-                  class="form-control"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                />
-              </div>
-              <div class="product-row">
-                <strong>上傳圖片2:</strong>
-                <input
-                  class="form-control"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                />
-              </div>
-              <div class="product-row">
-                <strong>上傳圖片3:</strong>
-                <input
-                  class="form-control"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                />
-              </div>
-              <div class="product-row">
-                <strong>上傳圖片4:</strong>
-                <input
-                  class="form-control"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                />
-              </div>
+            <div class="product-row">
+              <strong>上傳圖片1:</strong>
+              <input
+                class="form-control"
+                type="file"
+                id="formFileMultiple"
+                multiple
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片2:</strong>
+              <input
+                class="form-control"
+                type="file"
+                id="formFileMultiple"
+                multiple
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片3:</strong>
+              <input
+                class="form-control"
+                type="file"
+                id="formFileMultiple"
+                multiple
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片4:</strong>
+              <input
+                class="form-control"
+                type="file"
+                id="formFileMultiple"
+                multiple
+              />
+            </div>
           </div>
-      </div>
-      <p class="product-title-bar">商品屬性</p>
+        </div>
+        <p class="product-title-bar">商品屬性</p>
         <div class="product-row">
           <strong>商品名稱:</strong>
           <input class="form-control" type="text" placeholder="請輸入名稱" />
@@ -130,7 +129,7 @@
             <option value="IA">下架</option>
           </select>
         </div>
-        <!-- <hr /> -->
+        <hr />
         <!-- <div class="product-row">
           <strong>上傳圖片:</strong>
           <input
@@ -140,6 +139,50 @@
             multiple
           />
         </div> -->
+        <div class="product-row" style="align-items: start">
+          <strong >商品資訊:</strong>
+          <textarea
+            class="form-control"
+            placeholder="請輸入商品資訊"
+            style="height: 400px"
+          ></textarea>
+        </div>
+        <hr />
+        <div class="pro-pic-info">
+          <div class="big-pic">圖片</div>
+          <div class="product-row">
+            <strong>上傳圖片:</strong>
+            <input
+              class="form-control"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
+          </div>
+        </div>
+        <div style="height: 20px;"></div>
+        <div class="pro-pic-info">
+          <div class="big-pic">圖片</div>
+          <div class="product-row">
+            <strong>上傳圖片:</strong>
+            <input
+              class="form-control"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
+          </div>
+        </div>
+        <hr />
+
+        <div class="product-row" style="align-items: start">
+          <strong >規格說明:</strong>
+          <textarea
+            class="form-control"
+            placeholder="請輸入規格說明"
+            style="height: 400px"
+          ></textarea>
+        </div>
       </div>
       <!-- ------------------------- -->
     </div>
