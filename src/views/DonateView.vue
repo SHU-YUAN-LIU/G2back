@@ -59,52 +59,46 @@
         </div>
 
         <p class="donate-title"><span>詳細資訊</span></p>
-          <div class="donate-row">
-            <strong>姓名:</strong>
-            <td>{{ lightboxdata.member_name || "-" }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>會員ID:</strong>
-            <td>{{ lightboxdata.member_no || "-" }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>Email:</strong>
-            <td>{{ lightboxdata.email || "-" }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>生日:</strong>
-            <td>{{ lightboxdata.birthday || "-" }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>連絡電話:</strong>
-            <td>{{ lightboxdata.phone || "-" }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>捐款金額:</strong>
-            <td>{{ lightboxdata.donate_amount }}</td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>單筆點數:</strong>
-            <td>
-              {{
-                lightboxdata.member_name
-                  ? Math.floor(lightboxdata.donate_amount / 100)
-                  : "-"
-              }}
-            </td>
-          </div>
-          <hr>
-          <div class="donate-row">
-            <strong>捐款方式:</strong>
-            <td>{{ lightboxdata.donate_method }}</td>
-          </div>
-        
+        <div class="donate-row">
+          <strong>姓名:</strong>
+          <td>{{ lightboxdata.member_name || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>會員ID:</strong>
+          <td>{{ lightboxdata.member_no || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>Email:</strong>
+          <td>{{ lightboxdata.email || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>生日:</strong>
+          <td>{{ lightboxdata.birthday || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>連絡電話:</strong>
+          <td>{{ lightboxdata.phone || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>捐款金額:</strong>
+          <td>{{ lightboxdata.donate_amount }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>單筆點數:</strong>
+          <td>{{ lightboxdata.point || "-" }}</td>
+        </div>
+        <hr>
+        <div class="donate-row">
+          <strong>捐款方式:</strong>
+          <td>{{ lightboxdata.donate_method }}</td>
+        </div>
+
       </div>
     </div>
   </Lightbox>
