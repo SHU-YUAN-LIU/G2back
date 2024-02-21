@@ -183,6 +183,19 @@
             style="height: 400px"
           ></textarea>
         </div>
+        <hr/>
+        <div class="pro-pic-info">
+          <div class="big-pic">圖片</div>
+          <div class="product-row">
+            <strong>上傳圖片:</strong>
+            <input
+              class="form-control"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
+          </div>
+        </div>
       </div>
       <!-- ------------------------- -->
     </div>
