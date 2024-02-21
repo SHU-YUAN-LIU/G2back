@@ -96,23 +96,35 @@
 .donate-row-group {
     text-align: start;
 
+    // .donate-row {
+    //     text-wrap: nowrap;
+    //     display: flex;
+    //     justify-content: flex-start;
+    //     align-items: center;
+
+    //     &:nth-child(1) {
+    //         margin-bottom: 20px;
+    //     }
+
+
+    //     strong {
+    //         width: 120px;
+    //         display: flex;
+    //         justify-content: flex-start;
+    //     }
+
+
+    // }
     .donate-row {
         text-wrap: nowrap;
         display: flex;
         justify-content: flex-start;
         align-items: center;
 
-        &:nth-child(1) {
-            margin-bottom: 20px;
-        }
-
-
         strong {
-            width: 120px;
+            width: 100px;
             display: flex;
             justify-content: flex-start;
         }
-
-
     }
 }

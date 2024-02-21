@@ -36,6 +36,7 @@ export default {
         commitButton
     },
     beforeMount() {
+        //登入進來前,要清空admin的id
         localStorage.removeItem('adminId');
     },
     mounted() {
