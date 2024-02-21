@@ -49,18 +49,62 @@
   <Lightbox ref="lightbox" lightboxType="true">
     <div class="product_lightbox">
       <!-- --------------------------------- -->
-      <div class="product-pic-group">
-        <div class="big-pic">上傳圖片</div>
-        
-        <div class="s-group">
-          <div class="small-pic">上傳</div>
-          <div class="small-pic">上傳</div>
-          <div class="small-pic">上傳</div>
-          <div class="small-pic">上傳</div>
-        </div>
-      </div>
+      
+
       <div class="product-row-group">
-        <p class="product-title-bar">圖片/屬性</p>
+        <p class="product-title-bar">商品圖片</p>
+        <!-- 將圖片上傳區域 -->
+        <div class="product-pic-zone">
+          <div class="product-pic-group">
+            <div class="big-pic">上傳圖片</div>
+    
+            <div class="s-group">
+              <div class="small-pic">上傳</div>
+              <div class="small-pic">上傳</div>
+              <div class="small-pic">上傳</div>
+              <div class="small-pic">上傳</div>
+            </div>
+          </div>
+          <div class="pic-up">
+              <div class="product-row">
+                <strong>上傳圖片1:</strong>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="product-row">
+                <strong>上傳圖片2:</strong>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="product-row">
+                <strong>上傳圖片3:</strong>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="product-row">
+                <strong>上傳圖片4:</strong>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+          </div>
+      </div>
+      <p class="product-title-bar">商品屬性</p>
         <div class="product-row">
           <strong>商品名稱:</strong>
           <input class="form-control" type="text" placeholder="請輸入名稱" />
@@ -86,8 +130,8 @@
             <option value="IA">下架</option>
           </select>
         </div>
-        <hr />
-        <div class="product-row">
+        <!-- <hr /> -->
+        <!-- <div class="product-row">
           <strong>上傳圖片:</strong>
           <input
             class="form-control"
@@ -95,7 +139,7 @@
             id="formFileMultiple"
             multiple
           />
-        </div>
+        </div> -->
       </div>
       <!-- ------------------------- -->
     </div>

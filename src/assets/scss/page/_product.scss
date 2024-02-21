@@ -126,6 +126,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        margin-bottom: 10px;
 
         strong {
             width: 120px;
@@ -140,17 +141,36 @@
     width: 298px;
     display: flex;
     flex-direction: column;
+    
 }
 .big-pic {
-    background-color: gray;
-    
+    background-color: #E7E6E6;
+    margin-bottom: 10px;
+    height: 234px;
 }
 .s-group {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    // align-items: center;
+    justify-content: center;
+    gap: 17px;
 }
 .s-group .small-pic {
     width: 61px;
-    background-color: gray;
+    background-color: #E7E6E6;
+    height: 68px;
+}
+.product-pic-zone {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.pic-up {
+    margin: auto;
+    margin-top: 0;
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
