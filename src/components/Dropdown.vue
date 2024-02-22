@@ -64,8 +64,8 @@
                     </li>
                     <!-- 回到前台 -->
                     <li class="nav-item back-home">
-                        <RouterLink class="nav-link  text-dark back" to="#">回到前台
-                        </RouterLink>
+                        <a class="nav-link  text-dark back" href="https://tibamef2e.com/chd104/g2/" >回到前台
+                        </a>
                     </li>
                 </ul>
 

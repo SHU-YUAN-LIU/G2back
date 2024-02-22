@@ -39,7 +39,7 @@
     </div>
 
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" @toSaveData="updateOrderData(orderItemdata[0].orders_no)" lightboxType="true">
+    <Lightbox ref="lightbox" @toSaveData="updateOrderData(orderItemdata[0].orders_no)" :lightboxType=true>
         <div class="order_lightbox">
             <!-- --------------------------------- -->
             <div class="order-row-group">
