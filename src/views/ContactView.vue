@@ -38,7 +38,7 @@
     </div>
 
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType=true>
         <div class="contact_lightbox">
             <div class="contact-row-group">
                 <div class="contact-row">

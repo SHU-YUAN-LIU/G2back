@@ -39,7 +39,7 @@
 
 
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType=true>
         <div class="cadre_lightbox">
             <!-- --------------------------------- -->
             <div class="cadre-row-group">

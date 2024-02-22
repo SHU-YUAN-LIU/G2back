@@ -37,7 +37,7 @@
 
 
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType=true>
         <div class="countdown_lightbox">
             <!-- --------------------------------- -->
             <div class="countdown-row-group">
