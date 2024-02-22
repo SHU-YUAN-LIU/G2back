@@ -64,8 +64,7 @@
                     </li>
                     <!-- 回到前台 -->
                     <li class="nav-item back-home">
-                        <a class="nav-link  text-dark back" @click="localStorage.removeItem('adminId')" href="https://tibamef2e.com/chd104/g2/" >回到前台
-                        </a>
+                        <a class="nav-link  text-dark back" @click="logout">回到前台</a>
                     </li>
                 </ul>
 
@@ -85,7 +84,14 @@ export default {
     },
     components: {
 
-    }
+    },
+    methods: {
+        logout(event) {
+            event.preventDefault(); 
+            localStorage.removeItem('adminId');
+            window.location.href = 'https://tibamef2e.com/chd104/g2/';
+        }
+    },
 
 }
 
