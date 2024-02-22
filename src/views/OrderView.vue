@@ -4,7 +4,7 @@
     <div class="order">
         <div class="order_container">
             <div>
-                <SearchBtn :placeholder="placeholder" />
+                <SearchBtn :placeholder="placeholder" @toSearchData="searchdata" />
             </div>
             <div class="order_table">
                 <table class="table table-hover" style="position: relative;">
@@ -19,7 +19,7 @@
                         <td>操作</td>
                     </thead>
                     <tbody>
-                        <tr v-for="item in orderdata">
+                        <tr v-for="item in findorderdata">
                             <td class="order_id">{{ item.orders_no }}</td>
                             <td class="order_date">{{ item.orders_date }}</td>
                             <td class="order_name">{{ item.receiver_name }}</td>
@@ -159,10 +159,12 @@ import dropDown from "../components/Dropdown.vue";
 export default {
     data() {
         return {
-            placeholder: '請輸入標題或關鍵字',
+            placeholder: '請輸入訂單編號',
             orderdata: [],
             orderItemdata: [],
             orderstatus: "",
+            findorderdata:[],
+            
         };
     },
     components: {
@@ -176,6 +178,11 @@ export default {
         this.getAllOrders();
     },
     methods: {
+        searchdata(value){
+            this.findorderdata = this.orderdata.filter((item) => {
+                return item.orders_no.toString().includes(value);
+            })
+        },
         showLightbox(clicked_order_no) {
             this.orderItemdata = [];
             var formData = new FormData();
@@ -197,6 +204,7 @@ export default {
                 .then(res => {
                     console.log(res.data.order);
                     this.orderdata = res.data.order;
+                    this.findorderdata=this.orderdata;
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
