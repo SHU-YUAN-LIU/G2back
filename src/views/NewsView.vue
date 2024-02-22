@@ -44,7 +44,7 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType=true>
         <div class="news_lightbox">
             <div class="news-row-group">
                 <div class="news-row">

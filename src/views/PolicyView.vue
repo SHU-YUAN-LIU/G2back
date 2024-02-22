@@ -31,7 +31,7 @@
         </div>
     </div>
     <!-- 燈箱架構 -->
-    <Lightbox ref="lightbox" lightboxType="true">
+    <Lightbox ref="lightbox" :lightboxType=true>
         <div class="policy_lightbox">
             <div class="policy-row-group">
                 <p class="policy-title ">詳細資訊</p>
