@@ -85,4 +85,16 @@ const router = createRouter({
   ]
 })
 
+// 全局前置守衛
+router.beforeEach((to, from, next) => {
+  // 檢查 localStorage 是否有登入管理員ID
+  var adminId = localStorage.getItem('adminId');
+  // 如果沒有登入管理員ID，則取消跳轉(直接next(/login)跳轉回login時再被點擊上一頁時會暴露內部url)
+  if (!adminId && (to.path !== '/'&& to.path !== '/login')) {
+    next(false);
+  }else{
+    next();
+  }
+});
+
 export default router
