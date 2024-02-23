@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-  <!-- 燈箱架構 -->
+  <!-- 燈箱查詢 -->
   <Lightbox ref="lightbox" :lightboxType="false">
     <div class="donate_lightbox">
       <!-- ---------------------------------------------- -->
