@@ -134,7 +134,26 @@
             justify-content: flex-start;
         }
 
+        span {
+            color: $orange;
+            // font-size: 14px;
+        }
+
     }
+    label {
+        cursor: pointer; 
+    }
+    .limitpic {
+        // max-width: 440px;
+        // height: 234px;
+        img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            object-fit: cover; /* 圖片將填滿div並保持比例，可能會被裁剪 */
+        }
+    }
+
 }
 
 .product-pic-group {
@@ -147,6 +166,7 @@
     background-color: #E7E6E6;
     margin-bottom: 10px;
     height: 234px;
+    overflow: hidden;
 }
 .s-group {
     display: flex;
@@ -159,6 +179,17 @@
     width: 61px;
     background-color: #E7E6E6;
     height: 68px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.s-group .small-pic {
+    img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        object-fit: cover;
+    }
 }
 .product-pic-zone {
     display: flex;
@@ -172,5 +203,4 @@
     // flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-
 }
