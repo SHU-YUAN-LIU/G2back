@@ -145,13 +145,29 @@
         </div>
         <div class="product-row">
           <strong>商品類別:</strong>
-          <input
+          <select class="form-select" >
+            <option value="A">{{lightboxdata[0].product_class}}</option>
+            <option value="IA">服飾</option>
+            <option value="IA">杯子</option>
+            <option value="IA">帽子</option>
+            <option value="IA">保溫杯</option>
+          </select>
+          <!-- <input
             class="form-control"
             type="text"
             v-model="type"
             id="type"
             placeholder="請輸入類別"
-          />
+          /> -->
+          <!-- <select class="form-select" v-model="type">
+            <option v-for="item in classType" :value="classType.product_class">{{ location.place_name }}
+                            </option> -->
+            <!-- <option selected></option>
+            <option value="1">服飾</option>
+            <option value="2">杯子</option>
+            <option value="3">帽子</option>
+            <option value="4">保溫杯</option> -->
+          <!-- </select> -->
         </div>
         <div class="product-row">
           <strong>商品售價:</strong>
@@ -295,6 +311,24 @@ export default {
       currentPic5: "",
       currentPic6: "",
       currentPic7: "",
+      classType:[
+        {
+        "product_class_no": [1],
+        "product_class":"服飾",
+        },
+        {
+        "product_class_no": [2],
+        "product_class":"杯子",
+        },
+        {
+        "product_class_no": [3],
+        "product_class":"帽子",
+        },
+        {
+        "product_class_no": [4],
+        "product_class":"保溫杯",
+        },       
+      ],
     };
   },
   components: {
@@ -389,6 +423,71 @@ export default {
         alert("圖檔只接受PNG檔");
       }
     },
+    updateProduct(product_no) {
+            if (document.getElementById("name").value.trim() && document.getElementById('type').value.trim() && document.getElementById('price').value != '' && document.getElementById('status').value.trim() && document.getElementById('info').value.trim() && document.getElementById('intro').value != '') {
+                // console.log(document.getElementById('end').value);
+                if (this.uploadFile != null) {
+                    let picFormData = new FormData();
+                    picFormData.append('pic', this.uploadFile)
+                    picFormData.append('product_no', product_no);
+                    axios({
+                        method: "post",
+                        url: `${import.meta.env.VITE_PHP_URL}` + "/productDataGetEach.php",
+                        data: picFormData,
+                        headers: { "Content-Type": "multipart/form-data" },
+                    })
+                        .then(res => {
+                            if (!res.data.error) {
+                                // console.log(res.data.msg);
+                                // alert(res.data.msg)
+                                // this.$refs.lightbox.showLightbox = false
+                                this.uploadFile = null;
+                                this.getData();
+                            }
+                        })
+
+                        .catch(error => {
+                            console.error('Error fetching data:', error);
+                        });
+                }
+                let formData = new FormData();
+                formData.append('product_no', product_no);
+                formData.append('name', document.getElementById('name').value);
+                formData.append('type', document.getElementById('type').value);
+                formData.append('price', document.getElementById('price').value);
+                formData.append('status', this.status);
+                formData.append('info', document.getElementById('info').value);
+                formData.append('intro', document.getElementById('intro').value);
+                formData.append('currentpic1', document.getElementById('currentpic1').value);
+                formData.append('currentpic2', document.getElementById('currentpic2').value);
+                formData.append('currentpic3', document.getElementById('currentpic3').value);
+                formData.append('currentpic4', document.getElementById('currentpic4').value);
+                formData.append('currentpic5', document.getElementById('currentpic5').value);
+                formData.append('currentpic6', document.getElementById('currentpic6').value);
+                formData.append('currentpic7', document.getElementById('currentpic7').value);
+                axios({
+                    method: "post",
+                    url: `${import.meta.env.VITE_PHP_URL}` + "/updateProduct.php",
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                })
+                    .then(res => {
+                        if (!res.error) {
+                            // console.log(res.data.msg);
+                            alert(res.data.msg)
+                            this.$refs.lightbox.showLightbox = false
+                            this.getData();
+                        }
+                    })
+
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            }
+            else {
+                alert("資料不可為空")
+            }
+        },
   },
 };
 </script>
