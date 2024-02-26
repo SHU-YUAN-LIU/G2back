@@ -95,6 +95,7 @@
                         <strong>活動圖片:</strong>
                         <span><label for="picupload">(點擊換圖)</label></span>
                     </div>
+                    
                     <label for="picupload" class="limitpic"><img :src="currentPic" alt=""></label>
                     <input class="form-control" style="display: none;" id="picupload" @change="uploadfile" type="file">
 
