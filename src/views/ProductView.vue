@@ -547,7 +547,7 @@ export default {
   methods: {
     getproductpic(src) {
       return (
-        `${import.meta.env.VITE_RESOURCE_URL}images/product/product_data/` + src
+        `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src
       );
     },
     // showLightbox(product_no) {

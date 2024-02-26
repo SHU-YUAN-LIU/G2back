@@ -18,7 +18,7 @@
                         <td>操作</td>
                     </thead>
                     <tbody>
-                        <tr v-for="item in findadmindata">
+                        <tr v-for="item in findadmindata" :key="item.admin_no">
                             <td class="admin_id">{{ item.admin_no }}</td>
                             <td class="admin_name">{{ item.admin_name }}</td>
                             <td class="admin_lavel">{{ getleveldata(item.admin_level) }}</td>

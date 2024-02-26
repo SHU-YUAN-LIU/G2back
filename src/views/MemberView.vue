@@ -5,7 +5,7 @@
     <div class="member_container">
       <!-- 搜尋 -->
       <div>
-        <SearchBtn :placeholder="placeholder" />
+        <SearchBtn :placeholder="placeholder" @toSearchData="searchdata" />
       </div>
       <div class="member_table">
         <table class="table table-hover" style="position: relative;">
@@ -18,7 +18,7 @@
             <td>操作</td>
           </thead>
           <tbody>
-            <tr v-for="item in memberdata">
+            <tr v-for="item in findmemberdata" :key="item.member_no">
               <td class="member_id">{{ item.member_no }}</td>
               <td class="member_date">{{ item.member_name }}</td>
               <td class="member_name">{{ item.cellphone }}</td>
@@ -40,7 +40,7 @@
 
   <!-- 燈箱 -->
   <Lightbox class="memberlightbox" @toSaveData="updateData(currentlightbox[0].member_no)" ref="lightbox"
-    lightboxType="true">
+    :lightboxType=true>
     <div class="member_lightbox">
       <div class="member-row-group">
         <div class="member-row">
@@ -120,6 +120,7 @@ export default {
       memberdata: [],
       currentlightbox: [],
       memberstatus: '',
+      findmemberdata:[],
 
     }
   },
@@ -138,6 +139,11 @@ export default {
     document.title = "青年進補黨(後台) - 會員管理";
   },
   methods: {
+    searchdata(value) {
+      this.findmemberdata = this.memberdata.filter((item) => {
+        return item.member_no.toString().includes(value)||item.cellphone.toString().includes(value);
+      })
+    },
     showLightbox(id) {
       this.$refs.lightbox.showLightbox = true;
       // console.log(id);
@@ -186,6 +192,7 @@ export default {
           create_date: members[i].create_date,
           status: this.memberstatus,
         })
+        this.findmemberdata=this.memberdata
 
       }
       // console.log(this.memberdata);
