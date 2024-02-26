@@ -5,7 +5,7 @@
     <div class="product_container">
       <div class="product-btn">
         <SearchBtn :placeholder="placeholder" />
-        <addBtn />
+        <addBtn @click="showLightbox(2, 0)" />
       </div>
       <div class="product_table">
         <table class="table table-hover" style="position: relative">
@@ -45,9 +45,9 @@
       </div>
     </div>
   </div>
-  <!-- 修改燈箱 -->
-  <Lightbox
-    ref="lightbox" :lightboxType="true" @toSaveData="updateProduct(lightboxdata[0].product_no)">
+
+  <!-- 新增燈箱 -->
+  <Lightbox ref="lightbox2" :lightboxType="true" @toSaveData="insertProduct">
     <div class="product_lightbox">
       <!-- --------------------------------- -->
 
@@ -145,8 +145,225 @@
         </div>
         <div class="product-row">
           <strong>商品類別:</strong>
-          <select class="form-select" >
-            <option value="A">{{lightboxdata[0].product_class}}</option>
+          <select class="form-select" id="type">
+            <option value="A">{{ lightboxdata[0].product_class }}</option>
+            <option value="IA">服飾</option>
+            <option value="IA">杯子</option>
+            <option value="IA">帽子</option>
+            <option value="IA">保溫杯</option>
+          </select>
+        </div>
+        <div class="product-row">
+          <strong>商品售價:</strong>
+          <input
+            class="form-control"
+            type="text"
+            v-model="price"
+            id="price"
+            placeholder="請輸入售價"
+          />
+        </div>
+        <hr />
+        <div class="product-row">
+          <strong>狀態:</strong>
+          <select class="form-select" v-model="status">
+            <option selected></option>
+            <option value="A">上架</option>
+            <option value="IA">下架</option>
+          </select>
+        </div>
+        <hr />
+        <div class="product-row" style="align-items: start">
+          <strong>商品資訊:</strong>
+          <textarea
+            class="form-control"
+            v-model="info"
+            id="exampleFormControlTextarea1"
+            rows="8"
+            placeholder="請輸入商品資訊"
+            style="height: 400px"
+          ></textarea>
+        </div>
+        <hr />
+        <div class="product-row" style="align-items: start">
+          <strong>商品介紹:</strong>
+          <textarea
+            class="form-control"
+            v-model="intro"
+            id="exampleFormControlTextarea1"
+            rows="8"
+            placeholder="請輸入規格說明"
+            style="height: 400px"
+          ></textarea>
+        </div>
+        <div class="product-row" style="align-items: start">
+          <strong>介紹圖片:</strong>
+        </div>
+        <div class="big-pic">
+          <label for="picupload" class="limitpic"
+            ><img :src="getproductpic(currentPic5)" alt=""
+          /></label>
+        </div>
+        <div class="product-row">
+          <strong>上傳圖片5</strong>
+          <span><label for="picupload">(點擊我換圖)</label></span>
+          <input
+            class="form-control"
+            style="display: none"
+            type="file"
+            id="picupload"
+            @change="uploadfile"
+          />
+        </div>
+        <div style="height: 20px"></div>
+        <div class="big-pic">
+          <label for="picupload" class="limitpic"
+            ><img :src="getproductpic(currentPic6)" alt=""
+          /></label>
+        </div>
+        <div class="product-row">
+          <strong>上傳圖片6</strong>
+          <span><label for="picupload">(點擊我換圖)</label></span>
+          <input
+            class="form-control"
+            style="display: none"
+            type="file"
+            id="picupload"
+            @change="uploadfile"
+          />
+        </div>
+        <hr />
+        <div class="product-row" style="align-items: start">
+          <strong>規格圖片:</strong>
+        </div>
+        <div class="pro-pic-info">
+          <div class="big-pic">
+            <label for="picupload" class="limitpic"
+              ><img :src="getproductpic(currentPic7)" alt=""
+            /></label>
+          </div>
+          <div class="product-row">
+            <strong>上傳圖片7</strong>
+            <span><label for="picupload">(點擊我換圖)</label></span>
+            <input
+              class="form-control"
+              style="display: none"
+              type="file"
+              id="picupload"
+              @change="uploadfile"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------- -->
+    </div>
+  </Lightbox>
+
+  <!-- 修改燈箱 -->
+  <Lightbox
+    ref="lightbox"
+    :lightboxType="true"
+    @toSaveData="updateProduct(lightboxdata[0].product_no)"
+  >
+    <div class="product_lightbox">
+      <!-- --------------------------------- -->
+
+      <div class="product-row-group">
+        <p class="product-title-bar">商品圖片</p>
+        <!-- 將圖片上傳區域 -->
+        <div class="product-pic-zone">
+          <div class="product-pic-group">
+            <div class="big-pic">
+              <label for="picupload" class="limitpic"
+                ><img :src="getproductpic(currentPic1)" alt=""
+              /></label>
+            </div>
+
+            <div class="s-group">
+              <div class="small-pic">
+                <label for="picupload" class="limitpic"
+                  ><img :src="getproductpic(currentPic1)" alt=""
+                /></label>
+              </div>
+              <div class="small-pic">
+                <label for="picupload" class="limitpic"
+                  ><img :src="getproductpic(currentPic2)" alt=""
+                /></label>
+              </div>
+              <div class="small-pic">
+                <label for="picupload" class="limitpic"
+                  ><img :src="getproductpic(currentPic3)" alt=""
+                /></label>
+              </div>
+              <div class="small-pic">
+                <label for="picupload" class="limitpic"
+                  ><img :src="getproductpic(currentPic4)" alt=""
+                /></label>
+              </div>
+            </div>
+          </div>
+          <div class="pic-up">
+            <div class="product-row">
+              <strong>上傳圖片1</strong>
+              <span><label for="picupload">(點擊我換圖)</label></span>
+              <input
+                class="form-control"
+                style="display: none"
+                type="file"
+                id="picupload"
+                @change="uploadfile"
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片2</strong>
+              <span><label for="picupload">(點擊我換圖)</label></span>
+              <input
+                class="form-control"
+                style="display: none"
+                type="file"
+                id="picupload"
+                @change="uploadfile"
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片3</strong>
+              <span><label for="picupload">(點擊我換圖)</label></span>
+              <input
+                class="form-control"
+                style="display: none"
+                type="file"
+                id="picupload"
+                @change="uploadfile"
+              />
+            </div>
+            <div class="product-row">
+              <strong>上傳圖片4</strong>
+              <span><label for="picupload">(點擊我換圖)</label></span>
+              <input
+                class="form-control"
+                style="display: none"
+                type="file"
+                id="picupload"
+                @change="uploadfile"
+              />
+            </div>
+          </div>
+        </div>
+        <p class="product-title-bar">商品屬性</p>
+        <div class="product-row">
+          <strong>商品名稱:</strong>
+          <input
+            class="form-control"
+            type="text"
+            v-model="name"
+            id="name"
+            placeholder="請輸入名稱"
+          />
+        </div>
+        <div class="product-row">
+          <strong>商品類別:</strong>
+          <select class="form-select" id="type">
+            <option value="A">{{ lightboxdata[0].product_class }}</option>
             <option value="IA">服飾</option>
             <option value="IA">杯子</option>
             <option value="IA">帽子</option>
@@ -162,7 +379,7 @@
           <!-- <select class="form-select" v-model="type">
             <option v-for="item in classType" :value="classType.product_class">{{ location.place_name }}
                             </option> -->
-            <!-- <option selected></option>
+          <!-- <option selected></option>
             <option value="1">服飾</option>
             <option value="2">杯子</option>
             <option value="3">帽子</option>
@@ -220,60 +437,60 @@
           <strong>介紹圖片:</strong>
         </div>
         <div class="big-pic">
-            <label for="picupload" class="limitpic"
-                  ><img :src="getproductpic(currentPic5)" alt=""
-                /></label>
+          <label for="picupload" class="limitpic"
+            ><img :src="getproductpic(currentPic5)" alt=""
+          /></label>
         </div>
         <div class="product-row">
-              <strong>上傳圖片5</strong>
-              <span><label for="picupload">(點擊我換圖)</label></span>
-              <input
-                class="form-control"
-                style="display: none"
-                type="file"
-                id="picupload"
-                @change="uploadfile"
-              />
-            </div>
+          <strong>上傳圖片5</strong>
+          <span><label for="picupload">(點擊我換圖)</label></span>
+          <input
+            class="form-control"
+            style="display: none"
+            type="file"
+            id="picupload"
+            @change="uploadfile"
+          />
+        </div>
         <div style="height: 20px"></div>
         <div class="big-pic">
-            <label for="picupload" class="limitpic"
-                  ><img :src="getproductpic(currentPic6)" alt=""
-                /></label>
+          <label for="picupload" class="limitpic"
+            ><img :src="getproductpic(currentPic6)" alt=""
+          /></label>
         </div>
         <div class="product-row">
-              <strong>上傳圖片6</strong>
-              <span><label for="picupload">(點擊我換圖)</label></span>
-              <input
-                class="form-control"
-                style="display: none"
-                type="file"
-                id="picupload"
-                @change="uploadfile"
-              />
-            </div>
+          <strong>上傳圖片6</strong>
+          <span><label for="picupload">(點擊我換圖)</label></span>
+          <input
+            class="form-control"
+            style="display: none"
+            type="file"
+            id="picupload"
+            @change="uploadfile"
+          />
+        </div>
 
         <hr />
         <div class="product-row" style="align-items: start">
           <strong>規格圖片:</strong>
         </div>
         <div class="pro-pic-info">
-            <div class="big-pic">
+          <div class="big-pic">
             <label for="picupload" class="limitpic"
-                  ><img :src="getproductpic(currentPic7)" alt=""
-                /></label>
-        </div>
-        <div class="product-row">
-              <strong>上傳圖片7</strong>
-              <span><label for="picupload">(點擊我換圖)</label></span>
-              <input
-                class="form-control"
-                style="display: none"
-                type="file"
-                id="picupload"
-                @change="uploadfile"
-              />
-            </div>
+              ><img :src="getproductpic(currentPic7)" alt=""
+            /></label>
+          </div>
+          <div class="product-row">
+            <strong>上傳圖片7</strong>
+            <span><label for="picupload">(點擊我換圖)</label></span>
+            <input
+              class="form-control"
+              style="display: none"
+              type="file"
+              id="picupload"
+              @change="uploadfile"
+            />
+          </div>
         </div>
       </div>
       <!-- ------------------------- -->
@@ -311,24 +528,6 @@ export default {
       currentPic5: "",
       currentPic6: "",
       currentPic7: "",
-      classType:[
-        {
-        "product_class_no": [1],
-        "product_class":"服飾",
-        },
-        {
-        "product_class_no": [2],
-        "product_class":"杯子",
-        },
-        {
-        "product_class_no": [3],
-        "product_class":"帽子",
-        },
-        {
-        "product_class_no": [4],
-        "product_class":"保溫杯",
-        },       
-      ],
     };
   },
   components: {
@@ -362,7 +561,7 @@ export default {
     showLightbox(product_no) {
       this.lightboxdata = [];
       this.status = "";
-    //   console.log(product_no);
+      //   console.log(product_no);
       var formData = new FormData();
       formData.append("product_no", product_no);
       axios
@@ -397,6 +596,98 @@ export default {
         });
     },
 
+    insertProduct() {
+        if (
+        document.getElementById("name").value.trim() != "" &&
+        document.getElementById("type").value.trim() != "" &&
+        document.getElementById("price").value.trim() != "" &&
+        document.getElementById("status").value.trim() != "" &&
+        document.getElementById("info").value.trim() != "" &&
+        document.getElementById("intro").value.trim() != ""
+      ) {
+        if (this.uploadFile != null) {
+          let picFormData = new FormData();
+          picFormData.append("pic", this.uploadFile);
+          picFormData.append("product_no", product_no);
+          axios({
+            method: "post",
+            url: `${import.meta.env.VITE_PHP_URL}` + "/productDataGetEach.php",
+            data: picFormData,
+            headers: { "Content-Type": "multipart/form-data" },
+          })
+            .then((res) => {
+              if (!res.data.error) {
+                // console.log(res.data.msg);
+                // alert(res.data.msg)
+                // this.$refs.lightbox.showLightbox = false
+                this.uploadFile = null;
+                this.getData();
+              }
+            })
+
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        }
+        let formData = new FormData();
+        formData.append("product_no", product_no);
+        formData.append("name", document.getElementById("name").value);
+        formData.append("type", document.getElementById("type").value);
+        formData.append("price", document.getElementById("price").value);
+        formData.append("status", this.status);
+        formData.append("info", document.getElementById("info").value);
+        formData.append("intro", document.getElementById("intro").value);
+        formData.append(
+          "currentpic1",
+          document.getElementById("currentpic1").value
+        );
+        formData.append(
+          "currentpic2",
+          document.getElementById("currentpic2").value
+        );
+        formData.append(
+          "currentpic3",
+          document.getElementById("currentpic3").value
+        );
+        formData.append(
+          "currentpic4",
+          document.getElementById("currentpic4").value
+        );
+        formData.append(
+          "currentpic5",
+          document.getElementById("currentpic5").value
+        );
+        formData.append(
+          "currentpic6",
+          document.getElementById("currentpic6").value
+        );
+        formData.append(
+          "currentpic7",
+          document.getElementById("currentpic7").value
+        );
+        axios({
+          method: "post",
+          url: `${import.meta.env.VITE_PHP_URL}` + "/insertProduct.php",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+          .then((res) => {
+            if (!res.error) {
+              // console.log(res.data.msg);
+              alert(res.data.msg);
+              this.$refs.lightbox.showLightbox = false;
+              this.getData();
+            }
+          })
+
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      } else {
+        alert("資料不可為空");
+      }
+    },
+
     getPicUrl(filename) {
       return `${import.meta.env.VITE_IMG_URL}` + "/product/" + filename;
     },
@@ -424,70 +715,96 @@ export default {
       }
     },
     updateProduct(product_no) {
-            if (document.getElementById("name").value.trim() && document.getElementById('type').value.trim() && document.getElementById('price').value != '' && document.getElementById('status').value.trim() && document.getElementById('info').value.trim() && document.getElementById('intro').value != '') {
-                // console.log(document.getElementById('end').value);
-                if (this.uploadFile != null) {
-                    let picFormData = new FormData();
-                    picFormData.append('pic', this.uploadFile)
-                    picFormData.append('product_no', product_no);
-                    axios({
-                        method: "post",
-                        url: `${import.meta.env.VITE_PHP_URL}` + "/productDataGetEach.php",
-                        data: picFormData,
-                        headers: { "Content-Type": "multipart/form-data" },
-                    })
-                        .then(res => {
-                            if (!res.data.error) {
-                                // console.log(res.data.msg);
-                                // alert(res.data.msg)
-                                // this.$refs.lightbox.showLightbox = false
-                                this.uploadFile = null;
-                                this.getData();
-                            }
-                        })
+      if (
+        document.getElementById("name").value.trim() != "" &&
+        document.getElementById("type").value.trim() != "" &&
+        document.getElementById("price").value.trim() != "" &&
+        document.getElementById("status").value.trim() != "" &&
+        document.getElementById("info").value.trim() != "" &&
+        document.getElementById("intro").value.trim() != ""
+      ) {
+        if (this.uploadFile != null) {
+          let picFormData = new FormData();
+          picFormData.append("pic", this.uploadFile);
+          picFormData.append("product_no", product_no);
+          axios({
+            method: "post",
+            url: `${import.meta.env.VITE_PHP_URL}` + "/productDataGetEach.php",
+            data: picFormData,
+            headers: { "Content-Type": "multipart/form-data" },
+          })
+            .then((res) => {
+              if (!res.data.error) {
+                // console.log(res.data.msg);
+                // alert(res.data.msg)
+                // this.$refs.lightbox.showLightbox = false
+                this.uploadFile = null;
+                this.getData();
+              }
+            })
 
-                        .catch(error => {
-                            console.error('Error fetching data:', error);
-                        });
-                }
-                let formData = new FormData();
-                formData.append('product_no', product_no);
-                formData.append('name', document.getElementById('name').value);
-                formData.append('type', document.getElementById('type').value);
-                formData.append('price', document.getElementById('price').value);
-                formData.append('status', this.status);
-                formData.append('info', document.getElementById('info').value);
-                formData.append('intro', document.getElementById('intro').value);
-                formData.append('currentpic1', document.getElementById('currentpic1').value);
-                formData.append('currentpic2', document.getElementById('currentpic2').value);
-                formData.append('currentpic3', document.getElementById('currentpic3').value);
-                formData.append('currentpic4', document.getElementById('currentpic4').value);
-                formData.append('currentpic5', document.getElementById('currentpic5').value);
-                formData.append('currentpic6', document.getElementById('currentpic6').value);
-                formData.append('currentpic7', document.getElementById('currentpic7').value);
-                axios({
-                    method: "post",
-                    url: `${import.meta.env.VITE_PHP_URL}` + "/updateProduct.php",
-                    data: formData,
-                    headers: { "Content-Type": "multipart/form-data" },
-                })
-                    .then(res => {
-                        if (!res.error) {
-                            // console.log(res.data.msg);
-                            alert(res.data.msg)
-                            this.$refs.lightbox.showLightbox = false
-                            this.getData();
-                        }
-                    })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        }
+        let formData = new FormData();
+        formData.append("product_no", product_no);
+        formData.append("name", document.getElementById("name").value);
+        formData.append("type", document.getElementById("type").value);
+        formData.append("price", document.getElementById("price").value);
+        formData.append("status", this.status);
+        formData.append("info", document.getElementById("info").value);
+        formData.append("intro", document.getElementById("intro").value);
+        formData.append(
+          "currentpic1",
+          document.getElementById("currentpic1").value
+        );
+        formData.append(
+          "currentpic2",
+          document.getElementById("currentpic2").value
+        );
+        formData.append(
+          "currentpic3",
+          document.getElementById("currentpic3").value
+        );
+        formData.append(
+          "currentpic4",
+          document.getElementById("currentpic4").value
+        );
+        formData.append(
+          "currentpic5",
+          document.getElementById("currentpic5").value
+        );
+        formData.append(
+          "currentpic6",
+          document.getElementById("currentpic6").value
+        );
+        formData.append(
+          "currentpic7",
+          document.getElementById("currentpic7").value
+        );
+        axios({
+          method: "post",
+          url: `${import.meta.env.VITE_PHP_URL}` + "/updateProduct.php",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+          .then((res) => {
+            if (!res.error) {
+              // console.log(res.data.msg);
+              alert(res.data.msg);
+              this.$refs.lightbox.showLightbox = false;
+              this.getData();
+            }
+          })
 
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                    });
-            }
-            else {
-                alert("資料不可為空")
-            }
-        },
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      } else {
+        alert("資料不可為空");
+      }
+    },
   },
 };
 </script>
