@@ -93,7 +93,7 @@
                 class="form-control"
                 style="display: none"
                 type="file"
-                id="picupload"
+                id="currentpic1"
                 @change="uploadfile"
               />
             </div>
@@ -104,7 +104,7 @@
                 class="form-control"
                 style="display: none"
                 type="file"
-                id="picupload"
+                id="currentpic2"
                 @change="uploadfile"
               />
             </div>
@@ -115,7 +115,7 @@
                 class="form-control"
                 style="display: none"
                 type="file"
-                id="picupload"
+                id="currentpic3"
                 @change="uploadfile"
               />
             </div>
@@ -126,7 +126,7 @@
                 class="form-control"
                 style="display: none"
                 type="file"
-                id="picupload"
+                id="currentpic4"
                 @change="uploadfile"
               />
             </div>
@@ -178,7 +178,7 @@
           <textarea
             class="form-control"
             v-model="info"
-            id="exampleFormControlTextarea1"
+            id="info"
             rows="8"
             placeholder="請輸入商品資訊"
             style="height: 400px"
@@ -190,7 +190,7 @@
           <textarea
             class="form-control"
             v-model="intro"
-            id="exampleFormControlTextarea1"
+            id="intro"
             rows="8"
             placeholder="請輸入規格說明"
             style="height: 400px"
@@ -211,7 +211,7 @@
             class="form-control"
             style="display: none"
             type="file"
-            id="picupload"
+            id="currentpic5"
             @change="uploadfile"
           />
         </div>
@@ -228,7 +228,7 @@
             class="form-control"
             style="display: none"
             type="file"
-            id="picupload"
+            id="currentpic6"
             @change="uploadfile"
           />
         </div>
@@ -249,7 +249,7 @@
               class="form-control"
               style="display: none"
               type="file"
-              id="picupload"
+              id="currentpic7"
               @change="uploadfile"
             />
           </div>
@@ -403,8 +403,8 @@
         <hr />
         <div class="product-row">
           <strong>狀態:</strong>
-          <select class="form-select" v-model="status">
-            <option selected></option>
+          <select class="form-select" v-model="status" id="status">
+            <!-- <option selected></option> -->
             <option value="A">上架</option>
             <option value="IA">下架</option>
           </select>
@@ -415,7 +415,7 @@
           <textarea
             class="form-control"
             v-model="info"
-            id="exampleFormControlTextarea1"
+            id="info"
             rows="8"
             placeholder="請輸入商品資訊"
             style="height: 400px"
@@ -427,7 +427,7 @@
           <textarea
             class="form-control"
             v-model="intro"
-            id="exampleFormControlTextarea1"
+            id="intro"
             rows="8"
             placeholder="請輸入規格說明"
             style="height: 400px"
@@ -637,34 +637,6 @@ export default {
         formData.append("status", this.status);
         formData.append("info", document.getElementById("info").value);
         formData.append("intro", document.getElementById("intro").value);
-        formData.append(
-          "currentpic1",
-          document.getElementById("currentpic1").value
-        );
-        formData.append(
-          "currentpic2",
-          document.getElementById("currentpic2").value
-        );
-        formData.append(
-          "currentpic3",
-          document.getElementById("currentpic3").value
-        );
-        formData.append(
-          "currentpic4",
-          document.getElementById("currentpic4").value
-        );
-        formData.append(
-          "currentpic5",
-          document.getElementById("currentpic5").value
-        );
-        formData.append(
-          "currentpic6",
-          document.getElementById("currentpic6").value
-        );
-        formData.append(
-          "currentpic7",
-          document.getElementById("currentpic7").value
-        );
         axios({
           method: "post",
           url: `${import.meta.env.VITE_PHP_URL}` + "/insertProduct.php",
@@ -719,7 +691,7 @@ export default {
         document.getElementById("name").value.trim() != "" &&
         document.getElementById("type").value.trim() != "" &&
         document.getElementById("price").value.trim() != "" &&
-        document.getElementById("status").value.trim() != "" &&
+        // document.getElementById("status").value.trim() != "" &&
         document.getElementById("info").value.trim() != "" &&
         document.getElementById("intro").value.trim() != ""
       ) {
@@ -755,34 +727,6 @@ export default {
         formData.append("status", this.status);
         formData.append("info", document.getElementById("info").value);
         formData.append("intro", document.getElementById("intro").value);
-        formData.append(
-          "currentpic1",
-          document.getElementById("currentpic1").value
-        );
-        formData.append(
-          "currentpic2",
-          document.getElementById("currentpic2").value
-        );
-        formData.append(
-          "currentpic3",
-          document.getElementById("currentpic3").value
-        );
-        formData.append(
-          "currentpic4",
-          document.getElementById("currentpic4").value
-        );
-        formData.append(
-          "currentpic5",
-          document.getElementById("currentpic5").value
-        );
-        formData.append(
-          "currentpic6",
-          document.getElementById("currentpic6").value
-        );
-        formData.append(
-          "currentpic7",
-          document.getElementById("currentpic7").value
-        );
         axios({
           method: "post",
           url: `${import.meta.env.VITE_PHP_URL}` + "/updateProduct.php",
