@@ -18,7 +18,7 @@
             <td>操作</td>
           </thead>
           <tbody>
-            <tr v-for="item in findmemberdata">
+            <tr v-for="item in findmemberdata" :key="item.member_no">
               <td class="member_id">{{ item.member_no }}</td>
               <td class="member_date">{{ item.member_name }}</td>
               <td class="member_name">{{ item.cellphone }}</td>

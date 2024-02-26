@@ -163,7 +163,7 @@
                         <strong>活動圖片:</strong>
                         <span><label for="picupload">(點擊換圖)</label></span>
                     </div>
-                    <label for="picupload" class="limitpic"><img :src="currentPic" alt=""></label>
+                    <label for="picupload" class="limitpic"><img :src="currentPic" :key="editNumber" alt=""></label>
                     <input class="form-control" style="display: none;" id="picupload" @change="uploadfile" type="file">
 
 
@@ -268,6 +268,7 @@ export default {
             context: '',
             name: '',
             findjourneydata:[],
+            editNumber: 0,
         };
     },
     components: {
@@ -297,6 +298,7 @@ export default {
                 this.journeyItemData = [];
                 this.status = '';
                 this.pin = '';
+                // this.currentPic = this.getPicUrl(this.allJourney[campaign_no].pic)
                 var formData = new FormData();
                 formData.append('campaign_no', campaign_no);
                 axios.post(`${import.meta.env.VITE_PHP_URL}` + "/getJourneyData.php", formData)
@@ -320,6 +322,7 @@ export default {
                         this.$refs[`lightbox${id}`].showLightbox = true;
                         document.body.style.overflow = 'hidden';
                     })
+                    
 
                     .catch(error => {
                         console.error('Error fetching data:', error);
@@ -387,7 +390,7 @@ export default {
             }
         },
         getPicUrl(filename) {
-            return `${import.meta.env.VITE_IMG_URL}` + "/campaign/" + filename;
+            return `${import.meta.env.VITE_IMG_URL}` + "/campaign/" + filename + `?${Date.now()}`;
         },
         getJourneyAll() {
             axios.get(`${import.meta.env.VITE_PHP_URL}` + "/journeyDataGetAll.php")
@@ -433,6 +436,7 @@ export default {
                                 // alert(res.data.msg)
                                 // this.$refs.lightbox.showLightbox = false
                                 this.uploadFile = null;
+                                this.editNumber +=1
                                 this.getJourneyAll();
                             }
                         })
