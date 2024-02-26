@@ -345,8 +345,8 @@ export default {
                 if (this.uploadFile != null) {
                     this.countrylocation.forEach(location => {
                         if (location.place_name == this.pin) {
-                            this.latti = location.coordinates[0];
-                            this.longi = location.coordinates[1];
+                            this.longi = location.coordinates[0];
+                            this.latti = location.coordinates[1];
                         }
                     });
                     // console.log(document.getElementById("name").value);
@@ -449,8 +449,8 @@ export default {
                 // console.log(campaign_no);
                 this.countrylocation.forEach(location => {
                     if (location.place_name == this.pin) {
-                        this.latti = location.coordinates[0];
-                        this.longi = location.coordinates[1];
+                        this.longi = location.coordinates[0];
+                        this.latti = location.coordinates[1];
                     }
                 });
                 // console.log(this.longi);
