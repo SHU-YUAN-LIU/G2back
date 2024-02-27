@@ -52,7 +52,7 @@
   <Lightbox
     ref="lightbox2"
     :lightboxType="true"
-    @toSaveData="insertProduct(lightboxdata[0].product_no)"
+    @toSaveData="insertProduct"
   >
     <div class="product_lightbox">
       <!-- --------------------------------- -->
@@ -577,22 +577,23 @@ export default {
             this.type = 4;
           }
           // console.log(this.type);
+          console.log(res.data.products[0].product_pic1);
           this.price = this.lightboxdata[0].price;
           this.status = this.lightboxdata[0].status;
           this.info = this.lightboxdata[0].info;
           this.intro = this.lightboxdata[0].product_intro;
-          this.currentPic1 = this.getPicUrl(this.lightboxdata[0].product_pic1);
-          this.currentPic2 = this.getPicUrl(this.lightboxdata[0].product_pic2);
-          this.currentPic3 = this.getPicUrl(this.lightboxdata[0].product_pic3);
-          this.currentPic4 = this.getPicUrl(this.lightboxdata[0].product_pic4);
+          this.currentPic1 = this.getPicUrl(res.data.products[0].product_pic1);
+          this.currentPic2 = this.getPicUrl(res.data.products[0].product_pic2);
+          this.currentPic3 = this.getPicUrl(res.data.products[0].product_pic3);
+          this.currentPic4 = this.getPicUrl(res.data.products[0].product_pic4);
           this.currentPic5 = this.getPicUrl(
-            this.lightboxdata[0].product_intro_pic1
+            res.data.products[0].product_intro_pic1
           );
           this.currentPic6 = this.getPicUrl(
-            this.lightboxdata[0].product_intro_pic2
+            res.data.products[0].product_intro_pic2
           );
           this.currentPic7 = this.getPicUrl(
-            this.lightboxdata[0].product_size_pic1
+            res.data.products[0].product_size_pic1
           );
 
           this.$refs[`lightbox${id}`].showLightbox = true;
@@ -614,19 +615,18 @@ export default {
         document.getElementById("info").value.trim() != "" &&
         document.getElementById("intro").value.trim() != ""
       ) {
-        if (this.uploadFile != null) {
-          let picFormData = new FormData();
-          picFormData.append("product_pic1", this.currentPic1);
-          picFormData.append("product_pic2", this.currentPic2);
-          picFormData.append("product_pic3", this.currentPic3);
-          picFormData.append("product_pic4", this.currentPic4);
-          picFormData.append("product_intro_pic1", this.currentPic5);
-          picFormData.append("product_intro_pic2", this.currentPic6);
-          picFormData.append("product_size_pic1", this.currentPic7);
-          picFormData.append("product_no", product_no);
-        }
-        let formData = new FormData();
-        formData.append("product_no", product_no);
+        // if (this.uploadFile != null) {
+        //   let picFormData = new FormData();
+        //   picFormData.append("product_pic1", this.currentPic1);
+        //   picFormData.append("product_pic2", this.currentPic2);
+        //   picFormData.append("product_pic3", this.currentPic3);
+        //   picFormData.append("product_pic4", this.currentPic4);
+        //   picFormData.append("product_intro_pic1", this.currentPic5);
+        //   picFormData.append("product_intro_pic2", this.currentPic6);
+        //   picFormData.append("product_size_pic1", this.currentPic7);
+        //   picFormData.append("product_no", product_no);
+        // }
+        var formData = new FormData();
         formData.append("name", document.getElementById("name").value);
         formData.append("type", document.getElementById("type").value);
         // console.log(document.getElementById("type").value);
@@ -644,7 +644,7 @@ export default {
           .then((res) => {
             if (!res.error) {
               // console.log(res);
-              this.updateJourney(res.data.PK)
+              this.updateProduct(res.data.PK)
               this.$refs.lightbox2.showLightbox = false
             }
           })
@@ -710,13 +710,13 @@ export default {
       ) {
         if (this.uploadFile != null) {
           let picFormData = new FormData();
-          picFormData.append("product_pic1", this.currentPic1);
-          picFormData.append("product_pic2", this.currentPic2);
-          picFormData.append("product_pic3", this.currentPic3);
-          picFormData.append("product_pic4", this.currentPic4);
-          picFormData.append("product_intro_pic1", this.currentPic5);
-          picFormData.append("product_intro_pic2", this.currentPic6);
-          picFormData.append("product_size_pic1", this.currentPic7);
+          picFormData.append("newPic1", picupload01);
+          picFormData.append("newPic2", picupload02);
+          picFormData.append("newPic3", picupload03);
+          picFormData.append("newPic4", picupload04);
+          picFormData.append("newPic5", picupload05);
+          picFormData.append("newPic6", picupload06);
+          picFormData.append("newpic7", picupload07);
           picFormData.append("product_no", product_no);
           axios({
             method: "post",
