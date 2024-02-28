@@ -14,7 +14,7 @@
             <td>會員ID</td>
             <td>姓名</td>
             <td>連絡電話</td>
-            <td>是否停權</td>
+            <td>是否啟用</td>
             <td>操作</td>
           </thead>
           <tbody>
