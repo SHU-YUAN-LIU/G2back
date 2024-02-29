@@ -220,33 +220,39 @@ export default {
             })
         },
         savedata(admin_no) {
-            this.updatedata = this.findadmindata.find(item => item.admin_no == admin_no);
 
+            this.updatedata = this.findadmindata.find(item => item.admin_no == admin_no);
+            
             //因為從表單獲取時是字串 必須全部換回int欄位
             this.updatedata.admin_no = parseInt(this.updatedata.admin_no);
             this.updatedata.admin_level = parseInt(this.updatedata.admin_level);
             this.updatedata.creator = parseInt(this.updatedata.creator);
             this.updatedata.modifier = parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no);
+            if(this.updatedata.admin_no == parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no)){
 
-            console.log(this.updatedata);
-            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/adminDataUpdate.php", this.updatedata)
-                .then(res => {
-                    // console.log('insert data:', res.data.msg);
-                    this.$refs[`lightbox1`].showLightbox = false;
-                    this.getData();
+                alert("無法修改自己資料");
+                // localStorage.removeItem('adminId');
+                // this.$router.push('/login');
+                this.$refs[`lightbox1`].showLightbox = false;
+                this.getData()
 
-                    // console.log(this.updatedata.admin_no);
-                    if(this.updatedata.admin_no == parseInt(JSON.parse(localStorage.getItem('adminId'))[0].admin_no)){
-                        alert("檢測到修改自己資料，請重新登入");
-                        localStorage.removeItem('adminId');
-                        this.$router.push('/login');
-                    }
-
-                    this.updatedata = {};
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
+            }
+            else{
+                console.log(this.updatedata);
+                axios.post(`${import.meta.env.VITE_PHP_URL}` + "/adminDataUpdate.php", this.updatedata)
+                    .then(res => {
+                        // console.log('insert data:', res.data.msg);
+                        this.$refs[`lightbox1`].showLightbox = false;
+                        this.getData();
+    
+                        // console.log(this.updatedata.admin_no);
+    
+                        this.updatedata = {};
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            }
         },
         changestatus(admin_no, status) {
             if (status == "A") {
