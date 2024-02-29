@@ -540,13 +540,13 @@ export default {
     getproductpic(src) {
       if(!src){
         return `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
-      }else {return `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src;}
+      }else {return `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src+`?${Date.now()}`;}
       
     },
     showLightbox(id, product_no) {
       if (id == 2) {
         this.type = 1;
-        this.status = "上架";
+        this.status = "A";
         this.$refs[`lightbox${id}`].showLightbox = true;
         this.currentPic1 = this.getPicUrl("errorpic.png");
         this.currentPic2 = this.getPicUrl("errorpic.png");
@@ -622,7 +622,7 @@ export default {
         document.getElementById("name").value.trim() != "" &&
         document.getElementById("type").value.trim() != "" &&
         document.getElementById("price").value.trim() != "" &&
-        // document.getElementById("status").value.trim() != "" &&
+        document.getElementById("status").value.trim() != "" &&
         document.getElementById("info").value.trim() != "" &&
         document.getElementById("intro").value.trim() != ""
       ) {
@@ -664,11 +664,9 @@ export default {
       else{
         url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
       }
-      return url;
+      return url+ `?${Date.now()}`;
       // return (
-      //   `${import.meta.env.VITE_IMG_URL}` +
-      //   "/product/product_data/" +
-      //   filename +
+      //   `${import.meta.env.VITE_IMG_URL}` + "/product/product_data/" + filename +
       //   `?${Date.now()}`
       // );
     },
