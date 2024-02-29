@@ -50,6 +50,12 @@
                     line-height: 50px;
                 }
 
+                .donate_title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
                 td.donate_operate {
                     button {
                         background: none;

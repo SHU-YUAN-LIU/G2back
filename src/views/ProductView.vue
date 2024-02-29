@@ -37,7 +37,12 @@
               </td>
               <td class="product_price">{{ item.price }}</td>
               <td>
-                <SwitchBtn />
+                <!-- <SwitchBtn /> -->
+                <switch_btn
+                  :ischecked="item.status == 'A'"
+                  
+                  @change="changeProductStatus(item.product_no)"
+                />
               </td>
               <td class="product_operate">
                 <button @click="showLightbox(1, item.product_no)">
@@ -197,8 +202,8 @@
         <div class="product-row" style="align-items: start">
           <strong>介紹圖片:</strong>
         </div>
-        <div class="big-pic">
-          <label for="picupload05" class="limitpic"
+        <div class="big-pic2">
+          <label for="picupload05" class="limitpic2"
             ><img :src="currentPic5" alt=""
           /></label>
         </div>
@@ -214,8 +219,8 @@
           />
         </div>
         <div style="height: 20px"></div>
-        <div class="big-pic">
-          <label for="picupload06" class="limitpic"
+        <div class="big-pic2">
+          <label for="picupload06" class="limitpic2"
             ><img :src="currentPic6" alt=""
           /></label>
         </div>
@@ -235,8 +240,8 @@
           <strong>規格圖片:</strong>
         </div>
         <div class="pro-pic-info">
-          <div class="big-pic">
-            <label for="picupload07" class="limitpic"
+          <div class="big-pic2">
+            <label for="picupload07" class="limitpic2"
               ><img :src="currentPic7" alt=""
             /></label>
           </div>
@@ -408,8 +413,8 @@
         <div class="product-row" style="align-items: start">
           <strong>介紹圖片:</strong>
         </div>
-        <div class="big-pic">
-          <label for="picupload05" class="limitpic"
+        <div class="big-pic2">
+          <label for="picupload05" class="limitpic2"
             ><img :src="currentPic5" alt=""
           /></label>
         </div>
@@ -425,8 +430,8 @@
           />
         </div>
         <div style="height: 20px"></div>
-        <div class="big-pic">
-          <label for="picupload06" class="limitpic"
+        <div class="big-pic2">
+          <label for="picupload06" class="limitpic2"
             ><img :src="currentPic6" alt=""
           /></label>
         </div>
@@ -446,8 +451,8 @@
           <strong>規格圖片:</strong>
         </div>
         <div class="pro-pic-info">
-          <div class="big-pic">
-            <label for="picupload07" class="limitpic"
+          <div class="big-pic2">
+            <label for="picupload07" class="limitpic2"
               ><img :src="currentPic7" alt=""
             /></label>
           </div>
@@ -473,6 +478,7 @@ import axios from "axios";
 import MainHeader from "../components/MainHeader.vue";
 import Lightbox from "../components/Lightbox.vue";
 import SwitchBtn from "../components/switch_btn.vue";
+import switch_btn from "../components/switch_btn.vue";
 import SearchBtn from "../components/SearchBtn.vue";
 import Dropdown from "../components/Dropdown.vue";
 import addBtn from "../components/addBtn.vue";
@@ -513,6 +519,7 @@ export default {
     SearchBtn,
     Dropdown,
     addBtn,
+    switch_btn,
   },
   created() {
     this.getData();
@@ -666,6 +673,52 @@ export default {
           console.error("Error fetching data:", error);
         });
     },
+
+    getProductData() {
+      this.productdata = [];
+      this.currentlightbox = [];
+      let url = `${import.meta.env.VITE_PHP_URL}/productDataGetAll.php`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((result) => {
+          const products = result.products;
+          // console.log(111, products)
+
+          this.showProducts(products);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    changeProductStatus(product_no) {
+  // 根据传入的产品编号找到对应的产品对象
+  const product = this.productsdata.find(item => item.product_no === product_no);
+  if (product) {
+    // 切换产品状态
+    product.status = (product.status === "A") ? "IA" : "A";
+    // 构建要发送到后端的数据对象
+    const productsData = {
+      product_no: product_no,
+      status: product.status
+    };
+    // 构建请求 URL
+    const url = `${import.meta.env.VITE_PHP_URL}/productDataUpdate.php`;
+    // 发送 POST 请求到后端
+    fetch(url, {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(productsData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // 在这里处理从后端返回的数据（如果需要的话）
+    })
+    .catch(error => console.error("Error fetching data:", error));
+  }
+},
+
     uploadfile1(e) {
       this.uploadFile1 = e.target.files[0];
       console.log(this.uploadFile1["name"].substr(-3));

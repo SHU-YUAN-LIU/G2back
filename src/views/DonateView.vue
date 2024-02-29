@@ -5,11 +5,13 @@
     <div class="donate_container">
       <!-- 搜尋框 -->
       <div class="donate-btn">
-        <SearchBtn :placeholder="'請輸入會員編號'" @toSearchData="searchdata" />
+        <!-- <SearchBtn :placeholder="'請輸入會員編號'" @toSearchData="searchdata" /> -->
+        <SearchBtn :placeholder="placeholder" @toSearchData="searchdata" />
       </div>
       <div class="donate_table">
-        <table>
-          <thead>
+        <table class="table table-hover" style="position: relative;">
+          <thead style="position: sticky; top:0;  z-index: 99;">
+            <td>捐款編號</td>
             <td>捐款日期</td>
             <td>姓名</td>
             <td>會員編號</td>
@@ -19,6 +21,7 @@
           </thead>
           <tbody>
             <tr :key="item.donate_no" v-for="item in filterdata">
+              <td class="donate_date">{{ item.donate_no }}</td>
               <td class="donate_date">{{ item.donate_date }}</td>
               <td class="donate_name">{{ item.member_name || "-" }}</td>
               <td class="donate_id">{{ item.member_no || "-" }}</td>
@@ -47,14 +50,14 @@
           <strong>捐款日期: </strong>
           <span>{{ lightboxdata.donate_date }}</span>
         </div>
-        <hr>
+        <hr />
         <p class="donate-row">
           <strong>狀態: </strong>
           <span>{{ lightboxdata.donate_class }}</span>
         </p>
-        <hr>
+        <hr />
         <div class="donate-row">
-          <strong>流水編號:</strong>
+          <strong>捐款編號:</strong>
           <span>{{ lightboxdata.donate_no }}</span>
         </div>
 
@@ -63,42 +66,41 @@
           <strong>姓名:</strong>
           <td>{{ lightboxdata.member_name || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>會員ID:</strong>
           <td>{{ lightboxdata.member_no || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>Email:</strong>
           <td>{{ lightboxdata.email || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>生日:</strong>
           <td>{{ lightboxdata.birthday || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>連絡電話:</strong>
           <td>{{ lightboxdata.phone || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>捐款金額:</strong>
           <td>{{ lightboxdata.donate_amount }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>單筆點數:</strong>
           <td>{{ lightboxdata.point || "-" }}</td>
         </div>
-        <hr>
+        <hr />
         <div class="donate-row">
           <strong>捐款方式:</strong>
           <td>{{ lightboxdata.donate_method }}</td>
         </div>
-
       </div>
     </div>
   </Lightbox>
@@ -116,6 +118,8 @@ export default {
       donatedata: [],
       filterdata: [],
       lightboxdata: [],
+      finddonatedata: [],
+      placeholder: "請輸入捐款編號、捐款者姓名",
     };
   },
   created() {
@@ -153,6 +157,7 @@ export default {
     showDonates(donates) {
       for (let i = 0; i < donates.length; i++) {
         this.donatedata.push({
+          donate_no: donates[i].donate_no,
           donate_date: donates[i].donate_date,
           member_name: donates[i].member_name,
           member_no: donates[i].member_no,
@@ -170,17 +175,20 @@ export default {
       this.filterdata = this.donatedata;
     },
     searchdata(value) {
-      if (value == null || value == "") {
-        this.filterdata = this.donatedata;
-      } else {
-        this.filterdata = this.donatedata.filter((item) => {
-
-          return item.member_no !== null && item.member_no.toString().includes(value);
-        })
-      }
-    }
+  if (value == null || value == "") {
+    this.filterdata = this.donatedata;
+  } else {
+    this.filterdata = this.donatedata.filter((item) => {
+      // 在捐款編號 (donate_no) 和捐款者姓名 (member_name) 中进行搜索
+      return (
+        (item.donate_no !== null && item.donate_no.toString().includes(value)) ||
+        (item.member_name !== null && item.member_name.includes(value))
+      );
+    });
+  }
+}
   },
 };
 </script>
 
-<style lang="scss"></style>
+<style></style>
