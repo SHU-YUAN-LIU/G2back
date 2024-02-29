@@ -538,7 +538,10 @@ export default {
       });
     },
     getproductpic(src) {
-      return `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src;
+      if(!src){
+        return `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
+      }else {return `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src;}
+      
     },
     showLightbox(id, product_no) {
       if (id == 2) {
@@ -655,13 +658,29 @@ export default {
     },
 
     getPicUrl(filename) {
-      return (
-        `${import.meta.env.VITE_IMG_URL}` +
-        "/product/product_data/" +
-        filename +
-        `?${Date.now()}`
-      );
+      if(filename) {
+        var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + filename;
+      }
+      else{
+        url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
+      }
+      return url;
+      // return (
+      //   `${import.meta.env.VITE_IMG_URL}` +
+      //   "/product/product_data/" +
+      //   filename +
+      //   `?${Date.now()}`
+      // );
     },
+    // getpicurl(picname) {
+    //         if (picname) {
+    //             var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + picname;
+    //         }
+    //         else {
+    //             url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
+    //         }
+    //         return url;
+    //     },
     getData() {
       axios
         .get(`${import.meta.env.VITE_PHP_URL}` + "/productDataGetAll.php")
@@ -729,6 +748,11 @@ export default {
       } else {
         picupload01.value = null;
         alert("圖檔只接受PNG檔");
+      }
+      if (this.uploadFile1 === null) {
+        this.currentPic1 = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
+        const reader = new FileReader();
+        reader.readAsDataURL(this.uploadFile1);
       }
     },
     uploadfile2(e) {
